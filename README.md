@@ -20,12 +20,9 @@ mac-config
 ## Git
 * `brew install git` install git
 * add colors and prompt enhancement
-    * git-prompt.sh
-        * `cd ~/`
-        * `curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o .git-prompt.sh`
-    * git-completion.bash
-        * `cd ~/`
-        * `curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o .git-completion.bash`
+    * `cd ~/`
+    * `curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o .git-prompt.sh`
+    * `curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o .git-completion.bash`
 * `set git config --global credential.helper osxkeychain` (permanently authenticate for https git urls.)
 
 ## Java
