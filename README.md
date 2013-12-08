@@ -1,6 +1,8 @@
 mac-config
 ==========
 
+This assumes a fresh OSX installation
+
 ## First steps:
 * install xcode via appstore
 * open terminal and install [homebrew](http://brew.sh/) (installs packages from source easily)
@@ -15,7 +17,7 @@ mac-config
 
 ## Bash
 * `brew install bash` - installs the 4.X bash which is good for prompt extension with git. See [upgrade-bash-to-4-on-os-x](http://buddylindsey.com/upgrade-bash-to-4-on-os-x/) for a how to.
-    * `brew install terminal-notifier` - a nice way to use the notification center from bash scripts
+* `brew install terminal-notifier` - a nice way to use the notification center from bash scripts
 
 ## Git
 * `brew install git` install git
