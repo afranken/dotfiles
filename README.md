@@ -28,8 +28,6 @@ This assumes a fresh OSX installation
 * `set git config --global credential.helper osxkeychain` (permanently authenticate for https git urls.)
 
 ## Java
-* `export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)`
-* `export _JAVA_OPTIONS='-Djava.net.preferIPv4Stack=true -Djava.awt.headless=true'`
 * `brew install jvmtop`
 
 ## Maven
