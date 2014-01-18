@@ -18,6 +18,8 @@ This assumes a fresh OSX installation
 ## Bash
 * `brew install bash` - installs the 4.X bash which is good for prompt extension with git. See [upgrade-bash-to-4-on-os-x](http://buddylindsey.com/upgrade-bash-to-4-on-os-x/) for a how to.
 * `brew install terminal-notifier` - a nice way to use the notification center from bash scripts
+    * If this does not work in your terminal: `terminal-notifier -title foo -message bar -sender com.apple.Safari` install gem directly:
+    * `sudo gem install terminal-notifier`
 
 ## Git
 * `brew install git` install git
