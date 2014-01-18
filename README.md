@@ -9,7 +9,7 @@ This assumes a fresh OSX installation
 * run `launchctl setenv PATH /usr/local/bin:$PATH` on a bash [why?](https://github.com/mxcl/homebrew/wiki/FAQ#my-mac-apps-dont-find-usrlocalbin-utilities)
 
 ## General Brew Formulas
-* `brew install python` (installs python which is necessary to use pip to install python tools like stormssh)
+* `brew install python` (installs python which is necessary to use pip and to install python tools like stormssh)
 * `brew install phantomjs`
 * `brew install ack` ([beyondgrep.com](http://www.beyondgrep.com) "a tool like grep, optimized for programmers")
 * `brew install htop`
@@ -30,15 +30,13 @@ This assumes a fresh OSX installation
 * `set git config --global credential.helper osxkeychain` (permanent authentication for https git urls.)
 
 ## Java
-* `export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)`
-* `export _JAVA_OPTIONS='-Djava.net.preferIPv4Stack=true -Djava.awt.headless=true'`
 * `brew install jvmtop`
 
 ## Maven
 * `brew install maven` (to get latest 3.1.x)
 * bash_completion.bash
     * `cd ~/`
-    * `curl https://raw.github.com/juven/maven-bash-completion/master/bash_completion.bash -o .bash_completion.bash`
+    * `curl https://raw.github.com/juven/maven-bash-completion/master/bash_completion.bash -o .maven_bash_completion.bash`
 
 ## Bash config
 * `cd ~/`
