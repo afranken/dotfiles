@@ -27,7 +27,7 @@ This assumes a fresh OSX installation
     * `cd ~/`
     * `curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o .git-prompt.sh`
     * `curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o .git-completion.bash`
-* `set git config --global credential.helper osxkeychain` (permanently authenticate for https git urls.)
+* `set git config --global credential.helper osxkeychain` (permanent authentication for https git urls.)
 
 ## Java
 * `export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)`
@@ -36,7 +36,6 @@ This assumes a fresh OSX installation
 
 ## Maven
 * `brew install maven` (to get latest 3.1.x)
-* [nmvn](https://github.com/geoffreywiseman/maven-notification-center) - a shell script to trigger terminal-notifier when a maven build has finished, add to "~/bin"
 * bash_completion.bash
     * `cd ~/`
     * `curl https://raw.github.com/juven/maven-bash-completion/master/bash_completion.bash -o .bash_completion.bash`
