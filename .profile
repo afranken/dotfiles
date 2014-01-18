@@ -58,7 +58,12 @@ export _JAVA_OPTIONS=-Djava.awt.headless=true
 # configure p4
 export P4CONFIG=.p4config
 export PATH=/opt/p4/bin:$PATH
-export PATH=/Applications/development/p4v/p4merge.app/Contents/MacOS/:$PATH
+export PATH=/Applications/development/p4v/p4merge.app/Contents/MacOS:$PATH
 
 # add current path as tab title in terminal
 PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+
+
+# insert /usr/local/bin before /usr/bin in order to overwrite system commands with homebrew commands
+# also insert /usr/local/sbin
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
