@@ -1,7 +1,6 @@
-##################################################
-# Extract - extract most common compression	 #
-# types						 #
-##################################################
+###################################################
+# Extract - extract most common compression types #
+###################################################
 
 function extract() {
   local e=0 i c
@@ -26,3 +25,46 @@ function extract() {
   done
   return $e
 }
+
+####################################################################
+# Mvn - add terminal-notifications                                 #
+# see https://github.com/geoffreywiseman/maven-notification-center #
+####################################################################
+
+# Send a Notification to Notification Centre
+function maven_notify {
+	PROJECT=${PWD##*/}
+	SUBTITLE="in $PROJECT"
+	if [ $1 ]; then
+		TITLE="Build Successful"
+		MESSAGE="Build succeeded in $PROJECT; click to return."
+	else
+		TITLE="Build Failed"
+		MESSAGE="Build failed in $PROJECT; click to return."
+	fi
+	activate_term_program
+	terminal-notifier -title "$TITLE" -subtitle "$SUBITLE" -message "$MESSAGE" -group $PROJECT $SENDER
+}
+
+# Set the 'ACTIVATE' variable based on the terminal in which this is running
+function activate_term_program {
+	if [ $TERM_PROGRAM = "Apple_Terminal" ]; then
+		SENDER="-sender com.apple.Terminal"
+	elif [ $TERM_PROGRAM = "iTerm.app" ]; then
+		SENDER="-sender com.googlecode.iterm2"
+	else
+		SENDER=""
+	fi
+}
+
+#re-register mvn
+alias maven="command mvn"
+notified_maven() {
+  maven $*
+
+  # only run terminal-notifier if it exists
+  if hash terminal-notifier 2>/dev/null; then
+      maven_notify $?
+  fi
+}
+alias mvn=notified_maven
