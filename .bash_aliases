@@ -35,7 +35,7 @@ function extract() {
 function maven_notify {
 	PROJECT=${PWD##*/}
 	SUBTITLE="in $PROJECT"
-	if [ $1 ]; then
+	if [ $1 -eq 0 ]; then
 		TITLE="Build Successful"
 		MESSAGE="Build succeeded in $PROJECT; click to return."
 	else
@@ -60,11 +60,18 @@ function activate_term_program {
 #re-register mvn
 alias maven="command mvn"
 notified_maven() {
-  maven $*
-
   # only run terminal-notifier if it exists
   if hash terminal-notifier 2>/dev/null; then
-      maven_notify $?
+    NOTIFY=1
   fi
+
+  if [ -n "$NOTIFY" ];
+    then
+      maven $*
+      maven_notify $?
+    else
+      maven $*
+  fi
+
 }
 alias mvn=notified_maven
