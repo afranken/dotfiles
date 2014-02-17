@@ -61,3 +61,14 @@ export TERM=xterm-256color
 
 # configure Maven
 export MAVEN_OPTS='-ms256m -mx1024m -XX:PermSize=64m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
+
+
+# showaliases: to remind yourself of an alias (given some part of it), or all aliases
+showaliases () {
+  if [ -z "$1" ];
+    then
+      cat "$BASH_SRC_PATH"/.aliases*
+    else
+      /usr/bin/grep -i -h -a1 $@ "$BASH_SRC_PATH"/.aliases* | grep -v '^\s*$' ;
+  fi
+}
