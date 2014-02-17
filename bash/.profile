@@ -9,7 +9,7 @@
 #umask 022
 
 DOTFILES_PATH=~/.dotfiles
-BASH_SRC_PATH=$DOTFILES_PATH/bash
+export BASH_SRC_PATH=$DOTFILES_PATH/bash
 
 #include all files from this repository
 source "$BASH_SRC_PATH"/.bashrc
@@ -37,13 +37,6 @@ if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
-# Bash shell GIT prompt
-if [ -f ~/.git-prompt.sh ]; then
-    source ~/.git-prompt.sh
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWCOLORHINTS=true
-fi
-
 # Bash shell MVN command completion
 if [ -f ~/.maven_bash_completion.bash ]; then
     source ~/.maven_bash_completion.bash
@@ -61,14 +54,3 @@ export TERM=xterm-256color
 
 # configure Maven
 export MAVEN_OPTS='-ms256m -mx1024m -XX:PermSize=64m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
-
-
-# showaliases: to remind yourself of an alias (given some part of it), or all aliases
-showaliases () {
-  if [ -z "$1" ];
-    then
-      cat "$BASH_SRC_PATH"/.aliases*
-    else
-      /usr/bin/grep -i -h -a1 $@ "$BASH_SRC_PATH"/.aliases* | grep -v '^\s*$' ;
-  fi
-}
