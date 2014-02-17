@@ -5,3 +5,5 @@
 
 ## get access to formulas of countless utilities
 brew tap phinze/homebrew-cask
+
+brew install brew-cask
