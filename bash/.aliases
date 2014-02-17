@@ -20,7 +20,6 @@ alias du1='du --max-depth=1'
 alias hist='history | grep'         # requires an argument
 alias pgg='ps -Af | grep'           # requires an argument
 alias pg='pgrep -lf'                # requires an argument
-alias varnishstart='launchctl load /usr/local/opt/varnish/homebrew.mxcl.varnish.plist'
 # }}}
 
 ##################################################
