@@ -1,0 +1,4 @@
+##################################################
+## New commands ## {{{
+alias varnishstart='launchctl load /usr/local/opt/varnish/homebrew.mxcl.varnish.plist'
+# }}}

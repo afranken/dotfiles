@@ -1,0 +1,19 @@
+# OSX specific settings
+export LSCOLORS='gxfxcxdxbxegedabagacad'
+
+# make sure maven does not steal focus when forking processes
+export _JAVA_OPTIONS=-Djava.awt.headless=true
+
+# add current path as tab title in terminal
+PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+
+# insert /usr/local/bin before /usr/bin in order to overwrite system commands with homebrew commands
+# also insert /usr/local/sbin
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+export IDEA_JDK=$(/usr/libexec/java_home)
+
+# configure Maven
+export M2_HOME=/usr/local/opt/maven/libexec
+export M2=/usr/local/opt/maven/libexec
