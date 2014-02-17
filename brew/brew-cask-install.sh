@@ -11,10 +11,9 @@ brew cask install dropbox
 brew cask install google-drive
 brew cask install alfred
 brew cask install unrarx
-brew cask install xquartz
 brew cask install textwrangler
 brew cask install flash
-brew cask install unarchiver
+brew cask install the-unarchiver
 brew cask install cyberduck
 brew cask install istat-menus
 brew cask install java
@@ -24,3 +23,4 @@ brew cask install path-finder
 brew cask install sourcetree
 brew cask install visualvm
 brew cask install dash
+brew cask install virtualbox
