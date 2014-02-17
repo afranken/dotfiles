@@ -1,7 +1,7 @@
 dotfiles
 ==========
 
-This repository contains configuration and installation scripts for OSX.
+This repository contains configuration and installation scripts for **OSX Mavericks**.
 I develop Java and JavaScript applications with GIT, Maven, Node and Grunt, all configuration and software is tailored around that.
 
 _Checkout workspace to `~/.dotfiles/`_
