@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# be sure to bootstrap before running installation
-/bin/bash brew-cask-bootstrap.sh
+# be sure to install general applications before running installation
+/bin/bash brew-cask-install.sh
 
 brew cask install sequel-pro
 brew cask install intellij-idea-ultimate

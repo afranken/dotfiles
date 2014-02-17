@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# be sure to bootstrap before running installation
+/bin/bash brew-bootstrap.sh
+
 ### MISC
 brew install python
 brew install phantomjs
@@ -9,7 +12,6 @@ brew install dos2unix
 brew install bash-completion
 brew install wget
 brew install nodejs
-brew install brew-cask
 
 ### TERMINAL / BASH
 # installs the 4.X bash which is good for prompt extension with git. See http://buddylindsey.com/upgrade-bash-to-4-on-os-x/ for a how to.

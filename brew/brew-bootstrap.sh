@@ -4,7 +4,10 @@ then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
 
-sudo chown -R $USER:staff `brew --prefix`
+#set group if not already set
+if [ ! -G `brew --prefix` ]; then
+  sudo chown -R $USER:staff `brew --prefix`
+fi
 
 ## get access to updated versions of utilities provided by OSX
 brew tap homebrew/dupes
