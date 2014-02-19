@@ -27,9 +27,11 @@ elif [ $(uname) = "Linux" ]; then
     source "$BASH_SRC_PATH"/.linux
 fi
 
-# Bash shell completion with brew package 'bash-completion'
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
+# Bash shell completion with apt-get / brew package 'bash-completion'
+if [ -f /usr/local/etc/bash_completion ]; then
+  source /usr/local/etc/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+  source /etc/bash_completion
 fi
 
 # Bash shell command completion
