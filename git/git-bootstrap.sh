@@ -16,5 +16,4 @@ git config --global branch.autosetuprebase always
 set git config --global credential.helper osxkeychain
 
 #install bash completion
-curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
 curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
