@@ -2,7 +2,6 @@
 ###################################################
 # Extract - extract most common compression types #
 ###################################################
-
 function extract() {
   local e=0 i c
   for i; do
@@ -28,9 +27,9 @@ function extract() {
 }
 
 #######################################################
-# findmerge: find merge commits containing this hash. #
+# git-findmerge: find merge commits containing this hash. #
 #######################################################
-function findmerge() {
+function git-findmerge() {
   if [ -z "$1" ];
     then
       echo "findmerge needs a commit hash to find the commit merging to the current branch."
@@ -40,14 +39,26 @@ function findmerge() {
 }
 
 ############################################################
-# findcommitbycontent: find commit adding or removing given string. #
+# git-findcommitbycontent: find commit adding or removing given string. #
 ############################################################
-function findcommitbycontent() {
+function git-findcommitbycontent() {
   if [ -z "$1" ];
     then
       echo "findcommitbycontent needs a string to find a matching commit with."
     else
       git log -S$1
+  fi
+}
+
+#################################################################
+# git-restoredeletedfile: restore given file from given commit. #
+#################################################################
+function git-restoredeletedfile() {
+  if [ -z "$1" || -z "$2" ];
+    then
+      echo "restoredeletedfile needs a commit hash and the deleted file to restore."
+    else
+      git checkout $1~1 $2
   fi
 }
 
