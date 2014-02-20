@@ -10,6 +10,7 @@ brew cask install evernote
 brew cask install dropbox
 brew cask install google-drive
 brew cask install alfred
+brew cask alfred link
 brew cask install unrarx
 brew cask install textwrangler
 brew cask install flash

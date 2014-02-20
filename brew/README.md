@@ -15,4 +15,4 @@ use [brew cask](https://github.com/phinze/homebrew-cask) to install applications
 * `brew-cask-install-work.sh` : install and configure work applications
 * `brew-cask-install-home.sh` : install and configure home applications
 
-don't forget to add `/opt/homebrew-cask/Caskroom/` to the search scope of [Alfred](http://www.alfredapp.com/)
+Applications installed by `brew cask` are automatically linked to the search scope of [Alfred](http://www.alfredapp.com/).
