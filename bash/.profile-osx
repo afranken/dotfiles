@@ -1,9 +1,6 @@
 # OSX specific settings
 export LSCOLORS='gxfxcxdxbxegedabagacad'
 
-# make sure maven does not steal focus when forking processes
-export _JAVA_OPTIONS=-Djava.awt.headless=true
-
 # add current path as tab title in terminal
 PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
