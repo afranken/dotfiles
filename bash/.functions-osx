@@ -33,6 +33,9 @@ function activate_term_program {
 #re-register mvn
 alias maven="command mvn"
 function notified_maven() {
+  # make sure maven does not steal focus when forking processes
+  PRE_JAVA_OPTIONS="$_JAVA_OPTIONS"
+  export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djava.awt.headless=true"
   # only run terminal-notifier if it exists
   if hash terminal-notifier 2>/dev/null; then
     NOTIFY=1
@@ -45,6 +48,6 @@ function notified_maven() {
     else
       maven $*
   fi
-
+  export _JAVA_OPTIONS="$PRE_JAVA_OPTIONS"
 }
 alias mvn=notified_maven
