@@ -8,7 +8,7 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-DOTFILES_PATH=~/.dotfiles
+export DOTFILES_PATH=~/.dotfiles
 export BASH_SRC_PATH=$DOTFILES_PATH/bash
 
 #include all files from this repository
@@ -43,6 +43,8 @@ fi
 if [ -f ~/.maven_bash_completion.bash ]; then
     source ~/.maven_bash_completion.bash
 fi
+
+PATH="$DOTFILES_PATH/bin:$PATH"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
