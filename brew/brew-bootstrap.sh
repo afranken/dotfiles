@@ -11,3 +11,4 @@ fi
 
 ## get access to updated versions of utilities provided by OSX
 brew tap homebrew/dupes
+brew tap homebrew/homebrew-versions
