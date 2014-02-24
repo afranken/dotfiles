@@ -1,4 +1,6 @@
 ##################################################
 ## New commands ## {{{
 alias varnishstart='launchctl load /usr/local/opt/varnish/homebrew.mxcl.varnish.plist'
+alias sonarstart='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.sonar.plist'
+alias jenkinsstart='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist'
 # }}}
