@@ -1,12 +1,11 @@
-time24h="\t"
-pathShort="\w"
+time24h="\t";
+pathShort="\w";
 
-tput sgr0
-RED=$(tput setaf 9)
-GREEN=$(tput setaf 112)
-GREY=$(tput setaf 7)
-YELLOW=$(tput bold ; tput setaf 3)
-RESET=$(tput sgr0)
+RED='\[\033[0;31m\]';
+GREEN='\[\033[0;32m\]';
+GREY='\[\033[0;90m\]';
+YELLOW='\[\033[1;33m\]';
+RESET='\[\033[0m\]';
 
 function git_ps1() {
   # check if we're in a git repo
@@ -15,14 +14,15 @@ function git_ps1() {
   branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||');
   if [ $(git status -sb | wc -l) -eq "1" ]; then
     # Clean repository - nothing to commit
-    echo $GREEN"("$branch") ";
+    #GREEN=$(tput setaf 112)
+    echo $'\E[32m'"($branch) ";
   else
     #files were modified
     git diff --no-ext-diff --quiet --exit-code &>/dev/null 2>&1 || modified=" *";
     #files were added
     git diff-index --cached --quiet HEAD -- &>/dev/null 2>&1 || added=" +";
-
-    echo $RED"{"$branch"$modified$added} ";
+    #RED=$(tput setaf 9)
+    echo $'\E[91m'"{$branch$modified$added} ";
   fi
 }
 
