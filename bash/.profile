@@ -11,18 +11,27 @@
 export DOTFILES_PATH=~/.dotfiles
 export BASH_SRC_PATH=$DOTFILES_PATH/bash
 
-#include all files from this repository
+#define uname variables
+MAC_UNAME="Darwin"
+LINUX_UNAME="Linux"
+WINDOWS_UNAME="MINGW32_NT-6.1"
+CURRENT_UNAME=$(uname)
+
+#include these for all bashes
 source "$BASH_SRC_PATH"/.bashrc
 source "$BASH_SRC_PATH"/.aliases
-source "$BASH_SRC_PATH"/.prompt
 source "$BASH_SRC_PATH"/.functions
 
 # include OS specific settings
-if [ $(uname) = "Darwin" ]; then
+if [ $CURRENT_UNAME != $WINDOWS_UNAME ]; then
+    #do not use custom git prompt on windows, we're probably in git bash
+    source "$BASH_SRC_PATH"/.prompt
+fi
+if [ $CURRENT_UNAME = $MAC_UNAME ]; then
     source "$BASH_SRC_PATH"/.profile-osx
     source "$BASH_SRC_PATH"/.aliases-osx
     source "$BASH_SRC_PATH"/.functions-osx
-elif [ $(uname) = "Linux" ]; then
+elif [ $CURRENT_UNAME = $LINUX_UNAME ]; then
     # include dummy file
     source "$BASH_SRC_PATH"/.linux
 fi
