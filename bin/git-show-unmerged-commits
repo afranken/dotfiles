@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ];
+  then
+    echo "show-unmerged-commits needs a branch name to find out which commits from the current branch are not merged into it.";
+    exit 1;
+  else
+    git log $(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||') ^$1 --no-merges --oneline;
+fi

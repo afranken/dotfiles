@@ -26,42 +26,6 @@ function extract() {
   return $e
 }
 
-#######################################################
-# git-findmerge: find merge commits containing this hash. #
-#######################################################
-function git-findmerge() {
-  if [ -z "$1" ];
-    then
-      echo "findmerge needs a commit hash to find the commit merging to the current branch."
-    else
-      git log --merges --ancestry-path --oneline $1..origin | tail
-  fi
-}
-
-############################################################
-# git-findcommitbycontent: find commit adding or removing given string. #
-############################################################
-function git-findcommitbycontent() {
-  if [ -z "$1" ];
-    then
-      echo "findcommitbycontent needs a string to find a matching commit with."
-    else
-      git log -S$1
-  fi
-}
-
-#################################################################
-# git-restoredeletedfile: restore given file from given commit. #
-#################################################################
-function git-restoredeletedfile() {
-  if [ -z "$1" || -z "$2" ];
-    then
-      echo "restoredeletedfile needs a commit hash and the deleted file to restore."
-    else
-      git checkout $1~1 $2
-  fi
-}
-
 ####################################################################################
 # remindme: to remind yourself of an alias (given some part of it), or all aliases #
 ####################################################################################

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#################################################################
+# git-restoredeletedfile: restore given file from given commit. #
+#################################################################
+
+if [ "$#" != "2" ];
+  then
+    echo "restore-deleted-file needs a commit hash and the deleted filename to restore.";
+    exit 1;
+  else
+    git checkout $1~1 $2;
+fi
