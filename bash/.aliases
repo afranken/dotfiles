@@ -66,14 +66,10 @@ alias gf='git fetch -p'
 alias gpu='git push'
 alias gci='git commit -a -m'
 alias ga='git add'
-alias gb='git branch'
-alias gc='git checkout'
 alias gt='git tag'
-alias gm='git merge'
 alias gcl='git clean -fd'
 alias gs='git status -sb'
 alias gl='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
-alias gd='git diff --word-diff'
 alias gbl='git blame -wMC' # -w ignores white space | -M ignores moving text | -C ignores moving text into other files
 alias gfd='git log --diff-filter=D --summary' # find all commits that deleted files
 # }}}
