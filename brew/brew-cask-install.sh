@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # be sure to bootstrap before running installation
 /bin/bash brew-cask-bootstrap.sh
