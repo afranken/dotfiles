@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # be sure to install general applications before running installation
 /bin/bash brew-cask-install.sh
