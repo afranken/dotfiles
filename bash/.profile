@@ -32,8 +32,7 @@ if [ $CURRENT_UNAME = $MAC_UNAME ]; then
     source "$BASH_SRC_PATH"/.aliases-osx
     source "$BASH_SRC_PATH"/.functions-osx
 elif [ $CURRENT_UNAME = $LINUX_UNAME ]; then
-    # include dummy file
-    source "$BASH_SRC_PATH"/.linux
+    source "$BASH_SRC_PATH"/.functions-linux
 fi
 
 # Bash shell completion with apt-get / brew package 'bash-completion'
