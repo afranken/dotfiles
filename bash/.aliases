@@ -20,6 +20,7 @@ alias du1='du --max-depth=1'
 alias hist='history | grep'         # requires an argument
 alias pgg='ps -Af | grep'           # requires an argument
 alias pg='pgrep -lf'                # requires an argument
+alias jsonpretty="python -mjson.tool"     # make pretty json file from ugly json file
 # }}}
 
 ##################################################
@@ -42,7 +43,7 @@ alias ......='cd ../../../../..'
 ##################################################
 ## ls ## {{{
 alias ls='ls -ahFG'
-alias lr='ls -R'                    # recursive ls
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' #recursive directory listings
 alias ll='ls -l'
 alias la='ll -A'
 alias lx='ll -BX'                   # sort by extension
@@ -72,6 +73,7 @@ alias gs='git status -sb'
 alias gl='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gbl='git blame -wMC' # -w ignores white space | -M ignores moving text | -C ignores moving text into other files
 alias gfd='git log --diff-filter=D --summary' # find all commits that deleted files
+alias github="open -a Google\ Chrome `git remote -v | awk '/.+github\.com.+(fetch)/ {sub(/git:/,"http:"); print $2}'`" #open github page for repository in new chrome tab
 # }}}
 
 ##################################################
