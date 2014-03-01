@@ -3,4 +3,5 @@
 alias varnishstart='launchctl load /usr/local/opt/varnish/homebrew.mxcl.varnish.plist'
 alias sonarstart='launchctl load /usr/local/opt/sonar/homebrew.mxcl.sonar.plist'
 alias jenkinsstart='launchctl load /usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist'
+alias upgrade='brew update && brew upgrade && echo "update and upgrade done."'
 # }}}
