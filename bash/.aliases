@@ -73,7 +73,6 @@ alias gs='git status -sb'
 alias gl='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gbl='git blame -wMC' # -w ignores white space | -M ignores moving text | -C ignores moving text into other files
 alias gfd='git log --diff-filter=D --summary' # find all commits that deleted files
-alias github="open -a Google\ Chrome `git remote -v | awk '/.+github\.com.+(fetch)/ {sub(/git:/,"http:"); print $2}'`" #open github page for repository in new chrome tab
 # }}}
 
 ##################################################
