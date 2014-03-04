@@ -17,19 +17,19 @@ function __branch_name(){
     echo "{$branch$modified$added} "
 }
 
-export PS1=$GREY$time24h' $(git rev-parse --is-inside-work-tree &>/dev/null 2>&1;\
+export PS1=${GREY}${time24h}' $(git rev-parse --is-inside-work-tree &>/dev/null 2>&1;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [  "$?" -eq "0" ]; then \
     # @4 - Clean repository - nothing to commit
-    echo "'$GREEN'"$(__branch_name " (%s)"); \
+    echo "'${GREEN}'"$(__branch_name " (%s)"); \
   else \
     # @5 - Changes to working tree
-    echo "'$RED'"$(__branch_name " {%s}"); \
-  fi) '$YELLOW$pathShort$RESET' \$ "; \
+    echo "'${RED}'"$(__branch_name " {%s}"); \
+  fi) '${YELLOW}${pathShort}${RESET}' \$ "; \
 else \
   # @2 - Prompt when not in GIT repo
-  echo " '$YELLOW$pathShort$RESET' \$ "; \
+  echo " '${YELLOW}${pathShort}${RESET}' \$ "; \
 fi)'
 
 #TODO: use $(git status -sb | wc -l) -eq "1" to check for changes on branch?
