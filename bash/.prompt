@@ -1,8 +1,8 @@
 time24h="\t";
 pathShort="\w";
 
-RED='\[\033[0;31m\]';
-GREEN='\[\033[0;32m\]';
+RED='\[\033[0;91m\]';
+GREEN='\[\033[0;92m\]';
 GREY='\[\033[0;90m\]';
 YELLOW='\[\033[1;33m\]';
 RESET='\[\033[0m\]';
@@ -26,10 +26,10 @@ if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [  "$?" -eq "0" ]; then \
     # @4 - Clean repository - nothing to commit
-    echo "'${GREEN}'"$(__branch_name); \
+    echo "'${GREEN}'"$(__branch_name "%s"); \
   else \
     # @5 - Changes to working tree
-    echo "'${RED}'"$(__branch_name); \
+    echo "'${RED}'"$(__branch_name "%s"); \
   fi) '${YELLOW}${pathShort}${RESET}' \$ "; \
 else \
   # @2 - Prompt when not in GIT repo
