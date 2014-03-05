@@ -14,7 +14,11 @@ function __branch_name(){
     git diff --no-ext-diff --quiet --exit-code &>/dev/null 2>&1 || modified=" *";
     #files were added
     git diff-index --cached --quiet HEAD -- &>/dev/null 2>&1 || added=" +";
-    echo "{$branch$modified$added} "
+    if [ "${modified}" ] || [ "${added}" ]; then
+      echo "{$branch$modified$added}";
+    else
+      echo "($branch)";
+    fi
 }
 
 export PS1=${GREY}${time24h}' $(git rev-parse --is-inside-work-tree &>/dev/null 2>&1;\
@@ -22,10 +26,10 @@ if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [  "$?" -eq "0" ]; then \
     # @4 - Clean repository - nothing to commit
-    echo "'${GREEN}'"$(__branch_name " (%s)"); \
+    echo "'${GREEN}'"$(__branch_name); \
   else \
     # @5 - Changes to working tree
-    echo "'${RED}'"$(__branch_name " {%s}"); \
+    echo "'${RED}'"$(__branch_name); \
   fi) '${YELLOW}${pathShort}${RESET}' \$ "; \
 else \
   # @2 - Prompt when not in GIT repo
