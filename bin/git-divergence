@@ -1,57 +1,77 @@
 #!/usr/bin/env bash
+# Git divergence shows differences in commits between two branches (as incoming and outgoing changes)
+#
+# Usage: git divergence branch1 branch2
+# if no branch is given, the current local and it's remote counterpart on the origin are compared.
+# if only one branch is given, it's compared to the current local branch.
 
 set -e
 
 (
-    function branch() {
-        git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
-    }
+  # return the current branch name.
+  function currentBranch() {
+    git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
+  }
 
-    function ensure_valid_ref() {
-        ref=$1
-        (
-            set +e
-            git show-ref $ref > /dev/null
-            if [[ $? == 1 ]]; then
-                echo "$0: bad ref: $ref"
-                exit 1
-            fi
-        )
-    }
+  # exit this script if reference is not valid
+  function ensure_valid_ref() {
+    ref=$1
+    (
+      set +e
+      git show-ref $ref > /dev/null
+      if [[ $? == 1 ]]; then
+        echo "$0: bad ref: $ref"
+        exit 1
+      fi
+    )
+  }
 
-    function show_rev() {
-        rev=$1
-        git log -1 $rev --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-        echo
-    }
+  # print information about the revision
+  function show_rev() {
+    rev=$1
+    git log -1 $rev --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    echo
+  }
 
+  # determine branches to compare with logic described in header.
+  function determineBranches() {
     if [[ $# == 2 ]]; then
-        LOCAL=$1
-        REMOTE=$2
+      LOCAL=$1
+      REMOTE=$2
     elif [[ $# == 1 ]]; then
-        LOCAL=`branch`
-        REMOTE=$1
+      LOCAL=`currentBranch`
+      REMOTE=$1
     else
-        LOCAL=`branch`
-        REMOTE=origin/$LOCAL
+      LOCAL=`currentBranch`
+      REMOTE=origin/${LOCAL}
     fi
+  }
 
-    ensure_valid_ref $LOCAL
-    ensure_valid_ref $REMOTE
 
-    echo "changes from ${LOCAL} to ${REMOTE}:"
-    echo
+  #run script
+  echo "fetching branches"
+  git fetch
+  echo "done."
+  echo
 
-    echo "incoming (on ${REMOTE} but not on ${LOCAL}):"
-    echo
-    for rev in `git rev-list $LOCAL..$REMOTE`; do
-        show_rev $rev
-    done
-    
-    echo
-    echo "outgoing (on ${LOCAL} but not on ${REMOTE}):"
-    echo
-    for rev in `git rev-list $REMOTE..$LOCAL`; do
-        show_rev $rev
-    done
+  determineBranches
+
+  ensure_valid_ref ${LOCAL}
+  ensure_valid_ref ${REMOTE}
+
+  echo "changes from ${LOCAL} to ${REMOTE}:"
+  echo
+
+  echo "incoming (on ${REMOTE} but not on ${LOCAL}):"
+  echo
+  for rev in `git rev-list ${LOCAL}..${REMOTE}`; do
+    show_rev ${rev}
+  done
+
+  echo
+  echo "outgoing (on ${LOCAL} but not on ${REMOTE}):"
+  echo
+  for rev in `git rev-list ${REMOTE}..${LOCAL}`; do
+    show_rev ${rev}
+  done
 ) | less -r
