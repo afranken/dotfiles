@@ -12,5 +12,6 @@ brew cask install picasa
 brew cask install xquartz
 brew cask install play-on-mac
 brew cask install poedit
-brew cask install truecrypt
 brew cask install vlc
+brew cask install comicbooklover
+brew cask install comicbookloversync
