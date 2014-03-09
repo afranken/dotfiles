@@ -6,7 +6,7 @@ PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
 # insert /usr/local/bin before /usr/bin in order to overwrite system commands with homebrew commands
 # also insert /usr/local/sbin
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 export IDEA_JDK=$(/usr/libexec/java_home)
