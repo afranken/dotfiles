@@ -9,7 +9,7 @@
 #umask 022
 
 export DOTFILES_PATH=~/.dotfiles
-export BASH_SRC_PATH=$DOTFILES_PATH/bash
+export BASH_SRC_PATH=${DOTFILES_PATH}/bash
 
 #define uname variables
 MAC_UNAME="Darwin"
@@ -18,20 +18,20 @@ WINDOWS_UNAME="MINGW32_NT-6.1"
 CURRENT_UNAME=$(uname)
 
 #include these for all bashes
-source "$BASH_SRC_PATH"/.bashrc
-source "$BASH_SRC_PATH"/.aliases
-source "$BASH_SRC_PATH"/.functions
+source "${BASH_SRC_PATH}"/.bashrc
+source "${BASH_SRC_PATH}"/.aliases
+source "${BASH_SRC_PATH}"/.functions
 
 # include OS specific settings
-if [ $CURRENT_UNAME != $WINDOWS_UNAME ]; then
+if [ ${CURRENT_UNAME} != ${WINDOWS_UNAME} ]; then
     #do not use custom git prompt on windows, we're probably in git bash
-    source "$BASH_SRC_PATH"/.prompt
+    source "${BASH_SRC_PATH}"/.prompt
 fi
-if [ $CURRENT_UNAME = $MAC_UNAME ]; then
-    source "$BASH_SRC_PATH"/.profile-osx
-    source "$BASH_SRC_PATH"/.aliases-osx
-    source "$BASH_SRC_PATH"/.functions-osx
-elif [ $CURRENT_UNAME = $LINUX_UNAME ]; then
+if [ ${CURRENT_UNAME} == ${MAC_UNAME} ]; then
+    source "${BASH_SRC_PATH}"/.profile-osx
+    source "${BASH_SRC_PATH}"/.aliases-osx
+    source "${BASH_SRC_PATH}"/.functions-osx
+elif [ ${CURRENT_UNAME} == ${LINUX_UNAME} ]; then
     source "$BASH_SRC_PATH"/.functions-linux
 fi
 
@@ -52,11 +52,11 @@ if [ -f ~/.maven_bash_completion.bash ]; then
     source ~/.maven_bash_completion.bash
 fi
 
-PATH="$DOTFILES_PATH/bin:$PATH"
+PATH="${DOTFILES_PATH}/bin:${PATH}"
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "${HOME}/bin" ] ; then
+    PATH="${HOME}/bin:${PATH}"
 fi
 
 export EDITOR=vi
