@@ -81,3 +81,8 @@ alias gfd='git log --diff-filter=D --summary' # find all commits that deleted fi
 alias g="grunt"
 alias gw="grunt watch"
 # }}}
+
+##################################################
+## Maven # {{{
+alias installboms="find . -type d -name '*bom*' -exec sh -c '(cd {} && mvn clean install)' ';'"
+# }}}
