@@ -47,3 +47,16 @@ function github() {
         open -a Google\ Chrome ${url}
     fi
 }
+
+#####################################################
+# show files bigger than given size in MegaBytes.   #
+#####################################################
+function showbigfiles() {
+  if [ -z "$1" ];
+    then
+      size=1
+    else
+      size=$1
+  fi
+    find . -type f -size +${size}M \( ! -iwholename "*target/*" \) \( ! -iwholename "*.git*" \) -exec du -h {} \; | sort -gr;
+}
