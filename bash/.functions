@@ -32,9 +32,9 @@ function extract() {
 function remindme() {
   if [ -z "$1" ];
     then
-      cat "$BASH_SRC_PATH"/.aliases*
+      cat "${BASH_SRC_PATH}"/.aliases*
     else
-      /usr/bin/grep -i -h -a1 $@ "$BASH_SRC_PATH"/.aliases* | grep -v '^\s*$' ;
+      grep -i -h -a1 $@ "${BASH_SRC_PATH}"/.aliases* | grep -v '^\s*$' ;
   fi
 }
 
