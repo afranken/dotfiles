@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Git divergence shows differences in commits between two branches (as incoming and outgoing changes)
-#
+#########################################################################################
+# Shows differences in commits between two branches (as incoming and outgoing changes)
+#########################################################################################
 # Usage: git divergence branch1 branch2
 # if no branch is given, the current local and it's remote counterpart on the origin are compared.
 # if only one branch is given, it's compared to the current local branch.
-
+#########################################################################################
 set -e
 
 (

@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby -w
-
+#################################################################################
+# Select a distinct version for an installed brew recipe.
+#################################################################################
+# Usage: brew select <recipe-name> <version>
+#################################################################################
 require 'ostruct'
 require 'keg'
 require 'formula'
