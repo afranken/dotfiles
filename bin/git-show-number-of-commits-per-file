@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+########################################################################################
+# Calculate number of commits containing files, sorted by the number of commits per file
+########################################################################################
+# Usage:
+# for whole repo:
+#   $ git show-number-of-commits-per-file
+# for specific directories:
+#   $ git show-number-of-commits-per-file <directory1> <directory2>
+# for a time range:
+#   $ git show-number-of-commits-per-file --since='1 month ago'
+#
+# (These are all standard arguments to `git log`.)
+set -e
+git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -gr | awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}' | less
