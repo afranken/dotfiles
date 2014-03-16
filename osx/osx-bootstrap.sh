@@ -32,13 +32,14 @@ for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
 	defaults write "${domain}" dontAutoLoad -array \
 		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
 		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
-		"/System/Library/CoreServices/Menu Extras/User.menu"
+		"/System/Library/CoreServices/Menu Extras/User.menu" \
+		"/System/Library/CoreServices/Menu Extras/Battery.menu"
 done
-defaults write com.apple.systemuiserver menuExtras -array
-    "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
-    "/Library/Application Support/iStat Menus 4/extras/iStatMenusBattery.menu"
-    "/Library/Application Support/iStat Menus 4/extras/iStatMenusCombined.menu"
-    "/Library/Application Support/iStat Menus 4/extras/iStatMenusDateAndTimes.menu"
+defaults write com.apple.systemuiserver menuExtras -array \
+    "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+    "/Library/Application Support/iStat Menus 4/extras/iStatMenusBattery.menu" \
+    "/Library/Application Support/iStat Menus 4/extras/iStatMenusCombined.menu" \
+    "/Library/Application Support/iStat Menus 4/extras/iStatMenusDateAndTimes.menu" \
     "/Library/Application Support/iStat Menus 4/extras/MenuCracker.menu"
 
 # Set highlight color to green
@@ -629,7 +630,7 @@ defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Dashboard" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-	"Terminal" "Transmission" "Twitter" "iCal"; do
+	"Transmission" "Twitter" "iCal"; do
 	killall "${app}" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
