@@ -65,4 +65,4 @@ export VISUAL=vi
 export TERM=xterm-256color
 
 # configure Maven
-export MAVEN_OPTS='-ms256m -mx1024m -XX:PermSize=64m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
+export MAVEN_OPTS='-ms256m -mx2048m -XX:PermSize=64m -XX:MaxPermSize=512m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
