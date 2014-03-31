@@ -2,10 +2,10 @@
 # Shows git commits since the last tagged version.
 set -e
 
-format='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar)%Creset'
+format='%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset'
 
 show_log() {
-  git log --graph --format="$format" ${1:+${1}..} --
+  git log --graph --pretty=format:"$format" ${1:+${1}..} --
 }
 
 desc="$(git describe --tags HEAD 2>/dev/null)" || {
