@@ -63,17 +63,24 @@ alias ln='ln -i'
 
 ##################################################
 ## Git stuff # {{{
+## always rebase on pull
 alias gpr='git pull --rebase'
+## always purge branches on fetch.
 alias gf='git fetch -p'
 alias gpu='git push'
 alias gci='git commit -a -m'
 alias ga='git add'
 alias gt='git tag'
+## always remove directories that are not managed in VCS when cleaning.
 alias gcl='git clean -fd'
+## show short status
 alias gs='git status -sb'
+## show nice formatted graph
 alias gl='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+## nicer blame
 alias gbl='git blame -wMC' # -w ignores white space | -M ignores moving text | -C ignores moving text into other files
-alias gfd='git log --diff-filter=D --summary' # find all commits that deleted files
+## find all commits that deleted files
+alias gfd='git log --diff-filter=D --summary'
 # }}}
 
 ##################################################
