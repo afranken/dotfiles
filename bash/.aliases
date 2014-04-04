@@ -71,6 +71,8 @@ alias gpu='git push'
 alias gci='git commit -a -m'
 alias ga='git add'
 alias gt='git tag'
+## list tags with date, sorted by commit. No commit date is available for lightweight tags.
+alias gtl='git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate:short)' refs/tags | less'
 ## always remove directories that are not managed in VCS when cleaning.
 alias gcl='git clean -fd'
 ## show short status
