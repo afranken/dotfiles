@@ -12,8 +12,9 @@ git config --global core.autocrlf input
 #enable aut-detection for number of threads to use (good for multi-CPU or multi-core computers) for packing repositories
 git config --global pack.threads "0"
 
-#Configure Git to detect renames
+#Configure Git to detect renames on diff and merge.
 git config --global diff.renamelimit 0
+git config --global merge.renamelimit 25000
 
 #Configure Git to use rebase by default
 git config --global branch.autosetuprebase always
