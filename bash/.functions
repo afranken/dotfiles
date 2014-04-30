@@ -58,5 +58,5 @@ function showbigfiles() {
     else
       size=$1
   fi
-    find . -type f -size +${size}M \( ! -iwholename "*target/*" \) \( ! -iwholename "*.git*" \) -exec du -h {} \; | sort -gr;
+    find . -type f -size +${size}M \( ! -iwholename "*target/*" \) \( ! -iwholename "*.git*" \) -exec du -h {} + | sort -gr;
 }
