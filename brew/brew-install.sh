@@ -28,3 +28,7 @@ brew install jvmtop
 ### MAVEN
 brew install maven
 curl https://raw.github.com/juven/maven-bash-completion/master/bash_completion.bash -o ~/.maven_bash_completion.bash
+
+### SCALA
+brew install scala
+brew install sbt
