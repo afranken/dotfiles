@@ -42,7 +42,7 @@ function remindme() {
 # open github page for repository in new chrome tab #
 #####################################################
 function github() {
-    url=$(git remote -v 2>/dev/null | awk '/.+github\.com.+(fetch)/ {sub(/git:/,"http:"); print $2}')
+    local url=$(git remote -v 2>/dev/null | awk '/.+github\.com.+(fetch)/ {sub(/git:/,"http:"); print $2}')
     if [ "${url}" ]; then
         open -a Google\ Chrome ${url}
     fi
@@ -52,6 +52,7 @@ function github() {
 # show files bigger than given size in MegaBytes.   #
 #####################################################
 function showbigfiles() {
+  local size;
   if [ -z "$1" ];
     then
       size=1
