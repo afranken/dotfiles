@@ -6,28 +6,33 @@
 
 # Send a Notification to Notification Centre
 function maven_notify {
-  PROJECT=${PWD##*/}
-  SUBTITLE="in $PROJECT"
+  local _project=${PWD##*/}
+  local _subtitle="in $_project"
+  local _title
+  local _message
+
   if [ $1 -eq 0 ]; then
-    TITLE="Build Successful"
-    MESSAGE="Build succeeded in $PROJECT; click to return."
+    _title="Build Successful"
+    _message="Build succeeded in ${_project}; click to return."
   else
-    TITLE="Build Failed"
-    MESSAGE="Build failed in $PROJECT; click to return."
+    _title="Build Failed"
+    _message="Build failed in ${_project}; click to return."
   fi
-  activate_term_program
-  terminal-notifier -title "$TITLE" -subtitle "$SUBITLE" -message "$MESSAGE" -group $PROJECT $SENDER
+  terminal-notifier -title "${_title}" -subtitle "${_subtitle}" -message "${_message}" -group ${_project} `activate_term_program`
 }
 
-# Set the 'ACTIVATE' variable based on the terminal in which this is running
+# return terminal in which this is running
 function activate_term_program {
-  if [ $TERM_PROGRAM = "Apple_Terminal" ]; then
-    SENDER="-sender com.apple.Terminal"
-  elif [ $TERM_PROGRAM = "iTerm.app" ]; then
-    SENDER="-sender com.googlecode.iterm2"
+  local _result
+
+  if [ ${TERM_PROGRAM} = "Apple_Terminal" ]; then
+    _result="-sender com.apple.Terminal"
+  elif [ ${TERM_PROGRAM} = "iTerm.app" ]; then
+    _result="-sender com.googlecode.iterm2"
   else
-    SENDER=""
+    _result=""
   fi
+  return $_result
 }
 
 #re-register mvn
@@ -36,12 +41,8 @@ function notified_maven() {
   # make sure maven does not steal focus when forking processes
   PRE_JAVA_OPTIONS="$_JAVA_OPTIONS"
   export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djava.awt.headless=true"
-  # only run terminal-notifier if it exists
-  if hash terminal-notifier 2>/dev/null; then
-    NOTIFY=1
-  fi
 
-  if [ -n "$NOTIFY" ];
+  if [ -n "hash terminal-notifier 2>/dev/null" ];
     then
       maven $*
       maven_notify $?
