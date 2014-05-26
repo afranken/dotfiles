@@ -12,3 +12,7 @@ There is a `*-bootstrap.sh` script in each folder, please take a look at each sc
 * `brew/`: homebrew configuration and installation scripts
 * `git/` : git configuration
 * `osx/` : osx configuration
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/afranken/dotfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
