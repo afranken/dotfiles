@@ -1,7 +1,6 @@
 #!/bin/bash
 
-git config --global user.email arne.franken@coremedia.com
-git config --global user.name "Arne Franken"
+/bin/bash ../local/git-bootstrap.sh
 
 #turn all color options on (with git 1.5.5+)
 git config --global color.ui "auto"
