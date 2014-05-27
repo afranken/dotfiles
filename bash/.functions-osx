@@ -5,11 +5,12 @@
 ####################################################################
 
 # Send a Notification to Notification Centre
-function maven_notify {
+function maven_notify() {
   local _project=${PWD##*/}
   local _subtitle="in $_project"
   local _title
   local _message
+  local _sender
 
   if [ $1 -eq 0 ]; then
     _title="Build Successful"
@@ -18,21 +19,21 @@ function maven_notify {
     _title="Build Failed"
     _message="Build failed in ${_project}; click to return."
   fi
-  terminal-notifier -title "${_title}" -subtitle "${_subtitle}" -message "${_message}" -group ${_project} `activate_term_program`
+  activate_term_program _sender
+  terminal-notifier -title "${_title}" -subtitle "${_subtitle}" -message "${_message}" -group "${_project}" -sender ${_sender}
 }
 
 # return terminal in which this is running
-function activate_term_program {
-  local _result
+function activate_term_program() {
+  local _outvar=$1
+  local _result='com.apple.Terminal'
 
   if [ ${TERM_PROGRAM} = "Apple_Terminal" ]; then
-    _result="-sender com.apple.Terminal"
+    _result='com.apple.Terminal'
   elif [ ${TERM_PROGRAM} = "iTerm.app" ]; then
-    _result="-sender com.googlecode.iterm2"
-  else
-    _result=""
+    _result='com.googlecode.iterm2'
   fi
-  return $_result
+  eval $_outvar="'$_result'"
 }
 
 #re-register mvn
