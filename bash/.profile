@@ -17,6 +17,12 @@ LINUX_UNAME="Linux"
 WINDOWS_UNAME="MINGW32_NT-6.1"
 CURRENT_UNAME=$(uname)
 
+#read local includes
+for file in ${DOTFILES_PATH}/local/.*-local
+do
+  source ${file}
+done
+
 #include these for all bashes
 source "${BASH_SRC_PATH}"/.bashrc
 source "${BASH_SRC_PATH}"/.aliases
