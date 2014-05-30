@@ -1,0 +1,7 @@
+#set username for applications like github or gitlab here.
+export USERNAME=myusername
+
+#set username for git commits here
+export GIT_USERNAME="My Name"
+#set email for git commits here
+export GIT_EMAIL=my.name@email.com
