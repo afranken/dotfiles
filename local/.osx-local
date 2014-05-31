@@ -1,2 +1,2 @@
 #set your computer name here
-export COMPUTER_NAME=computer-name
+export COMPUTER_NAME="computer-name"
