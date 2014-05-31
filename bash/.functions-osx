@@ -5,7 +5,7 @@
 ####################################################################
 
 # Send a Notification to Notification Centre
-function maven_notify() {
+function _maven_notify() {
   local _project=${PWD##*/}
   local _subtitle="in $_project"
   local _title
@@ -19,12 +19,12 @@ function maven_notify() {
     _title="Build Failed"
     _message="Build failed in ${_project}; click to return."
   fi
-  activate_term_program _sender
+  _activate_term_program _sender
   terminal-notifier -title "${_title}" -subtitle "${_subtitle}" -message "${_message}" -group "${_project}" -sender ${_sender}
 }
 
 # return terminal in which this is running
-function activate_term_program() {
+function _activate_term_program() {
   local _outvar=$1
   local _result='com.apple.Terminal'
 
@@ -38,7 +38,7 @@ function activate_term_program() {
 
 #re-register mvn
 alias maven="command mvn"
-function notified_maven() {
+function _notified_maven() {
   # make sure maven does not steal focus when forking processes
   PRE_JAVA_OPTIONS="$_JAVA_OPTIONS"
   export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djava.awt.headless=true"
@@ -46,10 +46,10 @@ function notified_maven() {
   if [ -n "hash terminal-notifier 2>/dev/null" ];
     then
       maven $*
-      maven_notify $?
+      _maven_notify $?
     else
       maven $*
   fi
   export _JAVA_OPTIONS="$PRE_JAVA_OPTIONS"
 }
-alias mvn=notified_maven
+alias mvn=_notified_maven
