@@ -1,6 +1,9 @@
 #!/bin/bash
 
-/bin/bash ../local/git-bootstrap.sh
+#set your name here
+git config --global user.name $GIT_USERNAME
+#set your email here
+git config --global user.email $GIT_EMAIL
 
 #turn all color options on (with git 1.5.5+)
 git config --global color.ui "auto"
