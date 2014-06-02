@@ -83,6 +83,10 @@ alias gl='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow
 alias gbl='git blame -wMC' # -w ignores white space | -M ignores moving text | -C ignores moving text into other files
 ## find all commits that deleted files
 alias gfd='git log --diff-filter=D --summary'
+## soft reset changes (i.e. reset commit, leave edited files in working tree)
+alias greset='git reset --soft "HEAD^"'
+## hard reset changes (i.e. reset commit, trash edited files in working tree)
+alias gresethard='git reset --hard'
 # }}}
 
 ##################################################
