@@ -1,0 +1,11 @@
+-Xms2048m
+-Xmx2048m
+-XX:PermSize=350m
+-XX:MaxPermSize=350m
+-XX:+UseConcMarkSweepGC
+-XX:+UseParNewGC
+-XX:+CMSParallelRemarkEnabled
+-XX:CMSInitiatingOccupancyFraction=68
+-XX:ReservedCodeCacheSize=128m
+-XX:+UseCompressedOops
+-XX:+UseCodeCacheFlushing
