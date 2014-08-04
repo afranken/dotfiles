@@ -28,6 +28,8 @@ set git config --global credential.helper osxkeychain
 curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 
 ### add git aliases
+git config --global alias.a add
+git config --global alias.ap 'add --patch'
 git config --global alias.co checkout
 git config --global alias.up '!git pull --rebase --prune $@ && git submodule update --init --recursive'
 git config --global alias.cob 'checkout -b'
