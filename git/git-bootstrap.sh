@@ -30,8 +30,14 @@ curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bas
 ### add git aliases
 git config --global alias.a add
 git config --global alias.ap 'add --patch'
-git config --global alias.co checkout
-git config --global alias.up '!git pull --rebase --prune $@ && git submodule update --init --recursive'
-git config --global alias.cob 'checkout -b'
 git config --global alias.cm '!git add -A && git commit -m'
+git config --global alias.c 'commit --message'
+
+git config --global alias.co checkout
+git config --global alias.cob 'checkout -b'
+
+## always purge branches on fetch.
 git config --global alias.f 'fetch --prune'
+## always rebase on pull
+git config --global alias.up '!git pull --rebase --prune $@ && git submodule update --init --recursive'
+
