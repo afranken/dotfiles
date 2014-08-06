@@ -41,3 +41,6 @@ git config --global alias.f 'fetch --prune'
 ## always rebase on pull
 git config --global alias.up '!git pull --rebase --prune $@ && git submodule update --init --recursive'
 
+## show short status
+git config --global alias.s 'status --short --branch'
+
