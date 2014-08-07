@@ -44,3 +44,9 @@ git config --global alias.up '!git pull --rebase --prune $@ && git submodule upd
 ## show short status
 git config --global alias.s 'status --short --branch'
 
+## show nice formatted list
+git config --global alias.l 'log --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+## show nice formatted graph
+git config --global alias.ll 'log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+## show all commits that deleted files
+git config --global alias.ld 'log --diff-filter=D --summary'
