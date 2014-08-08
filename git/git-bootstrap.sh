@@ -40,6 +40,8 @@ git config --global alias.cob 'checkout -b'
 git config --global alias.f 'fetch --prune'
 ## always rebase on pull
 git config --global alias.up '!git pull --rebase --prune $@ && git submodule update --init --recursive'
+## update and merge upstream into local branch
+git config --global alias.mergeupstream '!git fetch origin -v; git fetch upstream -v; git merge upstream/master'
 
 ## show short status
 git config --global alias.s 'status --short --branch'
@@ -50,3 +52,6 @@ git config --global alias.l 'log --pretty=format:"%C(bold red)%h%Creset -%C(bold
 git config --global alias.ll 'log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 ## show all commits that deleted files
 git config --global alias.ld 'log --diff-filter=D --summary'
+
+## list aliases
+git config --global alias.la '!git config -l | grep alias | cut -c 7-'
