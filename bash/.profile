@@ -71,5 +71,5 @@ export VISUAL=vi
 export TERM=xterm-256color
 
 # configure Maven
-export MAVEN_OPTS='-ms2048m -mx2048m -XX:MaxPermSize=512m -XX:PermSize=512m -XX:ReservedCodeCacheSize=64m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
+export MAVEN_OPTS='-ms256m -mx2048m -XX:PermSize=64m -XX:MaxPermSize=512m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
