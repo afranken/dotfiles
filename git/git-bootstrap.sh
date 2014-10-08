@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #set your name here
-git config --global user.name $GIT_USERNAME
+git config --global user.name "${GIT_USERNAME}"
 #set your email here
 git config --global user.email $GIT_EMAIL
 
@@ -28,12 +28,13 @@ set git config --global credential.helper osxkeychain
 curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 
 ### add git aliases
-git config --global alias.a add
+git config --global alias.a 'add'
 git config --global alias.ap 'add --patch'
 git config --global alias.cm '!git add -A && git commit -m'
 git config --global alias.c 'commit --message'
+git config --global alias.cam 'commit -a --message'
 
-git config --global alias.co checkout
+git config --global alias.co 'checkout'
 git config --global alias.cob 'checkout -b'
 
 ## always purge branches on fetch.
@@ -47,11 +48,24 @@ git config --global alias.mergeupstream '!git fetch origin -v; git fetch upstrea
 git config --global alias.s 'status --short --branch'
 
 ## show nice formatted list
-git config --global alias.l 'log --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+git config --global alias.ls 'log --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+## show nice formatted list with line stats (added / deleted) per file
+git config --global alias.ll '!git ls --numstat'
 ## show nice formatted graph
-git config --global alias.ll 'log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+git config --global alias.lg '!git ls --graph'
 ## show all commits that deleted files
 git config --global alias.ld 'log --diff-filter=D --summary'
+## show full history for file, detect file movement
+git config --global alias.lf '!git ls --follow'
+## show log without colors (e.g. for "grep"ing the output)
+git config --global alias.lnc 'log --pretty=format:"%h -%d %s (%cr) <%an>"'
+## show log for a file
+git config --global alias.fl 'log -u'
 
 ## list aliases
 git config --global alias.la '!git config -l | grep alias | cut -c 7-'
+
+## soft reset changes (i.e. reset commit, leave edited files in working tree)
+git config --global alias.rs 'reset --soft "HEAD^"'
+## hard reset changes (i.e. reset commit, trash edited files in working tree)
+git config --global alias.rh 'reset --hard'
