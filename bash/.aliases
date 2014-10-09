@@ -63,30 +63,24 @@ alias ln='ln -i'
 
 ##################################################
 ## Git stuff # {{{
-## always rebase on pull
-alias gpr='git pull --rebase'
-## always purge branches on fetch.
-alias gf='git fetch -p'
+alias gpr='git up'
+alias gf='git f'
 alias gpu='git push'
-alias gci='git commit -a -m'
+alias gcam='git cam'
+alias gco='git co'
+alias gcob='git cob'
 alias ga='git add'
 alias gt='git tag'
-## list tags with date, sorted by commit. No commit date is available for lightweight tags.
-alias gtl='git for-each-ref --sort=taggerdate --format "%(refname) %(taggerdate:short)" refs/tags | less'
 ## always remove directories that are not managed in VCS when cleaning.
 alias gcl='git clean -fd'
 ## show short status
 alias gs='git status -sb'
-## show nice formatted graph
-alias gl='git log --graph --pretty=format:"%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 ## nicer blame
 alias gbl='git blame -wMC' # -w ignores white space | -M ignores moving text | -C ignores moving text into other files
-## find all commits that deleted files
-alias gfd='git log --diff-filter=D --summary'
-## soft reset changes (i.e. reset commit, leave edited files in working tree)
-alias greset='git reset --soft "HEAD^"'
-## hard reset changes (i.e. reset commit, trash edited files in working tree)
-alias gresethard='git reset --hard'
+alias gl='git ls'
+alias gfd='git ld'
+alias greset='git rs'
+alias gresethard='git rh'
 # }}}
 
 ##################################################
@@ -98,4 +92,5 @@ alias gw="grunt watch"
 ##################################################
 ## Maven # {{{
 alias installboms="find . -type d -name '*bom*' -exec sh -c '(cd {} && mvn clean install)' ';'"
+alias mvnfolders="mkdir -p src/{main,test}/{java,resources}"
 # }}}

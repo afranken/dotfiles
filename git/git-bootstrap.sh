@@ -59,6 +59,8 @@ git config --global alias.ld 'log --diff-filter=D --summary'
 git config --global alias.lf '!git ls --follow'
 ## show log without colors (e.g. for "grep"ing the output)
 git config --global alias.lnc 'log --pretty=format:"%h -%d %s (%cr) <%an>"'
+## show tags with date, sorted by commit. No commit date is available for lightweight tags.
+git config --global alias.lt 'for-each-ref --sort=taggerdate --format "%(refname) %(taggerdate:short)" refs/tags | less'
 ## show log for a file
 git config --global alias.fl 'log -u'
 
