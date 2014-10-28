@@ -93,4 +93,10 @@ alias gw="grunt watch"
 ## Maven # {{{
 alias installboms="find . -type d -name '*bom*' -exec sh -c '(cd {} && mvn clean install)' ';'"
 alias mvnfolders="mkdir -p src/{main,test}/{java,resources}"
+alias mci="mvn clean install"
+alias mcist="mvn clean install -DskipTests"
+alias mpl="mvn clean install -pl"
+alias mplst="mvn clean install -DskipTests -pl"
+alias mampl="mvn clean install -am -pl"
+alias mamplst="mvn clean install -DskipTests -am -pl"
 # }}}
