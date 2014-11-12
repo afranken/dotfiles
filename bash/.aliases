@@ -79,6 +79,7 @@ alias gs='git status -sb'
 alias gbl='git blame -wMC' # -w ignores white space | -M ignores moving text | -C ignores moving text into other files
 alias gl='git ls'
 alias gfd='git ld'
+alias gdiv='git divergence'
 alias greset='git rs'
 alias gresethard='git rh'
 # }}}
