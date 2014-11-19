@@ -16,7 +16,7 @@ git config --global pack.threads "0"
 
 #Configure Git to detect renames on diff and merge.
 git config --global diff.renamelimit 0
-git config --global merge.renamelimit 25000
+git config --global merge.renamelimit 0
 
 #Configure Git to use rebase by default
 git config --global branch.autosetuprebase always
