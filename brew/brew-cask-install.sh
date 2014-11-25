@@ -27,5 +27,5 @@ brew cask install dash
 brew cask install virtualbox
 brew cask install truecrypt
 
-brew cask install intellij-idea-ultimate
+brew cask install intellij-idea
 brew cask install diffmerge
