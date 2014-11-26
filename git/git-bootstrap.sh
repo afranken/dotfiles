@@ -18,6 +18,9 @@ git config --global pack.threads "0"
 git config --global diff.renamelimit 0
 git config --global merge.renamelimit 0
 
+#make sure that Git reuses information about recent conflict resolutions.
+git config --global rerere.enabled true
+
 #Configure Git to use rebase by default
 git config --global branch.autosetuprebase always
 
