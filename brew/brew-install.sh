@@ -32,3 +32,10 @@ curl https://raw.github.com/juven/maven-bash-completion/master/bash_completion.b
 ### SCALA
 brew install scala
 brew install sbt
+
+### JavaScript
+brew install npm
+
+#app development
+brew install ios-sim
+brew install android-sdk
