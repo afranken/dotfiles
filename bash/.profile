@@ -41,7 +41,8 @@ elif [ ${CURRENT_UNAME} == ${LINUX_UNAME} ]; then
     source "$BASH_SRC_PATH"/.functions-linux
 fi
 
-# Bash shell completion with apt-get / brew package 'bash-completion'
+## Bash command completion
+# apt-get / brew package 'bash-completion'
 if [ -f /usr/local/etc/bash_completion ]; then
   source /usr/local/etc/bash_completion
   elif [ -f /etc/bash_completion ]; then
@@ -73,3 +74,6 @@ export TERM=xterm-256color
 # configure Maven
 export MAVEN_OPTS='-ms256m -mx2048m -XX:PermSize=64m -XX:MaxPermSize=512m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+#app development
+export ANDROID_HOME=/usr/local/opt/android-sdk
