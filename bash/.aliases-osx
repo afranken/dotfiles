@@ -6,7 +6,7 @@ alias sonarstart='launchctl load /usr/local/opt/sonar/homebrew.mxcl.sonar.plist'
 alias sonarstop='launchctl unload /usr/local/opt/sonar/homebrew.mxcl.sonar.plist'
 alias jenkinsstart='launchctl load /usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist'
 alias jenkinsstop='launchctl unload /usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist'
-alias upgrade='brew update && brew cask update && brew upgrade && echo "update and upgrade done."'
+alias upgrade='brew update && brew upgrade && brew cleanup && brew cask cleanup && echo "update and upgrade done."'
 # }}}
 
 ## JAVA ## {{{
