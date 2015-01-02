@@ -21,6 +21,8 @@ brew install terminal-notifier
 
 ### GIT
 brew install git
+#see https://github.com/magicmonty/bash-git-prompt
+brew install bash-git-prompt
 
 ### JAVA
 brew install jvmtop
