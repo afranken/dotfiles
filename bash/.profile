@@ -49,15 +49,17 @@ if [ -f /usr/local/etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
-# Bash shell command completion
-if [ -f ~/.git-completion.bash ]; then
-  source ~/.git-completion.bash
+# GIT
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+  GIT_PROMPT_THEME=Default
+  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 fi
 
-# Bash shell MVN command completion
+# MVN
 if [ -f ~/.maven_bash_completion.bash ]; then
     source ~/.maven_bash_completion.bash
 fi
+##
 
 PATH="${DOTFILES_PATH}/bin:${PATH}"
 
