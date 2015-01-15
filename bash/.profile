@@ -29,10 +29,10 @@ source "${BASH_SRC_PATH}"/.aliases
 source "${BASH_SRC_PATH}"/.functions
 
 # include OS specific settings
-if [ ${CURRENT_UNAME} != ${WINDOWS_UNAME} ]; then
-    #do not use custom git prompt on windows, we're probably in git bash
-    source "${BASH_SRC_PATH}"/.prompt
-fi
+#if [ ${CURRENT_UNAME} != ${WINDOWS_UNAME} ]; then
+    #insert windows specific settings here
+    #source "${BASH_SRC_PATH}"/.prompt
+#fi
 if [ ${CURRENT_UNAME} == ${MAC_UNAME} ]; then
     source "${BASH_SRC_PATH}"/.profile-osx
     source "${BASH_SRC_PATH}"/.aliases-osx
@@ -42,6 +42,12 @@ elif [ ${CURRENT_UNAME} == ${LINUX_UNAME} ]; then
 fi
 
 ## Bash command completion
+
+# complete all aliases
+if [ -f "${BASH_SRC_PATH}"/.bash_completion ]; then
+    source "${BASH_SRC_PATH}"/.bash_completion
+fi
+
 # apt-get / brew package 'bash-completion'
 if [ -f /usr/local/etc/bash_completion ]; then
   source /usr/local/etc/bash_completion
