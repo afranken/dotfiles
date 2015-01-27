@@ -66,6 +66,10 @@ git config --global alias.lnc 'log --pretty=format:"%h -%d %s (%cr) <%an>"'
 git config --global alias.lt 'for-each-ref --sort=taggerdate --format "%(refname) %(taggerdate:short)" refs/tags | less'
 ## show log for a file
 git config --global alias.fl 'log -u'
+## show only files for a commit
+git config --global alias.showfiles 'diff-tree --no-commit-id --name-status -r'
+## show previously deleted file in latest known revision
+git config --global alias.showrm '!f() { git show $(git rev-list --max-count=1 --all -- $1)^:$1; }; f'
 
 ## list aliases
 git config --global alias.la '!git config -l | grep alias | cut -c 7-'
