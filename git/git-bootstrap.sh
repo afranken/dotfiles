@@ -24,6 +24,9 @@ git config --global rerere.enabled true
 #Configure Git to use rebase by default
 git config --global branch.autosetuprebase always
 
+#always push to upstream branches (e.g. tracked branches with a different name)
+git config --global push.default upstream
+
 # permanent authentication for https git urls.
 set git config --global credential.helper osxkeychain
 
