@@ -43,11 +43,6 @@ fi
 
 ## Bash command completion
 
-# complete all aliases
-if [ -f "${BASH_SRC_PATH}"/.bash_completion ]; then
-    source "${BASH_SRC_PATH}"/.bash_completion
-fi
-
 # apt-get / brew package 'bash-completion'
 if [ -f /usr/local/etc/bash_completion ]; then
   source /usr/local/etc/bash_completion
@@ -66,6 +61,11 @@ if [ -f ~/.maven_bash_completion.bash ]; then
     source ~/.maven_bash_completion.bash
 fi
 ##
+
+# complete all aliases
+if [ -f "${BASH_SRC_PATH}"/.bash_completion ]; then
+    source "${BASH_SRC_PATH}"/.bash_completion
+fi
 
 PATH="${DOTFILES_PATH}/bin:${PATH}"
 
