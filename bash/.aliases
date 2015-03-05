@@ -100,4 +100,6 @@ alias mpl="mvn clean install -pl"
 alias mplst="mvn clean install -DskipTests -pl"
 alias mampl="mvn clean install -am -pl"
 alias mamplst="mvn clean install -DskipTests -am -pl"
+alias mamdpl="mvn clean install -amd -pl"
+alias mamdplst="mvn clean install -DskipTests -amd -pl"
 # }}}
