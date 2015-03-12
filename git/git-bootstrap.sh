@@ -31,7 +31,9 @@ git config --global push.default upstream
 set git config --global credential.helper osxkeychain
 
 #install bash completion
-curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+if [ -z ~/.git-completion.bash ]; then
+    curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+fi
 
 ### add git aliases
 git config --global alias.a 'add'
@@ -81,3 +83,6 @@ git config --global alias.la '!git config -l | grep alias | cut -c 7-'
 git config --global alias.rs 'reset --soft "HEAD^"'
 ## hard reset changes (i.e. reset commit, trash edited files in working tree)
 git config --global alias.rh 'reset --hard'
+
+## clean up local repository. Compact files, delete references to remote branches, ... 
+git config --global alias.cleanup '!git gc --prune=now && git remote prune origin'
