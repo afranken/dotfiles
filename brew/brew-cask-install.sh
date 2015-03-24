@@ -4,7 +4,6 @@
 /bin/bash brew-cask-bootstrap.sh
 
 brew cask install alfred
-brew cask alfred link
 brew cask install firefox
 brew cask install google-chrome
 brew cask install silverlight
