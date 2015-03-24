@@ -76,6 +76,11 @@ git config --global alias.showfiles 'diff-tree --no-commit-id --name-status -r'
 ## show previously deleted file in latest known revision
 git config --global alias.showrm '!f() { git show $(git rev-list --max-count=1 --all -- $1)^:$1; }; f'
 
+## Show modified files in last commit
+git config --global alias.dl = '!git ll -1'
+## Show a diff last commit
+git config --global alias.dlc = 'diff --cached HEAD^'
+
 ## list aliases
 git config --global alias.la '!git config -l | grep alias | cut -c 7-'
 
