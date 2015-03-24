@@ -15,6 +15,7 @@ brew cask install flash
 brew cask install cyberduck
 brew cask install istat-menus
 brew cask install java
+brew cask install java7
 brew cask install jd-gui
 brew cask install onyx
 brew cask install path-finder
