@@ -28,7 +28,7 @@ git config --global branch.autosetuprebase always
 git config --global push.default upstream
 
 # permanent authentication for https git urls.
-set git config --global credential.helper osxkeychain
+git config --global credential.helper osxkeychain
 
 #install bash completion
 if [ -z ~/.git-completion.bash ]; then
