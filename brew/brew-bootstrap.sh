@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#xcode-select --install
+
 if [ ! -f /usr/local/bin/brew ];
 then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
