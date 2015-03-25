@@ -21,8 +21,9 @@ brew cask install path-finder
 brew cask install sourcetree
 brew cask install visualvm
 brew cask install virtualbox
-brew cask install onepassword
+brew cask install 1password
 brew cask install iterm2
+brew cask install skype
 
 brew cask install intellij-idea
 brew cask install diffmerge
