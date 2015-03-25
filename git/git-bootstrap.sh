@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #set your name here
-git config --global user.name "${GIT_USERNAME}"
+git config --global user.name ${GIT_USERNAME:?"Please set environment variable GIT_USERNAME"}
 #set your email here
-git config --global user.email $GIT_EMAIL
+git config --global user.email ${GIT_EMAIL:?"Please set environment variable GIT_EMAIL"}
 
 #turn all color options on (with git 1.5.5+)
 git config --global color.ui "auto"
