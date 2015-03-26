@@ -4,11 +4,28 @@ dotfiles
 This repository contains configuration and installation scripts for **OSX Mavericks**.
 I develop Java and JavaScript applications with GIT, Maven, Node and Grunt, all configuration and software is tailored around that.
 
+if Git is already installed,
 _Checkout workspace to `~/.dotfiles/`_
 
-There is a `*-bootstrap.sh` script in each folder, please take a look at each script before executing it. (!)
+otherwise
 
-* `bash/`: profile, functions, aliases
-* `brew/`: homebrew configuration and installation scripts
-* `git/` : git configuration
+_download ZIP, unpack to `~/.dotfiles`_, install all desired software. 
+
+After installing GIT, to sync the local repo with the remote, do:
+
+    cd ~/.dotfiles
+    git init
+    git remote add origin https://github.com/afranken/dotfiles.git
+    git fetch
+    git reset --hard origin/master
+    git branch -u origin/master
+
+There is a `*-bootstrap.sh` script in most folders, **take a look at each script before executing it. (!)**
+
+
+Run scripts in this order:
+
+* `brew/`: homebrew configuration and installation scripts. Next steps rely on software installed here.
+* `git/` : git configuration.
+* `bash/`: profile, functions, aliases.
 * `osx/` : osx configuration
