@@ -3,6 +3,8 @@ brew scripts
 
 this directory contains scripts for installing and configuring [homebrew](http://brew.sh/), and installation scripts with essential software.
 
+Install in this order:
+
 "plain" brew packages:
 
 * `brew-bootstrap.sh` : install and configure Homebrew
