@@ -3,41 +3,50 @@
 # be sure to bootstrap before running installation
 /bin/bash brew-bootstrap.sh
 
-### MISC
-brew install python
-brew install phantomjs
-brew install ack
-brew install htop
-brew install dos2unix
-brew install bash-completion
-brew install wget
-brew install nodejs
-brew install groovy
+FORMULAE=(
+  ### MISC
+  python
+  phantomjs
+  ack
+  htop
+  dos2unix
+  bash-completion
+  wget
+  nodejs
+  groovy
+  
+  ### TERMINAL / BASH
+  bash
+  terminal-notifier
+  
+  ### GIT
+  git
+  #see https://github.com/magicmonty/bash-git-prompt
+  bash-git-prompt
+  
+  ### JAVA
+  jvmtop
 
-### TERMINAL / BASH
-# installs the 4.X bash which is good for prompt extension with git. See http://buddylindsey.com/upgrade-bash-to-4-on-os-x/ for a how to.
-brew install bash
-brew install terminal-notifier
+  ### MAVEN
+  maven
 
-### GIT
-brew install git
-#see https://github.com/magicmonty/bash-git-prompt
-brew install bash-git-prompt
+  ### SCALA
+  scala
+  sbt
 
-### JAVA
-brew install jvmtop
+  ### JavaScript
+  npm
 
-### MAVEN
-brew install maven
-curl https://raw.github.com/juven/maven-bash-completion/master/bash_completion.bash -o ~/.maven_bash_completion.bash
+  #app development
+  ios-sim
+  android-sdk
+)
 
-### SCALA
-brew install scala
-brew install sbt
+### INSTALL
+brew install ${FORMULAE[@]}
 
-### JavaScript
-brew install npm
-
-#app development
-brew install ios-sim
-brew install android-sdk
+### BASH COMPLETION
+if [ ! -f ~/.maven_bash_completion.bash ];
+then
+  curl https://raw.github.com/juven/maven-bash-completion/master/bash_completion.bash -o ~/.maven_bash_completion.bash
+fi
