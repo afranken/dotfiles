@@ -3,8 +3,13 @@
 # be sure to install general applications before running installation
 /bin/bash brew-cask-install.sh
 
-brew cask install owncloud
-brew cask install vagrant
-brew cask install vmware-fusion
-brew cask install chromium
-brew cask install chefdk
+CASKS=(
+  owncloud
+  vagrant
+  vmware-fusion
+  chromium
+  chefdk
+)
+
+### INSTALL
+brew cask install ${CASKS[@]}
