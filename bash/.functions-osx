@@ -1,3 +1,18 @@
+### Brew upgrade
+function _brewUpgrade() {
+  echo "###############"
+  echo "### brew update"
+  brew update
+  echo "### brew upgrade"
+  brew upgrade
+  echo "### brew cleanup"
+  brew cleanup
+  echo "### brew cask cleanup"
+  brew cask cleanup 
+  echo "### brew update and upgrade done."
+  echo "###############"
+}
+alias brew-upgrade=_brewUpgrade
 
 ####################################################################
 # Mvn - add terminal-notifications                                 #
