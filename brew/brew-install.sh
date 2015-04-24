@@ -24,9 +24,6 @@ FORMULAE=(
   #see https://github.com/magicmonty/bash-git-prompt
   bash-git-prompt
   
-  ### JAVA
-  jvmtop
-
   ### MAVEN
   maven
 
