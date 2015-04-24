@@ -3,9 +3,12 @@
 -XX:PermSize=512m
 -XX:MaxPermSize=512m
 -XX:+UseConcMarkSweepGC
+-XX:+CMSIncrementalMode
 -XX:+UseParNewGC
 -XX:+CMSParallelRemarkEnabled
 -XX:CMSInitiatingOccupancyFraction=68
 -XX:ReservedCodeCacheSize=256m
 -XX:+UseCompressedOops
 -XX:+UseCodeCacheFlushing
+-XX:+UseLargePages
+-XX:ForceTimeHighResolution
