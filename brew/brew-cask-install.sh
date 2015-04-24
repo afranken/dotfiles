@@ -31,3 +31,6 @@ CASKS=(
 
 ### INSTALL
 brew cask install ${CASKS[@]}
+
+### INSTALL jvmtop, depends on Java Formula installed above:
+brew install jvmtop
