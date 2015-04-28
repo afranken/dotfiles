@@ -1,2 +1,7 @@
 #set your computer name here
 export COMPUTER_NAME="computer-name"
+
+#If Homebrew doesn't use a Github token, the API requests (used for brew search, brew install, ...) are limited by the IP
+#shared with your co-workers. Non-authenticated API requests are very limited, so you should think about 
+#generating a Github Token here: https://github.com/settings/tokens and uncomment the following line:
+#export HOMEBREW_GITHUB_API_TOKEN=xxxx
