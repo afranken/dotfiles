@@ -1,4 +1,16 @@
-#!/usr/bin/env bash
+#!/bin/bash
+###
+# use "bash strict mode", @see http://redsymbol.net/articles/unofficial-bash-strict-mode/ 
+# https://sipb.mit.edu/doc/safe-shell/
+set -euf
+if [ "${BASH_VERSINFO[0]}" -ge 3 ]; then
+  set -o pipefail
+fi
+IFS=$'\n\t'
+###
+# use command debugging
+#set -x
+
 #xcode-select --install
 
 if [ ! -f /usr/local/bin/brew ];
@@ -16,7 +28,7 @@ brew tap homebrew/dupes
 brew tap homebrew/homebrew-versions
 
 ##link Cellar into User Home for easy access from various applications (e.g. for setting JDKs in IntelliJ Idea)
-if [ ! -f ~/Cellar ];
+if [ ! -d ~/Cellar ];
 then
   ln -s /usr/local/Cellar ~/Cellar
 fi
