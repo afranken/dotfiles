@@ -11,7 +11,11 @@ IFS=$'\n\t'
 # use command debugging
 #set -x
 
-#xcode-select --install
+## check whether XCode command line tools are already installed, otherwise install.
+xcode-select -p &> /dev/null
+if [ $? -ne 0 ]; then
+  xcode-select --install
+fi
 
 if [ ! -f /usr/local/bin/brew ];
 then
