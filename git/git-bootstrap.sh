@@ -1,4 +1,15 @@
 #!/bin/bash
+###
+# use "bash strict mode", @see http://redsymbol.net/articles/unofficial-bash-strict-mode/
+# https://sipb.mit.edu/doc/safe-shell/
+set -euf
+if [ "${BASH_VERSINFO[0]}" -ge 3 ]; then
+  set -o pipefail
+fi
+IFS=$'\n\t'
+###
+# use command debugging
+#set -x
 
 #set your name here
 git config --global user.name ${GIT_USERNAME:?"Please set environment variable GIT_USERNAME"}
