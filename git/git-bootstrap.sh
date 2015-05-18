@@ -11,10 +11,13 @@ IFS=$'\n\t'
 # use command debugging
 #set -x
 
+username=${GIT_USERNAME:?"Please set environment variable GIT_USERNAME"}
+email=${GIT_EMAIL:?"Please set environment variable GIT_EMAIL"}
+
 #set your name here
-git config --global user.name ${GIT_USERNAME:?"Please set environment variable GIT_USERNAME"}
+git config --global user.name ${username}
 #set your email here
-git config --global user.email ${GIT_EMAIL:?"Please set environment variable GIT_EMAIL"}
+git config --global user.email ${email} 
 
 #turn all color options on (with git 1.5.5+)
 git config --global color.ui "auto"
@@ -41,10 +44,6 @@ git config --global push.default upstream
 # permanent authentication for https git urls.
 git config --global credential.helper osxkeychain
 
-#install bash completion
-if [ -z ~/.git-completion.bash ]; then
-    curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-fi
 
 ### add git aliases
 git config --global alias.a 'add'
