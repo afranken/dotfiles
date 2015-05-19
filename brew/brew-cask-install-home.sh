@@ -27,8 +27,6 @@ CASKS=(
   openoffice
   picasa
   vlc
-  comicbooklover
-  comicbookloversync
   truecrypt
 )
 
