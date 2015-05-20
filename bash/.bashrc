@@ -1,5 +1,4 @@
-##################################################
-## Configure bash # {{{
+##Bash configuration
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -32,4 +31,7 @@ fi
 # (this will allow completions like 'ls --color=auto' to work correctly).
 COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
 
-# }}}
+# complete all aliases
+if [ -f .bash_completion ]; then
+    source .bash_completion
+fi

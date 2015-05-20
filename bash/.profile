@@ -30,41 +30,16 @@ source "${BASH_SRC_PATH}"/.functions
 
 # include OS specific settings
 #if [ ${CURRENT_UNAME} != ${WINDOWS_UNAME} ]; then
-    #insert windows specific settings here
-    #source "${BASH_SRC_PATH}"/.prompt
+  #insert windows specific settings here
+  #source "${BASH_SRC_PATH}"/.prompt
 #fi
 if [ ${CURRENT_UNAME} == ${MAC_UNAME} ]; then
-    source "${BASH_SRC_PATH}"/.profile-osx
-    source "${BASH_SRC_PATH}"/.aliases-osx
-    source "${BASH_SRC_PATH}"/.functions-osx
+  source "${BASH_SRC_PATH}"/.profile-osx
+  source "${BASH_SRC_PATH}"/.bashrc-osx
+  source "${BASH_SRC_PATH}"/.aliases-osx
+  source "${BASH_SRC_PATH}"/.functions-osx
 elif [ ${CURRENT_UNAME} == ${LINUX_UNAME} ]; then
-    source "$BASH_SRC_PATH"/.functions-linux
-fi
-
-## Bash command completion
-
-# apt-get / brew package 'bash-completion'
-if [ -f /usr/local/etc/bash_completion ]; then
-  source /usr/local/etc/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-  source /etc/bash_completion
-fi
-
-# GIT
-if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-  GIT_PROMPT_THEME=Solarized
-  source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
-fi
-
-# MVN
-if [ -f ~/.maven_bash_completion.bash ]; then
-    source ~/.maven_bash_completion.bash
-fi
-##
-
-# complete all aliases
-if [ -f "${BASH_SRC_PATH}"/.bash_completion ]; then
-    source "${BASH_SRC_PATH}"/.bash_completion
+  source "${BASH_SRC_PATH}"/.functions-linux
 fi
 
 PATH="${DOTFILES_PATH}/bin:${PATH}"
@@ -76,12 +51,16 @@ fi
 
 export EDITOR=vi
 export VISUAL=vi
-
 export TERM=xterm-256color
 
 # configure Maven
 export MAVEN_OPTS='-ms256m -mx2048m -XX:PermSize=64m -XX:MaxPermSize=512m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+if [ -d "/usr/local/opt/groovy/libexec" ] ; then
+  export GROOVY_HOME=/usr/local/opt/groovy/libexec
+fi
 
 #app development
-export ANDROID_HOME=/usr/local/opt/android-sdk
+if [ -d "/usr/local/opt/android-sdk" ] ; then
+  export ANDROID_HOME=/usr/local/opt/android-sdk
+fi
