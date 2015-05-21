@@ -52,11 +52,11 @@ brew install ${FORMULAE[@]}
 
 ### BASH COMPLETION
 if [ ! -f ~/.maven_bash_completion.bash ]; then
-  curl https://raw.github.com/juven/maven-bash-completion/master/bash_completion.bash -o ~/.maven_bash_completion.bash
+  curl https://raw.githubusercontent.com/juven/maven-bash-completion/master/bash_completion.bash -o ~/.maven_bash_completion.bash
 fi
 
 if [ ! -f ~/.git-completion.bash ]; then
-  curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+  curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
 ### Set newly installed bash as default (otherwise, shell scripts will use the 3.0 bash if the shebang is "#!/bin/bash")
