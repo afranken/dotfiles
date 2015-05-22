@@ -1,13 +1,7 @@
-##################################################
-## New commands ## {{{
-alias varnishstart='launchctl load /usr/local/opt/varnish/homebrew.mxcl.varnish.plist'
-alias varnishstop='launchctl unload /usr/local/opt/varnish/homebrew.mxcl.varnish.plist'
-alias sonarstart='launchctl load /usr/local/opt/sonar/homebrew.mxcl.sonar.plist'
-alias sonarstop='launchctl unload /usr/local/opt/sonar/homebrew.mxcl.sonar.plist'
+## New commands
 alias jenkinsstart='launchctl load /usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist'
 alias jenkinsstop='launchctl unload /usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist'
 
-## JAVA ## {{{
+## JAVA
 alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
-#}}}

@@ -1,9 +1,7 @@
-##################################################
 ## make aliases sudo-able
 alias sudo="sudo "
 
-##################################################
-## Modified commands ## {{{
+## Modified commands
 alias grep='grep --color=auto'
 alias more='less'
 alias df='df -kh'
@@ -12,57 +10,38 @@ alias mkdir='mkdir -p -v'
 alias ping='ping -c 5'
 alias dmesg='dmesg -HL'
 alias vi='vim'
-# }}}
 
-##################################################
-## New commands ## {{{
-alias da='date "+%A, %B %d, %Y [%T]"'
-alias du1='du --max-depth=1'
+## New commands
+alias du1='du -sh --max-depth=1'
 alias hist='history | grep'         # requires an argument
 alias pgg='ps -Af | grep'           # requires an argument
 alias pg='pgrep -lf'                # requires an argument
 alias jsonpretty="python -mjson.tool"     # make pretty json file from ugly json file
-# }}}
 
-##################################################
-## Make Bash error tolerant ## {{{
-alias :q=' exit'
-alias :Q=' exit'
-alias :x=' exit'
-alias q='exit'
-# }}}
-
-##################################################
-## Directory shortcuts ## {{{
+## Directory shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-# }}}
 
-##################################################
-## ls ## {{{
+## ls
 alias ls='ls -ahFG'
-alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' #recursive directory listings
 alias ll='ls -l'
-alias la='ll -A'
-alias lx='ll -BX'                   # sort by extension
-alias lz='ll -rS'                   # sort by size
-alias lt='ll -rt'                   # sort by date
-alias lm='la | more'
-# }}}
+#recursive directory listings as a tree
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
+# sort by size
+alias lz='ll -S'
+# sort by date
+alias lt='ll -t'
 
-##################################################
-## Safety features ## {{{
+## Safety features, ask before overwriting / deleting files
 alias cp='cp -i'
 alias mv='mv -iv'
 alias rm='rm -iv'
 alias ln='ln -i'
-# }}}
 
-##################################################
-## Git stuff # {{{
+## Git
 alias gpr='git up'
 alias gf='git f'
 alias gpu='git push'
@@ -71,27 +50,23 @@ alias gco='git co'
 alias gcob='git cob'
 alias ga='git add'
 alias gt='git tag'
-## always remove directories that are not managed in VCS when cleaning.
+# always remove directories that are not managed in VCS when cleaning.
 alias gcl='git clean -fd'
-## show short status
+# show short status
 alias gs='git status -sb'
-## nicer blame
+# nicer blame
 alias gbl='git blame -wMC' # -w ignores white space | -M ignores moving text | -C ignores moving text into other files
 alias gl='git ls'
 alias gfd='git ld'
 alias gdiv='git divergence'
 alias greset='git rs'
 alias gresethard='git rh'
-# }}}
 
-##################################################
-## Grunt # {{{
+## Grunt
 alias g="grunt"
 alias gw="grunt watch"
-# }}}
 
-##################################################
-## Maven # {{{
+## Maven
 alias installboms="find . -type d -name '*bom*' -exec sh -c '(cd {} && mvn clean install)' ';'"
 alias mvnfolders="mkdir -p src/{main,test}/{java,resources}"
 alias mci="mvn clean install"
@@ -102,4 +77,3 @@ alias mampl="mvn clean install -am -pl"
 alias mamplst="mvn clean install -DskipTests -am -pl"
 alias mamdpl="mvn clean install -amd -pl"
 alias mamdplst="mvn clean install -DskipTests -amd -pl"
-# }}}
