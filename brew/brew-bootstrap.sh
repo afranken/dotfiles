@@ -31,7 +31,7 @@ brew tap homebrew/dupes
 brew tap homebrew/homebrew-versions
 
 ##link Cellar into User Home for easy access from various applications (e.g. for setting JDKs in IntelliJ Idea)
-if [ ! -d ~/Cellar ];
+if [ ! -L ~/Cellar ];
 then
   ln -s /usr/local/Cellar ~/Cellar
 fi
