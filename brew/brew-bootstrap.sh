@@ -12,8 +12,7 @@ IFS=$'\n\t'
 #set -x
 
 ## check whether XCode command line tools are already installed, otherwise install.
-xcode-select -p &> /dev/null
-if [ $? -ne 0 ]; then
+if [ $(xcode-select -p &> /dev/null) -ne 0 ]; then
   xcode-select --install
 fi
 
