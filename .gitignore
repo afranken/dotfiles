@@ -1,3 +1,6 @@
+#ignore OSX
+.DS_Store
+
 #ignore idea files
 .idea/
 *.iml
