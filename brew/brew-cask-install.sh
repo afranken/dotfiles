@@ -38,13 +38,11 @@ CASKS=(
   jd-gui
   onyx
   path-finder
-  sourcetree
   visualvm
-  virtualbox
   1password
   iterm2
   skype
-  intellij-idea
+  intellij-idea-ce
   diffmerge
 )
 
