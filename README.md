@@ -25,7 +25,7 @@ There is a `*-bootstrap.sh` script in most folders, **take a look at each script
 
 Run scripts in this order:
 
-* `brew/`: homebrew configuration and installation scripts. Next steps rely on software installed here.
-* `git/` : git configuration.
-* `bash/`: profile, functions, aliases.
-* `osx/` : osx configuration
+1. `brew/`: homebrew configuration and installation scripts. Next steps rely on software installed here.
+2. `git/` : git configuration.
+3. `bash/`: profile, functions, aliases.
+4. `osx/` : osx configuration
