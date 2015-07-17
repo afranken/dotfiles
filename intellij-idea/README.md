@@ -18,7 +18,5 @@ These non-bundled plugins are essential for working effectively with Idea:
   * [BashSupport](https://plugins.jetbrains.com/plugin/4230)
   * [Key Promoter](https://plugins.jetbrains.com/plugin/4455)
   * [Markdown](https://plugins.jetbrains.com/plugin/5970)
-  * [Native Neighbourhood](https://plugins.jetbrains.com/plugin/38)
   * [Presentation Assistant](https://plugins.jetbrains.com/plugin/7345)
-  * [RegexPlugin](https://plugins.jetbrains.com/plugin/19)
   
