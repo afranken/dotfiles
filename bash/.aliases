@@ -61,6 +61,10 @@ alias gfd='git ld'
 alias gdiv='git divergence'
 alias greset='git rs'
 alias gresethard='git rh'
+#show all merged branches
+alias gshowmerged='git branch --merged | grep -v "\*" | grep -v master'
+#delete all merged branches
+alias gsdeletemerged='git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch -d'
 
 ## Grunt
 alias g="grunt"
