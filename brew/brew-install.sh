@@ -43,8 +43,8 @@ FORMULAE=(
   npm
 
   #app development
-  ios-sim
-  android-sdk
+  #ios-sim
+  #android-sdk
 )
 
 ### INSTALL
