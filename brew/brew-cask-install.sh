@@ -44,6 +44,7 @@ CASKS=(
   skype
   intellij-idea-ce
   diffmerge
+  spotify
 )
 
 ### INSTALL
