@@ -61,7 +61,7 @@ git config --global alias.cob 'checkout -b'
 ## always purge branches on fetch.
 git config --global alias.f 'fetch --prune'
 ## always rebase on pull
-git config --global alias.up '!git pull --rebase --prune $@ && git submodule update --init --recursive'
+git config --global alias.up '!git pull --tags --rebase --prune $@ && git submodule update --init --recursive'
 ## update and merge upstream into local branch
 git config --global alias.mergeupstream '!git fetch origin -v; git fetch upstream -v; git merge upstream/master'
 
