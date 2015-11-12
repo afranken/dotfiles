@@ -7,6 +7,8 @@ function _brewUpgrade() {
   brew upgrade
   echo "### brew cleanup"
   brew cleanup
+  echo "### brew cask upgrade"
+  $DOTFILES_PATH/brew/brew-cask-upgrade.sh
   echo "### brew cask cleanup"
   brew cask cleanup 
   echo "### brew update and upgrade done."
