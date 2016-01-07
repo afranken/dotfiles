@@ -20,3 +20,7 @@ regulary only on OSX.
 * `.aliases-osx` : contains OSX specific useful aliases available in the shell
 * `.functions-osx` : contains OSX specific commands too complex for simple aliases.
 * `.functions-linux` : contains Linux specific commands too complex for simple aliases.
+
+Useful description of Bash commands:
+---------
+https://github.com/jlevy/the-art-of-command-line
