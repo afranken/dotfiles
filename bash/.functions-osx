@@ -1,6 +1,8 @@
 ### Brew upgrade
 function _brewUpgrade() {
   echo "###############"
+  echo "### brew doctor"
+  brew doctor
   echo "### brew update"
   brew update
   echo "### brew upgrade"
