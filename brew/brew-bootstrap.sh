@@ -22,9 +22,9 @@ then
 fi
 
 #set group if not already set
-if [ ! -G `brew --prefix` ]; then
-  sudo chown -R $USER:staff `brew --prefix`
-fi
+#if [ ! -G `brew --prefix` ]; then
+#  sudo chown -R $USER:staff `brew --prefix`
+#fi
 
 ## get access to updated versions of utilities provided by OSX
 brew tap homebrew/dupes
