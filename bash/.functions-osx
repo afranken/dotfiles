@@ -1,5 +1,7 @@
 ### Brew upgrade
 function _brewUpgrade() {
+  # Ask for the administrator password upfront
+  sudo -v
   echo "###############"
   echo "### brew doctor"
   brew doctor
