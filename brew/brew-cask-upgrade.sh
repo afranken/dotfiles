@@ -47,7 +47,7 @@ IFS="${sentinel}"
 apps="${sentinel}$*${sentinel}"
 IFS="${oldIFS}"
 
-for appdir in /opt/homebrew-cask/Caskroom/*; do
+for appdir in /usr/local/Caskroom/*; do
   [ -d "${appdir}" ] || continue
   app="${appdir##*/}"
 
