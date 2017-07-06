@@ -61,3 +61,19 @@ function showbigfiles() {
   fi
     find . -type f -size +${size}M \( ! -iwholename "*target/*" \) \( ! -iwholename "*.git*" \) -exec du -h {} + | sort -gr;
 }
+
+function docker_stopall() {
+    docker stop $(docker ps -a -q)
+}
+
+function docker_deleteall_containers() {
+    docker rm $(docker ps -a -q)
+}
+
+function docker_deleteall_images() {
+    docker rmi $(docker images -q)
+}
+
+function docker_cleanall() {
+    docker_stopall && docker_deleteall_containers && docker_deleteall_images && docker volume prune
+}
