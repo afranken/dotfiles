@@ -23,28 +23,11 @@ FORMULAE=(
   
   ### MISC
   python
-  ack
-  dos2unix
-  wget
-  groovy
-  autoenv
-  
+
   ### GIT
   git
   #see https://github.com/magicmonty/bash-git-prompt
   bash-git-prompt
-  
-  ### MAVEN
-  maven
-
-  ### JavaScript
-  phantomjs
-  nodejs
-  npm
-
-  #app development
-  #ios-sim
-  #android-sdk
 )
 
 ### INSTALL

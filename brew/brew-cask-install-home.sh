@@ -27,7 +27,6 @@ CASKS=(
   openoffice
   picasa
   vlc
-  truecrypt
 )
 
 ### INSTALL
