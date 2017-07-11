@@ -25,6 +25,7 @@ CASKS=(
   chromium
   chefdk
   dockertoolbox
+  slack
 )
 
 ### INSTALL

@@ -23,32 +23,35 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 CASKS=(
-  alfred
-  firefox
-  google-chrome
-  silverlight
-  dropbox
-  google-drive
-  unrarx
-  flash
-  cyberduck
-  istat-menus
-  java
-  java7
-  jd-gui
-  onyx
-  path-finder
-  visualvm
   1password
-  iterm2
-  skype
+  adobe-creative-cloud
+  alfred
+  cyberduck
+  docker
+  dropbox
+  flash
+  google-chrome
+  google-drive
+  intellij-idea
   intellij-idea-ce
-  diffmerge
+  istat-menus
+  #iterm2
+  iterm2-beta
+  java
+  jd-gui
+  #path-finder
+  silverlight
+  skype
   spotify
+  textwrangler
+  virtualbox
+  virtualbox-extension-pack
+  visual-studio-code
+  visualvm
 )
 
 ### INSTALL
 brew cask install ${CASKS[@]}
 
-### INSTALL jvmtop, depends on Java Formula installed above:
-brew install jvmtop
+### INSTALL maven (has dependency on java installed in this file)
+brew install maven

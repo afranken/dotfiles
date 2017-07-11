@@ -22,8 +22,9 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 brew tap caskroom/cask
-brew tap caskroom/versions
 brew install homebrew/completions/brew-cask-completion
+#use `brew cu` for easy cask upgrades https://github.com/buo/homebrew-cask-upgrade
+brew tap buo/cask-upgrade
 
 ##link Caskroom into User Home for easy access from various applications (e.g. for setting JDKs in IntelliJ Idea)
 if [ ! -d ~/Caskroom ];
