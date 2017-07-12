@@ -26,10 +26,12 @@ CASKS=(
   1password
   adobe-creative-cloud
   alfred
+  commander-one
   cyberduck
   docker
   dropbox
   flash
+  font-hack-nerd-font
   google-chrome
   google-drive
   intellij-idea
