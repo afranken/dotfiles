@@ -24,7 +24,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 CASKS=(
   1password
-  adobe-creative-cloud
   alfred
   commander-one
   cyberduck
@@ -34,14 +33,11 @@ CASKS=(
   font-hack-nerd-font
   google-chrome
   google-drive
-  intellij-idea
   intellij-idea-ce
   istat-menus
-  #iterm2
-  iterm2-beta
+  iterm2
   java
   jd-gui
-  #path-finder
   silverlight
   skype
   spotify
