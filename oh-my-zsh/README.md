@@ -4,11 +4,11 @@ This folder contains zsh configuration.
 
 The files here are tested with [oh-my-zsh](http://ohmyz.sh/), and may not work with "regular" zsh installations.
 
-[Install powerline font](https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-2-install-a-powerline-font) and configure iTerm to use it.
+[Nerd-Font](https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#option-4-install-nerd-fonts) is already installed if `brew-cask-install.sh` was executed, configure iTerm to use it.
 
 * `zsh-bootstrap.sh` : link `.profile` to `~/.profile`
 * `.profile` : this file is loaded by every interactive shell when linked to `~/.profile`.
-* Edit `~/.zshrc` (unfortunately this can't be outsourced to a separate file) 
+* Edit `~/.zshrc` (unfortunately this can't be automated or outsourced to a separate file) 
     * Add ZSH Theme config:
         ```
         #ZSH_THEME="robbyrussell"
@@ -16,9 +16,7 @@ The files here are tested with [oh-my-zsh](http://ohmyz.sh/), and may not work w
         # See
         # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
         ZSH_THEME="powerlevel9k/powerlevel9k"
-        #POWERLEVEL9K_MODE="flat"
-        #POWERLEVEL9K_MODE="awesome-fontconfig"
-        POWERLEVEL9K_MODE="awesome-patched"
+        POWERLEVEL9K_MODE="nerdfont-complete"
         POWERLEVEL9K_COLOR_SCHEME='light'
         POWERLEVEL9K_PROMPT_ON_NEWLINE=true
         POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
