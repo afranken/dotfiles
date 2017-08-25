@@ -7,6 +7,10 @@ do
   source ${file}
 done
 
+source ${DOTFILES_PATH}/bash/.aliases
+source ${DOTFILES_PATH}/bash/.functions
+source ${DOTFILES_PATH}/bash/.functions-osx
+
 alias mcist="mvn clean install -DskipTests"
 
 # insert /usr/local/bin before /usr/bin in order to overwrite system commands with homebrew commands
