@@ -75,5 +75,5 @@ function docker_deleteall_images() {
 }
 
 function docker_cleanall() {
-    docker_stopall && docker_deleteall_containers && docker_deleteall_images && docker volume prune
+    docker_stopall & docker_deleteall_containers & docker_deleteall_images & yes | docker volume prune
 }
