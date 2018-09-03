@@ -11,6 +11,11 @@ IFS=$'\n\t'
 # use command debugging
 #set -x
 
+# Ask for the administrator password upfront
+sudo -v
+# Keep-alive: update existing `sudo` time stamp until function has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 base_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 ## check whether XCode command line tools are already installed, otherwise install.
@@ -50,7 +55,7 @@ function install {
     install_regex=$3
     while read line; do
         id=`echo ${line} | sed -E "s/${install_regex}|.*/\1/"`
-        ${install_cmd} ${id}
+        eval ${install_cmd} ${id}
     done <${install_file}
 }
 
@@ -58,7 +63,8 @@ function install {
 brew update
 
 # Install software
-install ${base_dir}/software/brew-cask-list "brew cask install --appdir=/Applications" "(.*)"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+install ${base_dir}/software/brew-cask-list "brew cask install" "(.*)"
 install ${base_dir}/software/brew-list "brew install" "(.*)"
 install ${base_dir}/software/mas-list "mas install" "([^ ]*).*"
 
