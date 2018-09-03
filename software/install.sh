@@ -40,7 +40,7 @@ fi
 ##link Caskroom into User Home for easy access from various applications (e.g. for setting JDKs in IntelliJ Idea)
 if [ ! -L ~/Caskroom ];
 then
-  ln -s /opt/homebrew-cask/Caskroom/ ~/Caskroom
+  ln -s /usr/local/Caskroom/ ~/Caskroom
 fi
 
 # Syntax:
