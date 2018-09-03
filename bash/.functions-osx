@@ -2,6 +2,8 @@
 function _brewUpgrade() {
   # Ask for the administrator password upfront
   sudo -v
+  # Keep-alive: update existing `sudo` time stamp until function has finished
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
   echo "###############"
   echo "### brew doctor"
   brew doctor
@@ -11,10 +13,10 @@ function _brewUpgrade() {
   brew upgrade
   echo "### brew cleanup"
   brew cleanup
+  echo "### brew prune"
+  brew prune
   echo "### brew cask upgrade"
-  yes | brew cu -a
-  echo "### brew cask cleanup"
-  brew cask cleanup 
+  yes | brew cu -a # requires "brew tap buo/cask-upgrade"
   echo "### brew update and upgrade done."
   echo "###############"
 }

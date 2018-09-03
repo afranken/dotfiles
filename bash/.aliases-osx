@@ -3,5 +3,4 @@ alias jenkinsstart='launchctl load /usr/local/opt/jenkins/homebrew.mxcl.jenkins.
 alias jenkinsstop='launchctl unload /usr/local/opt/jenkins/homebrew.mxcl.jenkins.plist'
 
 ## JAVA
-alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
