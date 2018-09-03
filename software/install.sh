@@ -27,6 +27,7 @@ fi
 if ! hash "brew"; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew tap homebrew/cask-fonts
+    brew tap homebrew/cask-versions
     #use `brew cu` for easy cask upgrades https://github.com/buo/homebrew-cask-upgrade
     brew tap buo/cask-upgrade
 fi
