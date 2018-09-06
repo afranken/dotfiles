@@ -71,4 +71,3 @@ install ${base_dir}/mas-list "mas install" "([^ ]*).*"
 
 # Cleanup
 brew cleanup
-brew cask cleanup
