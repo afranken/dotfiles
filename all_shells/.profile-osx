@@ -1,8 +1,8 @@
 # OSX specific settings
 export LSCOLORS='gxfxcxdxbxegedabagacad'
 
-# add current path as tab title in terminal
-PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+# add current path as tab title in terminal (iTerm2 does so automatically)
+#PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
 # insert /usr/local/bin before /usr/bin in order to overwrite system commands with homebrew commands
 # also insert /usr/local/sbin

@@ -3,7 +3,6 @@ alias sudo="sudo "
 
 ## Modified commands
 alias grep='grep --color=auto'
-alias more='less'
 alias df='df -kh'
 alias du='du -chs'
 alias mkdir='mkdir -p -v'
@@ -13,17 +12,12 @@ alias vi='vim'
 
 ## New commands
 alias du1='du -sh --max-depth=1'
-alias hist='history | grep'         # requires an argument
 alias pgg='ps -Af | grep'           # requires an argument
-alias pg='pgrep -lf'                # requires an argument
-alias jsonpretty="python -mjson.tool"     # make pretty json file from ugly json file
 
 ## Directory shortcuts
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
 
 ## ls
 alias ls='ls -ahFG'
@@ -66,14 +60,9 @@ alias gshowmerged='git branch --merged | grep -v "\*" | grep -v master'
 #delete all merged branches
 alias gsdeletemerged='git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch -d'
 
-## Grunt
-alias g="grunt"
-alias gw="grunt watch"
-
 ## Maven
 alias installboms="find . -type d -name '*bom*' -exec sh -c '(cd {} && mvn clean install)' ';'"
-alias mvnfolders="mkdir -p src/{main,test}/{java,resources}"
-alias mcv="mvn clean verify"
+alias mkmvndirs="mkdir -p src/{main,test}/{java,resources}"
 alias mci="mvn clean install"
 alias mcist="mvn clean install -DskipTests"
 alias mpl="mvn clean install -pl"
