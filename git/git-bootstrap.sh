@@ -102,5 +102,8 @@ git config --global alias.rs 'reset --soft "HEAD^"'
 ## hard reset changes (i.e. reset commit, trash edited files in working tree)
 git config --global alias.rh 'reset --hard'
 
-## clean up local repository. Compact files, delete references to remote branches, ... 
+## clean up local repository. Delete all local branches that have been merged to master.
+git config --global alias.cleanbranches '!git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
+
+## clean up local repository. Compact files, delete references to remote branches, ...
 git config --global alias.cleanup '!git gc --prune=now && git remote prune origin'
