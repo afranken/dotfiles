@@ -29,3 +29,5 @@ fi
 #just dummy values to make the AWS-SDK happy during local tests.
 export AWS_ACCESS_KEY_ID=NONE
 export AWS_SECRET_KEY=NONE
+
+export TERM=xterm-256color

@@ -34,10 +34,9 @@ fi
 
 export EDITOR=vi
 export VISUAL=vi
-#export TERM=xterm-256color
 
 # configure Maven
-export MAVEN_OPTS='-ms256m -mx2048m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
+export MAVEN_OPTS='-ms256m -mx3072m -Dfile.encoding=UTF-8 -Djava.awt.headless=true'
 
 if [ -d "/usr/local/opt/groovy/libexec" ] ; then
   export GROOVY_HOME=/usr/local/opt/groovy/libexec
