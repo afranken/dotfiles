@@ -25,3 +25,7 @@ source "${BASH_SRC_PATH}"/.bashrc
 if [ ${CURRENT_UNAME} == ${MAC_UNAME} ]; then
   source "${BASH_SRC_PATH}"/.bashrc-osx
 fi
+
+#just dummy values to make the AWS-SDK happy during local tests.
+export AWS_ACCESS_KEY_ID=NONE
+export AWS_SECRET_KEY=NONE
