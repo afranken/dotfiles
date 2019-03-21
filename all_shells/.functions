@@ -34,7 +34,7 @@ function remindme() {
     then
       cat "${BASH_SRC_PATH}"/.aliases*
     else
-      grep -i -h -a1 $@ "${BASH_SRC_PATH}"/.aliases* | grep -v '^\s*$' ;
+      grep -i -h -a1 $@ "${SHELLS_SRC_PATH}"/.aliases* | grep -v '^\s*$' ;
   fi
 }
 
