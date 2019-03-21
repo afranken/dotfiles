@@ -22,20 +22,21 @@ git config --global user.email ${email}
 #turn all color options on (with git 1.5.5+)
 git config --global color.ui "auto"
 
-#Configure line endings for operation system
+#Use line endings of operation system locally, not repository
+#this makes working with different operating systems easier
 git config --global core.autocrlf input
 
 #enable aut-detection for number of threads to use (good for multi-CPU or multi-core computers) for packing repositories
 git config --global pack.threads "0"
 
-#Configure Git to detect renames on diff and merge.
+#Detect renames on diff and merge regardless of path depth / repository size.
 git config --global diff.renamelimit 0
 git config --global merge.renamelimit 0
 
 #make sure that Git reuses information about recent conflict resolutions.
 git config --global rerere.enabled true
 
-#Configure Git to use rebase by default
+#Use rebase by default
 git config --global branch.autosetuprebase always
 
 #always push to upstream branches (e.g. tracked branches with a different name)
