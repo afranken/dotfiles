@@ -73,8 +73,14 @@ alias mamdpl="mvn clean install -amd -pl"
 alias mamdplst="mvn clean install -DskipTests -amd -pl"
 
 #docker
+# stop all running containers
 alias dsa='docker stop $(docker ps -aq)'
+# remove all containers
 alias drma='docker rm $(docker ps -aq)'
+# cleanup all volumes
 alias dcv='docker volume prune -f'
 alias dclean='dsa ; drma ; dcv'
+# brute force docker cleanup
 alias dsp='docker system prune -f -a --volumes'
+# bash in a running container
+alias dbash='function _dbash(){docker exec -ti $1 bash};_dbash'
