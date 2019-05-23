@@ -1,7 +1,7 @@
 dotfiles
 ==========
 
-This repository contains configuration and installation scripts for **OSX Mavericks**.
+This repository contains configuration and installation scripts for **OSX**.
 I develop Java and JavaScript applications with GIT, Maven, Node and Grunt, all configuration and software is tailored around that.
 
 if Git is already installed,
@@ -20,12 +20,17 @@ After installing GIT, to sync the local repo with the remote, do:
     git reset --hard origin/master
     git branch -u origin/master
 
-There is a `*-bootstrap.sh` script in most folders, **take a look at each script before executing it. (!)**
+There is a `*-bootstrap.sh` or `install.sh` script in most folders, **take a look at each script before executing it. (!)**
 
 
 Run scripts in this order:
 
-1. `brew/`: homebrew configuration and installation scripts. Next steps rely on software installed here.
-2. `git/` : git configuration.
-3. `bash/`: profile, functions, aliases.
-4. `osx/` : osx configuration
+1. `all_shells/`: profile, functions, aliases compatible with bash and zsh
+1. `bash/`: profile, functions, aliases.
+1. `bin/`: various little helpers
+1. `git/` : git configuration.
+1. `intellij-idea/` : Idea configuration.
+1. `local/`: put in local aliases, environment variables etc. here that you don't want to push
+1. `oh-my-zsh/`: Oh-My-Zsh installation and configuration 
+1. `software/`: Mac AppStore and homebrew configuration and installation scripts. Next steps rely on software installed here.
+1. `osx/` : osx configuration
