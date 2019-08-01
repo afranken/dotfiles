@@ -11,11 +11,13 @@ IFS=$'\n\t'
 # use command debugging
 #set -x
 
+base_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 #Mac AppStore - list all installed apps
-mas list > mas-list
+mas list > "${base_dir}"/mas-list
 
 #Brew - list all DIRECTLY installed apps (brew leaves does not list automatically installed dependencies)
-brew leaves > brew-list
+brew leaves > "${base_dir}"/brew-list
 
 #Brew Cask - list all installed apps
-brew cask list > brew-cask-list
+brew cask list > "${base_dir}"/brew-cask-list
