@@ -7,5 +7,5 @@ if [ -z "$1" ];
     echo "show-merge-commit needs a commit hash to find the commit merging it to the current branch.";
     exit 1;
   else
-    git log --merges --ancestry-path --oneline $1..origin | tail;
+    git log --merges --ancestry-path --oneline "$1"..origin | tail;
 fi

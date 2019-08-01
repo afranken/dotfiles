@@ -8,5 +8,5 @@ if [ -z "$1" ];
     echo "show-commit-by-content needs a string to find a matching commit with.";
     exit 1;
   else
-    git log -S$1;
+    git log -S"$1";
 fi

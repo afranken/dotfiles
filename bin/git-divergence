@@ -19,7 +19,7 @@ set -e
     ref=$1
     (
       set +e
-      git show-ref $ref > /dev/null
+      git show-ref "$ref" > /dev/null
       if [[ $? == 1 ]]; then
         echo "$0: bad ref: $ref"
         exit 1
@@ -30,7 +30,7 @@ set -e
   # print information about the revision
   function show_rev() {
     rev=${1}
-    git log -1 $rev --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    git log -1 "$rev" --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     echo
   }
 
@@ -44,29 +44,29 @@ set -e
     LOCAL=${1}
     REMOTE=${2}
   elif [[ $# == 1 ]]; then
-    LOCAL=`currentBranch`
+    LOCAL=$(currentBranch)
     REMOTE=${1}
   else
-    LOCAL=`currentBranch`
+    LOCAL=$(currentBranch)
     REMOTE=origin/${LOCAL}
   fi
 
   echo "changes from ${LOCAL} to ${REMOTE}:"
   echo
 
-  ensure_valid_ref ${LOCAL}
-  ensure_valid_ref ${REMOTE}
+  ensure_valid_ref "${LOCAL}"
+  ensure_valid_ref "${REMOTE}"
 
   echo "incoming (on ${REMOTE} but not on ${LOCAL}):"
   echo
-  for rev in `git rev-list ${LOCAL}..${REMOTE}`; do
-    show_rev ${rev}
+  for rev in $(git rev-list "${LOCAL}".."${REMOTE}"); do
+    show_rev "${rev}"
   done
 
   echo
   echo "outgoing (on ${LOCAL} but not on ${REMOTE}):"
   echo
-  for rev in `git rev-list ${REMOTE}..${LOCAL}`; do
-    show_rev ${rev}
+  for rev in $(git rev-list "${REMOTE}".."${LOCAL}"); do
+    show_rev "${rev}"
   done
 ) | less -r
