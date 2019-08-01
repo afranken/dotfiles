@@ -19,7 +19,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 base_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 ## check whether XCode command line tools are already installed, otherwise install.
-if [ $(xcode-select -p &> /dev/null) -g 0 ]; then
+if [ "$(xcode-select -p &> /dev/null)" -g 0 ]; then
   xcode-select --install
 fi
 
@@ -55,9 +55,9 @@ function install {
     install_cmd=$2
     install_regex=$3
     while read line; do
-        id=`echo ${line} | sed -E "s/${install_regex}|.*/\1/"`
-        eval ${install_cmd} ${id}
-    done <${install_file}
+        id=$(echo "${line}" | sed -E "s/${install_regex}|.*/\1/")
+        eval "${install_cmd}" "${id}"
+    done <"${install_file}"
 }
 
 # Update brew
@@ -65,9 +65,9 @@ brew update
 
 # Install software
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-install ${base_dir}/brew-cask-list "brew cask install" "(.*)"
-install ${base_dir}/brew-list "brew install" "(.*)"
-install ${base_dir}/mas-list "mas install" "([^ ]*).*"
+install "${base_dir}"/brew-cask-list "brew cask install" "(.*)"
+install "${base_dir}"/brew-list "brew install" "(.*)"
+install "${base_dir}"/mas-list "mas install" "([^ ]*).*"
 
 # Cleanup
 brew cleanup

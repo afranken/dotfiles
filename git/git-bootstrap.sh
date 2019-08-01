@@ -15,9 +15,9 @@ username=${GIT_USERNAME:?"Please set environment variable GIT_USERNAME"}
 email=${GIT_EMAIL:?"Please set environment variable GIT_EMAIL"}
 
 #set your name here
-git config --global user.name ${username}
+git config --global user.name "${username}"
 #set your email here
-git config --global user.email ${email} 
+git config --global user.email "${email}"
 
 #turn all color options on (with git 1.5.5+)
 git config --global color.ui "auto"
@@ -88,7 +88,7 @@ git config --global alias.fl 'log -u'
 ## show only files for a commit
 git config --global alias.showfiles 'diff-tree --no-commit-id --name-status -r'
 ## show previously deleted file in latest known revision
-git config --global alias.showrm '!f() { git show $(git rev-list --max-count=1 --all -- $1)^:$1; }; f'
+git config --global alias.showrm "!f() { git show $(git rev-list --max-count=1 --all -- "$1")^:$1; }; f"
 
 ## Show modified files in last commit
 git config --global alias.dl = '!git ll -1'

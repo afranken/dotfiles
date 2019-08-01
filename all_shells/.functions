@@ -34,7 +34,7 @@ function remindme() {
     then
       cat "${BASH_SRC_PATH}"/.aliases*
     else
-      grep -i -h -a1 $@ "${SHELLS_SRC_PATH}"/.aliases* | grep -v '^\s*$' ;
+      grep -i -h -a1 "$@" "${SHELLS_SRC_PATH}"/.aliases* | grep -v '^\s*$' ;
   fi
 }
 
@@ -44,7 +44,7 @@ function remindme() {
 function github() {
     local url=$(git remote -v 2>/dev/null | awk '/.+github\.com.+(fetch)/ {sub(/git:/,"http:"); print $2}')
     if [ "${url}" ]; then
-        open -a Google\ Chrome ${url}
+        open -a Google\ Chrome "${url}"
     fi
 }
 
