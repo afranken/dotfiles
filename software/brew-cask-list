@@ -4,7 +4,7 @@ alfred
 bbedit
 blue-jeans
 chromium
-commander-one
+cryptr
 docker
 dropbox
 firefox
@@ -13,10 +13,12 @@ google-chrome
 istat-menus
 iterm2-beta
 java
+java11
 java8
-java9
 jd-gui
 jetbrains-toolbox
+p4v
+path-finder
 postman
 signal
 silverlight
