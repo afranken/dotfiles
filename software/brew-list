@@ -7,7 +7,7 @@ dos2unix
 git
 go
 gradle
-groovy
+groovysdk
 jq
 jvmtop
 mas
@@ -15,7 +15,7 @@ maven
 p7zip
 plantuml
 protobuf
-protobuf@2.5
 sonarqube
 terminal-notifier
+trash
 wget
