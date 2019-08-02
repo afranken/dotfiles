@@ -3,7 +3,11 @@ function _brewUpgrade() {
   # Ask for the administrator password upfront
   sudo -v
   # Keep-alive: update existing `sudo` time stamp until function has finished
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+  while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+  done 2>/dev/null &
   echo "###############"
   echo "### brew doctor"
   brew doctor
@@ -64,12 +68,11 @@ function _notified_maven() {
   PRE_JAVA_OPTIONS="$_JAVA_OPTIONS"
   export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djava.awt.headless=true"
 
-  if [ -n "$(hash terminal-notifier 2>/dev/null)" ];
-    then
-      maven "$@"
-      _maven_notify $?
-    else
-      maven "$@"
+  if [ -n "$(hash terminal-notifier 2>/dev/null)" ]; then
+    maven "$@"
+    _maven_notify $?
+  else
+    maven "$@"
   fi
   export _JAVA_OPTIONS="$PRE_JAVA_OPTIONS"
 }

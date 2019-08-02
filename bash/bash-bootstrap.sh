@@ -11,5 +11,5 @@ IFS=$'\n\t'
 # use command debugging
 #set -x
 
-echo '. ~/.dotfiles/bash/.profile' > ~/.profile
+echo '. ~/.dotfiles/bash/.profile' >~/.profile
 source ~/.profile

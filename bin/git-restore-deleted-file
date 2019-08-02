@@ -5,10 +5,9 @@
 # Usage: git restore-deleted-file <commit-hash> <file>
 #################################################################################
 
-if [ "$#" != "2" ];
-  then
-    echo "restore-deleted-file needs a commit hash and the deleted filename to restore.";
-    exit 1;
-  else
-    git checkout "$1"~1 "$2";
+if [ "$#" != "2" ]; then
+  echo "restore-deleted-file needs a commit hash and the deleted filename to restore."
+  exit 1
+else
+  git checkout "$1"~1 "$2"
 fi

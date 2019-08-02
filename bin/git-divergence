@@ -19,7 +19,7 @@ set -e
     ref=$1
     (
       set +e
-      git show-ref "$ref" > /dev/null
+      git show-ref "$ref" >/dev/null
       if [[ $? == 1 ]]; then
         echo "$0: bad ref: $ref"
         exit 1
