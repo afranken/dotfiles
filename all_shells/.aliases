@@ -12,7 +12,7 @@ alias vi='vim'
 
 ## New commands
 alias du1='du -sh --max-depth=1'
-alias pgg='ps -Af | grep'           # requires an argument
+alias pgg='ps -Af | grep' # requires an argument
 
 ## Directory shortcuts
 alias ..='cd ..'

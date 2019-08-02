@@ -3,10 +3,9 @@
 # git-findcommitbycontent: find commit adding or removing given string. #
 #########################################################################
 
-if [ -z "$1" ];
-  then
-    echo "show-commit-by-content needs a string to find a matching commit with.";
-    exit 1;
-  else
-    git log -S"$1";
+if [ -z "$1" ]; then
+  echo "show-commit-by-content needs a string to find a matching commit with."
+  exit 1
+else
+  git log -S"$1"
 fi

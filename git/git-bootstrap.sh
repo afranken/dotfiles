@@ -48,7 +48,6 @@ git config --global credential.helper osxkeychain
 #automatically correct misspelled git commands
 git config --global help.autocorrect 1
 
-
 ### add git aliases
 git config --global alias.a 'add'
 git config --global alias.ap 'add --patch'
