@@ -20,4 +20,4 @@ mas list >"${base_dir}"/mas-list
 brew leaves >"${base_dir}"/brew-list
 
 #Brew Cask - list all installed apps
-brew cask list >"${base_dir}"/brew-cask-list
+brew list --cask >"${base_dir}"/brew-cask-list
