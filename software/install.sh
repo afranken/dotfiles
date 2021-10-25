@@ -67,7 +67,7 @@ brew update
 
 # Install software
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-install "${base_dir}"/brew-cask-list "brew cask install" "(.*)"
+install "${base_dir}"/brew-cask-list "brew install --cask" "(.*)"
 install "${base_dir}"/brew-list "brew install" "(.*)"
 install "${base_dir}"/mas-list "mas install" "([^ ]*).*"
 
