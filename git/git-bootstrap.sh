@@ -88,6 +88,8 @@ git config --global alias.fl 'log -u'
 git config --global alias.showfiles 'diff-tree --no-commit-id --name-status -r'
 ## show previously deleted file in latest known revision
 git config --global alias.showrm "!f() { git show $(git rev-list --max-count=1 --all -- "$1")^:$1; }; f"
+## show all commits for a previously deleted file
+git config --global alias.showrmcommits 'log --all --full-history --'
 
 ## Show modified files in last commit
 git config --global alias.dl = '!git ll -1'
