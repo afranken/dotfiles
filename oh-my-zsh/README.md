@@ -17,3 +17,5 @@ The files here are tested with [oh-my-zsh](http://ohmyz.sh/), and may not work w
         ```
         plugins=(git mvn docker)
         ```
+    * Enable completions
+        https://github.com/zsh-users/zsh-completions
