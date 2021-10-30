@@ -1,5 +1,7 @@
-## JAVA
+## Aliases to quickly switch between Java LTE releases
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 alias java11='export JAVA_HOME=$(/usr/libexec/java_home -v 11)'
+alias java17='export JAVA_HOME=$(/usr/libexec/java_home -v 17)'
 
+# Open BBEdit, pass optional argument as file to open
 alias bb='open -a BBEdit '
