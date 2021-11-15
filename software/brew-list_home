@@ -1,0 +1,11 @@
+autoenv
+awscli
+bash
+docker
+git
+gradle
+mas
+maven
+node
+python@3.8
+terminal-notifier
