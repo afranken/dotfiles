@@ -19,3 +19,4 @@ The files here are tested with [oh-my-zsh](http://ohmyz.sh/), and may not work w
         ```
     * Enable completions
         https://github.com/zsh-users/zsh-completions
+* Install theme: https://github.com/romkatv/powerlevel10k
