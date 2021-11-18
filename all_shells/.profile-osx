@@ -8,7 +8,7 @@ export LSCOLORS='gxfxcxdxbxegedabagacad'
 # also insert /usr/local/sbin
 export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export IDEA_JDK=$(/usr/libexec/java_home)
 
 # configure Maven
