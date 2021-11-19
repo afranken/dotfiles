@@ -5,3 +5,9 @@ alias java17='export JAVA_HOME=$(/usr/libexec/java_home -v 17)'
 
 # Open BBEdit, pass optional argument as file to open
 alias bb='open -a BBEdit '
+
+# List all open ports
+alias lsofg='lsof -i -P | grep -i "listen"'
+
+# Start a process in rosetta to emulate x86 processors
+alias rosetta='arch -x86_64'
