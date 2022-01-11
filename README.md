@@ -33,4 +33,3 @@ Run scripts in this order:
 1. `local/`: put in local aliases, environment variables etc. here that you don't want to push
 1. `oh-my-zsh/`: Oh-My-Zsh installation and configuration 
 1. `software/`: Mac AppStore and homebrew configuration and installation scripts. Next steps rely on software installed here.
-1. `osx/` : osx configuration
