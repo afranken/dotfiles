@@ -1,10 +1,8 @@
-#ZSH
+# ZSH
 
 This folder contains zsh configuration.
 
 The files here are tested with [oh-my-zsh](http://ohmyz.sh/), and may not work with "regular" zsh installations.
-
-[Nerd-Font](https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#option-4-install-nerd-fonts) is already installed if [install.sh](../software/install.sh) was executed, configure iTerm to use it.
 
 * `zsh-bootstrap.sh` : install oh-my-zsh
 * Edit `~/.zshrc` (unfortunately this can't be automated or outsourced to a separate file) 
@@ -19,4 +17,6 @@ The files here are tested with [oh-my-zsh](http://ohmyz.sh/), and may not work w
         ```
     * Enable completions
         https://github.com/zsh-users/zsh-completions
-* Install theme: https://github.com/romkatv/powerlevel10k
+* Install theme: [PowerLevel10k](https://github.com/romkatv/powerlevel10k)
+  * Using Oh My Zsh [Install](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
+  * If using iTerm2, install `Meslo Nerd Font` with the `p10k configure` command.
