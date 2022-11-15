@@ -8,8 +8,8 @@ export LSCOLORS='gxfxcxdxbxegedabagacad'
 # also insert /usr/local/sbin
 export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 17)
-export IDEA_JDK=$(/usr/libexec/java_home)
+# put brew on the path
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # configure Maven
 export M2_HOME=/usr/local/opt/maven/libexec
