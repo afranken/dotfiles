@@ -26,6 +26,10 @@ git config --global color.ui "auto"
 #this makes working with different operating systems easier
 git config --global core.autocrlf input
 
+# Enable cloning huge repositories like homebrew
+git config --global core.compression 0
+git config --global http.postBuffer 1048576000
+
 #enable aut-detection for number of threads to use (good for multi-CPU or multi-core computers) for packing repositories
 git config --global pack.threads "0"
 
@@ -105,7 +109,7 @@ git config --global alias.rs 'reset --soft "HEAD^"'
 git config --global alias.rh 'reset --hard'
 
 ## clean up local repository. Delete all local branches that have been merged to master.
-git config --global alias.cleanbranches '!git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
+git config --global alias.cleanbranches '!git branch --merged | egrep -v "(^\*|main)" | xargs git branch -d'
 
 ## clean up local repository. Compact files, delete references to remote branches, ...
 git config --global alias.cleanup '!git gc --prune=now && git remote prune origin'
