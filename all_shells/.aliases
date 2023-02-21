@@ -21,6 +21,7 @@ alias ....='cd ../../..'
 
 ## ls
 alias ls='ls -ahFG'
+alias l='ls -l'
 alias ll='ls -l'
 #recursive directory listings as a tree
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'

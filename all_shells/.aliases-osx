@@ -11,3 +11,5 @@ alias lsofg='lsof -i -P | grep -i "listen"'
 
 # Start a process in rosetta to emulate x86 processors
 alias rosetta='arch -x86_64'
+
+alias ls=lsd
