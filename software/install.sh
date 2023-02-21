@@ -23,7 +23,7 @@ done 2>/dev/null &
 base_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 ## check whether XCode command line tools are already installed, otherwise install.
-if [ "$(xcode-select -p &>/dev/null)" -g 0 ]; then
+if [ "$(xcode-select -p &>/dev/null)" -gt 0 ]; then
   xcode-select --install
 fi
 
@@ -34,16 +34,18 @@ if ! hash "brew"; then
   brew tap homebrew/cask-versions
   #use `brew cu` for easy cask upgrades https://github.com/buo/homebrew-cask-upgrade
   brew tap buo/cask-upgrade
+  # add brew to path
+  echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> $HOME/.zshrc
 fi
 
 ##link Cellar into User Home for easy access from various applications (e.g. for setting JDKs in IntelliJ Idea)
 if [ ! -L ~/Cellar ]; then
-  ln -s /usr/local/Cellar ~/Cellar
+  ln -s /opt/homebrew/Cellar ~/Cellar
 fi
 
 ##link Caskroom into User Home for easy access from various applications (e.g. for setting JDKs in IntelliJ Idea)
 if [ ! -L ~/Caskroom ]; then
-  ln -s /usr/local/Caskroom/ ~/Caskroom
+  ln -s /opt/homebrew/Caskroom/ ~/Caskroom
 fi
 
 # Syntax:
@@ -65,11 +67,17 @@ function install() {
 # Update brew
 brew update
 
+if [[ -z ${1-} ]]; then
+  system_suffix=""
+else
+  system_suffix="_$1"
+fi
+
 # Install software
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-install "${base_dir}"/brew-cask-list "brew install --cask" "(.*)"
-install "${base_dir}"/brew-list "brew install" "(.*)"
-install "${base_dir}"/mas-list "mas install" "([^ ]*).*"
+install "${base_dir}"/brew-cask-list${system_suffix} "brew install --cask" "(.*)"
+install "${base_dir}"/brew-list${system_suffix} "brew install" "(.*)"
+install "${base_dir}"/mas-list${system_suffix} "mas install" "([^ ]*).*"
 
 # Cleanup
 brew cleanup
