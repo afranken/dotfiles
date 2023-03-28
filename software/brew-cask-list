@@ -9,12 +9,11 @@ cyberduck
 docker
 drawio
 dropbox
-elgato-control-center
 firefox
 google-chrome
 istat-menus
-iterm2-beta
-jabra-direct
+homebrew/cask-versions/iterm2-beta
+homebrew/cask-drivers/jabra-direct
 jd-gui
 jetbrains-toolbox
 lens
