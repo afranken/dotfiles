@@ -80,7 +80,12 @@ alias dsa='docker stop $(docker ps -aq)'
 alias drma='docker rm $(docker ps -aq)'
 # cleanup all volumes
 alias dcv='docker volume prune -f'
-alias dclean='dsa ; drma ; dcv'
+# cleanup all images older than 10 days
+alias dci='docker image prune -a --filter "until=240h" -f'
+# cleanup all containers older than 10 days
+alias dcc='docker container prune --filter "until=240h" -f'
+# cleanup everything safely
+alias dclean='dsa ; dcc ; dci ; dcv'
 # brute force docker cleanup
 alias dsp='docker system prune -f -a --volumes'
 # bash in a running container
