@@ -9,9 +9,8 @@ lsd
 mas
 maven
 node
+powerlevel10k
 python@3.8
-romkatv/powerlevel10k/powerlevel10k
 socat
 terminal-notifier
-zsh
 zsh-syntax-highlighting
