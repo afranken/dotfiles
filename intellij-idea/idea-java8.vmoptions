@@ -1,9 +1,0 @@
--Xms3072m
--Xmx3072m
--XX:PermSize=512m
--XX:MaxPermSize=512m
--XX:+UseG1GC
--XX:InitiatingHeapOccupancyPercent=68
--XX:ReservedCodeCacheSize=256m
--XX:+UseCompressedOops
--XX:+UseCodeCacheFlushing

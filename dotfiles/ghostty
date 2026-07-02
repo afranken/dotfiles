@@ -1,0 +1,8 @@
+theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
+
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+
+macos-option-as-alt = left
+copy-on-select = clipboard
+desktop-notifications = true

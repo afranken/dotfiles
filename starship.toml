@@ -1,0 +1,73 @@
+# ~/.config/starship.toml
+# Clean, readable prompt with useful context for Python/AWS/Kubernetes work.
+
+add_newline = false
+command_timeout = 1000
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$python\
+$aws\
+$kubernetes\
+$cmd_duration\
+$line_break\
+$character"""
+
+[directory]
+style = "bold cyan"
+truncation_length = 4
+truncate_to_repo = false
+read_only = " "
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold yellow)"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold yellow"
+format = "([$all_status$ahead_behind]($style) )"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "*${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[python]
+symbol = "🐍 "
+style = "bold green"
+format = "[${symbol}${pyenv_prefix}${version}( $virtualenv)]($style) "
+
+[aws]
+symbol = "☁️  "
+style = "bold yellow"
+format = "[$symbol($profile)(@$region)]($style) "
+
+[kubernetes]
+disabled = false
+symbol = "☸ "
+style = "bold blue"
+format = "[$symbol$context(::$namespace)]($style) "
+
+[cmd_duration]
+min_time = 1000
+style = "dimmed white"
+format = "took [$duration]($style) "
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true

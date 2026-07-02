@@ -1,0 +1,61 @@
+# ~/.gitconfig
+# Managed by ~/.dotfiles — do not edit directly.
+# Identity is set per-directory via includeIf; see README.md for setup.
+
+[user]
+	name = Arne Franken
+	# No default email — git will warn if you clone outside a configured directory.
+	# Set a fallback here if you prefer: email = coding@techotronic.de
+
+[includeIf "gitdir:~/dev/"]
+	path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/work/adobe/"]
+	path = ~/.gitconfig-adobe
+
+[includeIf "gitdir:~/work/corp/"]
+	path = ~/.gitconfig-corp
+
+[core]
+	autocrlf = input
+	pager = delta
+
+[color]
+	ui = auto
+
+[push]
+	default = current
+	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
+[fetch]
+	prune = true
+
+[rerere]
+	enabled = true
+
+[diff]
+	renamelimit = 0
+
+[merge]
+	renamelimit = 0
+
+[delta]
+	navigate = true
+	side-by-side = true
+
+[interactive]
+	diffFilter = delta --color-only
+
+[credential]
+	helper = osxkeychain
+
+[help]
+	autocorrect = 1
+
+[alias]
+	s  = status --short --branch
+	co = checkout
+	la = !git config -l | grep alias | cut -c 7-

@@ -1,0 +1,222 @@
+# ~/.zshrc
+# Reproducible, minimal Zsh setup.
+# Keep machine-specific settings in ~/.zshrc.local and ~/.aliases.local.
+
+# -------------------------
+# Homebrew environment
+# -------------------------
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# -------------------------
+# XDG / local paths
+# -------------------------
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export PATH="$HOME/.local/bin:$PATH"
+
+# -------------------------
+# Zsh behaviour
+# -------------------------
+setopt autocd
+setopt interactive_comments
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt share_history
+setopt inc_append_history
+setopt extended_history
+
+HISTFILE="${HISTFILE:-$HOME/.zsh_history}"
+HISTSIZE=100000
+SAVEHIST=100000
+
+# -------------------------
+# Completion
+# -------------------------
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+compinit
+
+# -------------------------
+# Prompt
+# -------------------------
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
+
+# -------------------------
+# Better navigation
+# -------------------------
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh --cmd cd)"
+fi
+
+# -------------------------
+# Searchable history
+# -------------------------
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init zsh)"
+fi
+
+# -------------------------
+# FZF integration
+# -------------------------
+if command -v fzf >/dev/null 2>&1; then
+  eval "$(fzf --zsh)"
+fi
+
+# -------------------------
+# Plugins installed via Homebrew
+# -------------------------
+BREW_PREFIX="$(brew --prefix 2>/dev/null || true)"
+
+if [[ -n "$BREW_PREFIX" && -r "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
+# Syntax highlighting must be sourced last.
+if [[ -n "$BREW_PREFIX" && -r "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+# -------------------------
+# Aliases: modern CLI basics
+# -------------------------
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza --icons --group-directories-first'
+  alias ll='eza -l --icons --git --group-directories-first'
+  alias la='eza -la --icons --git --group-directories-first'
+  alias lt='eza --tree --icons --level=2 --group-directories-first'
+else
+  alias ll='ls -lah'
+  alias la='ls -la'
+fi
+
+alias grep='grep --colour=auto'
+alias cp='cp -i'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias reload='source ~/.zshrc'
+alias path='echo $PATH | tr ":" "\n"'
+
+# Git
+alias g='git'
+alias gst='git status --short --branch'
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='git commit --amend'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gp='git push'
+alias gpf='git push --force-with-lease'
+alias gl='git pull'
+alias glg='git log --oneline --decorate --graph --all'
+alias gd='git diff'
+alias gds='git diff --staged'
+
+# Docker
+alias dps='docker ps'
+alias dpa='docker ps -a'
+alias dsa='docker stop $(docker ps -aq)'
+alias drma='docker rm $(docker ps -aq)'
+alias dcv='docker volume prune -f'
+alias dci='docker image prune -a --filter "until=240h" -f'
+alias dcc='docker container prune --filter "until=240h" -f'
+alias dclean='dsa ; dcc ; dci ; dcv'
+alias dsp='docker system prune -f -a --volumes'
+
+# Python / uv
+alias py='python3'
+alias uvv='uv venv'
+alias uvr='uv run'
+alias uvt='uv run pytest'
+alias uvl='uv run ruff check .'
+alias uvlf='uv run ruff check . --fix'
+alias uvfmt='uv run ruff format .'
+
+# AWS
+alias awswho='aws sts get-caller-identity'
+alias awsls='aws s3 ls'
+
+# Kubernetes
+alias k='kubectl'
+alias kgp='kubectl get pods'
+alias kgs='kubectl get svc'
+alias kgd='kubectl get deploy'
+alias kctx='kubectx'
+alias kns='kubens'
+alias kl='kubectl logs'
+alias kpf='kubectl port-forward'
+
+# Local AI / agents
+alias oll='ollama'
+
+# -------------------------
+# Small functions
+# -------------------------
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+serve() {
+  local port="${1:-8000}"
+  python3 -m http.server "$port"
+}
+
+venv() {
+  local dir="${1:-.venv}"
+  python3 -m venv "$dir"
+  source "$dir/bin/activate"
+}
+
+extract() {
+  if [[ ! -f "$1" ]]; then
+    echo "extract: '$1' is not a file" >&2
+    return 1
+  fi
+  case "$1" in
+    *.tar.bz2) tar xjf "$1" ;;
+    *.tar.gz)  tar xzf "$1" ;;
+    *.bz2)     bunzip2 "$1" ;;
+    *.rar)     unrar x "$1" ;;
+    *.gz)      gunzip "$1" ;;
+    *.tar)     tar xf "$1" ;;
+    *.tbz2)    tar xjf "$1" ;;
+    *.tgz)     tar xzf "$1" ;;
+    *.zip)     unzip "$1" ;;
+    *.Z)       uncompress "$1" ;;
+    *.7z)      7z x "$1" ;;
+    *)         echo "extract: unsupported archive '$1'" >&2; return 1 ;;
+  esac
+}
+
+doctor-shell() {
+  echo "Shell:    $SHELL"
+  echo "Zsh:      $(zsh --version 2>/dev/null | head -n1 || echo missing)"
+  echo "Brew:     $(brew --version 2>/dev/null | head -n1 || echo missing)"
+  echo "Starship: $(starship --version 2>/dev/null | head -n1 || echo missing)"
+  echo "Zoxide:   $(zoxide --version 2>/dev/null || echo missing)"
+  echo "Atuin:    $(atuin --version 2>/dev/null || echo missing)"
+  echo "FZF:      $(fzf --version 2>/dev/null || echo missing)"
+  echo "Python:   $(python3 --version 2>/dev/null || echo missing)"
+  echo "uv:       $(uv --version 2>/dev/null || echo missing)"
+  echo "AWS:      $(aws --version 2>/dev/null || echo missing)"
+  echo "kubectl:  $(kubectl version --client 2>/dev/null | head -n1 || echo missing)"
+  echo "gh:       $(gh --version 2>/dev/null | head -n1 || echo missing)"
+}
+
+# -------------------------
+# Brewfile sync helper — dumps current brew state to /tmp for diffing
+alias brewfile-diff='brew bundle dump --force --file=/tmp/Brewfile.current && diff ~/.dotfiles/Brewfile /tmp/Brewfile.current'
+
+# -------------------------
+# Local extensions — not version-controlled
+# -------------------------
+[[ -r "$HOME/.aliases.local" ]] && source "$HOME/.aliases.local"
+[[ -r "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

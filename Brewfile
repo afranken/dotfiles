@@ -1,0 +1,115 @@
+# Core shell UX
+brew "starship"
+brew "zoxide"
+brew "atuin"
+brew "fzf"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
+# Modern CLI replacements / helpers
+brew "eza"
+brew "bat"
+brew "fd"
+brew "ripgrep"
+brew "jq"
+brew "yq"
+brew "tree"
+brew "wget"
+brew "watch"
+brew "dos2unix"
+brew "p7zip"
+brew "trash"
+brew "zbar"
+
+# Git / GitHub
+brew "git"
+brew "gh"
+brew "git-delta"
+
+# Python / general development
+brew "uv"
+brew "direnv"
+brew "mise"
+brew "node"
+brew "cmake"
+
+# Rust
+brew "rustup"
+brew "rust-analyzer"
+
+# Java / JVM
+brew "gradle"
+brew "maven"
+brew "jdtls"
+brew "kotlin-language-server"
+brew "plantuml"
+
+# AI / ML
+brew "hf"
+
+# AWS / Kubernetes
+brew "awscli"
+brew "azure-cli"
+brew "kubectl"
+brew "kubectx"
+brew "kubelogin"
+brew "k9s"
+brew "stern"
+brew "helm"
+brew "argo"
+brew "argocd"
+
+# Infrastructure
+brew "vault"
+
+# Claude Code RTK proxy
+brew "rtk"
+
+# Mac App Store CLI (required for mas entries below)
+brew "mas"
+
+# Terminal
+cask "ghostty"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-meslo-lg-nerd-font"
+
+# Apps
+cask "1password"
+cask "adobe-creative-cloud"
+cask "alfred"
+cask "bbedit"
+cask "claude"
+cask "claude-code@latest"
+cask "docker-desktop"
+cask "firefox"
+cask "google-chrome"
+cask "istat-menus"
+cask "jabra-direct"
+cask "jetbrains-toolbox"
+cask "logitech-options"
+cask "path-finder"
+cask "slack@beta"
+cask "supacode"
+cask "whatsapp"
+
+# Mac App Store
+mas "1Password for Safari", id: 1569813296
+mas "BetterSnapTool", id: 417375580
+mas "DaisyDisk", id: 411643860
+mas "DuckDuckGo Privacy for Safari", id: 1482920575
+mas "HP Easy Scan", id: 967004861
+mas "LG Screen Manager", id: 1142051783
+mas "Xcode", id: 497799835
+
+# Cargo
+cargo "cargo-llvm-cov"
+cargo "cargo-nextest"
+cargo "cargo-watch"
+
+# npm
+npm "corepack"
+npm "typescript-language-server"
+npm "typescript"
+
+# Optional local AI tooling — uncomment if desired
+# brew "ollama"
