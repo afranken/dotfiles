@@ -1,6 +1,6 @@
 theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
 
-font-family = JetBrainsMono Nerd Font
+font-family = JetBrainsMono Nerd Font Mono
 font-size = 14
 
 macos-option-as-alt = left
