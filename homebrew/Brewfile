@@ -1,3 +1,6 @@
+# needed for kubelogin to work with Azure CLI
+tap "azure/kubelogin", trusted: true
+
 # Core shell UX
 brew "starship"
 brew "zoxide"
