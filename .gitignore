@@ -1,6 +1,11 @@
-#ignore OSX
+# OS
 .DS_Store
 
-#ignore idea files
+# IDE
 .idea/
 *.iml
+
+# Local machine config — contains secrets and machine-specific paths, never commit
+local/.osx-local
+local/.git-local
+local/.aliases-local
