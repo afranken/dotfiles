@@ -213,7 +213,7 @@ doctor-shell() {
 
 # -------------------------
 # Brewfile sync helper — dumps current brew state to /tmp for diffing
-alias brewfile-diff='brew bundle dump --force --file=/tmp/Brewfile.current && diff ~/.dotfiles/Brewfile /tmp/Brewfile.current'
+alias brewfile-diff='brew bundle dump --force --file=/tmp/Brewfile.current && diff ~/.dotfiles/homebrew/Brewfile /tmp/Brewfile.current'
 
 # -------------------------
 # Local extensions — not version-controlled
