@@ -33,7 +33,15 @@ Local files created by bootstrap (not committed):
 ### 1. Clone
 
 ```bash
-git clone git@github.com:afranken/dotfiles.git ~/.dotfiles
+git clone https://github.com/afranken/dotfiles.git ~/.dotfiles
+```
+
+HTTPS needs no SSH keys or accounts set up yet — the repo is public, so this works with zero auth. On a brand new Mac, this first `git` command triggers the Xcode Command Line Tools installer; click Install, wait for it to finish, then re-run the clone.
+
+Once your SSH keys are set up (step 4) and you want push access, switch the remote:
+
+```bash
+git remote set-url origin git@github.com:afranken/dotfiles.git
 ```
 
 ### 2. Bootstrap
