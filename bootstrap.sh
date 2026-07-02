@@ -63,17 +63,17 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 echo "→ Installing packages..."
-brew bundle --file "$DOTFILES_DIR/Brewfile"
+brew bundle --file "$DOTFILES_DIR/homebrew/Brewfile"
 
 echo "→ Linking dotfiles..."
-link_file "$DOTFILES_DIR/dotfiles/zshrc"            "$HOME/.zshrc"
-link_file "$DOTFILES_DIR/dotfiles/gitconfig"          "$HOME/.gitconfig"
-link_file "$DOTFILES_DIR/dotfiles/gitconfig-personal" "$HOME/.gitconfig-personal"
-link_file "$DOTFILES_DIR/dotfiles/gitconfig-adobe"    "$HOME/.gitconfig-adobe"
-link_file "$DOTFILES_DIR/dotfiles/gitconfig-corp"     "$HOME/.gitconfig-corp"
-link_file "$DOTFILES_DIR/dotfiles/ghostty"          "$HOME/.config/ghostty/config"
-link_file "$DOTFILES_DIR/dotfiles/claude-statusline.sh" "$HOME/.claude/statusline.sh"
-link_file "$DOTFILES_DIR/starship.toml"             "$HOME/.config/starship.toml"
+link_file "$DOTFILES_DIR/shell/zshrc"          "$HOME/.zshrc"
+link_file "$DOTFILES_DIR/shell/starship.toml"  "$HOME/.config/starship.toml"
+link_file "$DOTFILES_DIR/git/gitconfig"          "$HOME/.gitconfig"
+link_file "$DOTFILES_DIR/git/gitconfig-personal" "$HOME/.gitconfig-personal"
+link_file "$DOTFILES_DIR/git/gitconfig-adobe"    "$HOME/.gitconfig-adobe"
+link_file "$DOTFILES_DIR/git/gitconfig-corp"     "$HOME/.gitconfig-corp"
+link_file "$DOTFILES_DIR/ghostty/config"       "$HOME/.config/ghostty/config"
+link_file "$DOTFILES_DIR/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 
 echo "→ Creating local config files (not version-controlled)..."
 touch "$HOME/.zshrc.local"

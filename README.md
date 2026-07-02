@@ -4,17 +4,19 @@ Personal macOS dotfiles. Plain Zsh + Starship — no frameworks, no magic.
 
 ## What's here
 
-| Committed file | Symlinked to | Purpose |
-|---|---|---|
-| `dotfiles/zshrc` | `~/.zshrc` | Shell config, aliases, functions |
-| `dotfiles/gitconfig` | `~/.gitconfig` | Git config with multi-identity setup |
-| `dotfiles/gitconfig-personal` | `~/.gitconfig-personal` | Git identity for `~/dev/` |
-| `dotfiles/gitconfig-adobe` | `~/.gitconfig-adobe` | Git identity for `~/work/adobe/` |
-| `dotfiles/gitconfig-corp` | `~/.gitconfig-corp` | Git identity for `~/work/corp/` |
-| `dotfiles/ghostty` | `~/.config/ghostty/config` | Ghostty terminal config |
-| `dotfiles/claude-statusline.sh` | `~/.claude/statusline.sh` | Claude Code status line |
-| `starship.toml` | `~/.config/starship.toml` | Prompt config |
-| `Brewfile` | — | All packages, casks, and fonts |
+| Committed file           | Symlinked to               | Purpose                              |
+|--------------------------|----------------------------|--------------------------------------|
+| `shell/zshrc`            | `~/.zshrc`                 | Shell config, aliases, functions     |
+| `shell/starship.toml`    | `~/.config/starship.toml`  | Shell prompt config                  |
+| `git/gitconfig`          | `~/.gitconfig`             | Git config with multi-identity setup |
+| `git/gitconfig-personal` | `~/.gitconfig-personal`    | Git identity for `~/dev/`            |
+| `git/gitconfig-adobe`    | `~/.gitconfig-adobe`       | Git identity for `~/work/adobe/`     |
+| `git/gitconfig-corp`     | `~/.gitconfig-corp`        | Git identity for `~/work/corp/`      |
+| `ghostty/config`         | `~/.config/ghostty/config` | Ghostty terminal config              |
+| `claude/statusline.sh`   | `~/.claude/statusline.sh`  | Claude Code status line              |
+| `homebrew/Brewfile`      | —                          | All packages, casks, and fonts       |
+
+Each folder groups files by tool/use-case (`git/`, `shell/`, `ghostty/`, `claude/`, `homebrew/`) — add new use-cases as their own folder.
 
 Local files created by bootstrap (not committed):
 
@@ -46,7 +48,7 @@ Installs Homebrew packages, symlinks all config files, and creates starter local
 Identity is picked up automatically based on where the repo lives (`~/work/adobe/` or `~/work/corp/`).
 Both are symlinked from the repo — no editing needed.
 
-If you clone somewhere else, git will warn that no email is set — add a default to `dotfiles/gitconfig` if you want a fallback.
+If you clone somewhere else, git will warn that no email is set — add a default to `git/gitconfig` if you want a fallback.
 
 ### 4. Set up SSH keys
 
@@ -148,10 +150,10 @@ Machine-specific aliases go in `~/.aliases.local`.
 
 ### Adding software
 
-Edit `Brewfile`, then:
+Edit `homebrew/Brewfile`, then:
 
 ```bash
-brew bundle --file ~/.dotfiles/Brewfile
+brew bundle --file ~/.dotfiles/homebrew/Brewfile
 ```
 
 ### Updating dotfiles
