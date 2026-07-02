@@ -14,6 +14,7 @@ Personal macOS dotfiles. Plain Zsh + Starship — no frameworks, no magic.
 | `git/gitconfig-corp`     | `~/.gitconfig-corp`        | Git identity for `~/work/corp/`      |
 | `ghostty/config`         | `~/.config/ghostty/config` | Ghostty terminal config              |
 | `claude/statusline.sh`   | `~/.claude/statusline.sh`  | Claude Code status line              |
+| `shell/atuin.toml`       | `~/.config/atuin/config.toml` | Atuin shell history config        |
 | `homebrew/Brewfile`      | —                          | All packages, casks, and fonts       |
 
 Each folder groups files by tool/use-case (`git/`, `shell/`, `ghostty/`, `claude/`, `homebrew/`) — add new use-cases as their own folder.

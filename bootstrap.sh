@@ -74,6 +74,7 @@ link_file "$DOTFILES_DIR/git/gitconfig-adobe"    "$HOME/.gitconfig-adobe"
 link_file "$DOTFILES_DIR/git/gitconfig-corp"     "$HOME/.gitconfig-corp"
 link_file "$DOTFILES_DIR/ghostty/config"       "$HOME/.config/ghostty/config"
 link_file "$DOTFILES_DIR/claude/statusline.sh" "$HOME/.claude/statusline.sh"
+link_file "$DOTFILES_DIR/shell/atuin.toml"     "$HOME/.config/atuin/config.toml"
 
 echo "→ Creating local config files (not version-controlled)..."
 touch "$HOME/.zshrc.local"
