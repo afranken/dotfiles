@@ -59,25 +59,18 @@ Both are symlinked from the repo — no editing needed.
 
 If you clone somewhere else, git will warn that no email is set — add a default to `git/gitconfig` if you want a fallback.
 
-### 4. Set up SSH keys
+### 4. Set up SSH keys (Adobe + corp only)
 
-Three keys, one per identity:
+Personal uses HTTPS (see step 5) — no key needed. Adobe enforces SSH for both GHEC (`github.com`) and corp, so those two still need keys:
 
 ```bash
-ssh-keygen -t ed25519 -C "coding@techotronic.de" -f ~/.ssh/id_personal
-ssh-keygen -t ed25519 -C "franken@adobe.com"     -f ~/.ssh/id_adobe
-ssh-keygen -t ed25519 -C "franken@adobe.com"     -f ~/.ssh/id_corp
+ssh-keygen -t ed25519 -C "franken@adobe.com" -f ~/.ssh/id_adobe
+ssh-keygen -t ed25519 -C "franken@adobe.com" -f ~/.ssh/id_corp
 ```
 
 Create `~/.ssh/config`:
 
 ```
-# Personal GitHub (default)
-Host github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_personal
-
 # Adobe GitHub (use alias "github-adobe" when cloning adobe org repos)
 Host github-adobe
     HostName github.com
@@ -94,7 +87,6 @@ Host git.corp.adobe.com
 Upload public keys to each account:
 
 ```bash
-pbcopy < ~/.ssh/id_personal.pub   # → github.com (personal account) → Settings > SSH keys
 pbcopy < ~/.ssh/id_adobe.pub      # → github.com (adobe account)    → Settings > SSH keys
 pbcopy < ~/.ssh/id_corp.pub       # → git.corp.adobe.com             → Settings > SSH keys
 ```
@@ -114,10 +106,12 @@ git remote set-url origin git@github-adobe:adobe/repo.git
 
 ### 5. Authenticate gh CLI (three accounts)
 
+Personal uses HTTPS (no SSH key, no alias needed — it's the only account on plain `github.com`); Adobe and corp already authenticate via the SSH keys from step 4:
+
 ```bash
-gh auth login --hostname github.com          # run once for personal account
-gh auth login --hostname github.com          # run again for adobe account
-gh auth login --hostname git.corp.adobe.com  # corp
+gh auth login --hostname github.com --git-protocol https  # personal account
+gh auth login --hostname github.com                        # adobe account
+gh auth login --hostname git.corp.adobe.com                # corp
 ```
 
 `gh` will prompt for account name each time. Afterwards:
@@ -126,6 +120,12 @@ gh auth login --hostname git.corp.adobe.com  # corp
 gh auth status          # see all authenticated accounts
 gh auth switch          # interactive account switcher
 GH_HOST=git.corp.adobe.com gh pr list   # target a specific host inline
+```
+
+Personal repos clone over plain HTTPS, no alias needed:
+
+```bash
+git clone https://github.com/you/repo.git
 ```
 
 ### 6. Add secrets and machine config
@@ -183,11 +183,11 @@ doctor-shell   # defined in zshrc, shows versions of all key tools
 
 ## Three-identity git cheatsheet
 
-| Context | Directory | SSH host | gitconfig |
-|---|---|---|---|
-| Personal | `~/dev/` | `github.com` | `~/.gitconfig-personal` |
-| Adobe GitHub | `~/work/adobe/` | `github-adobe` | `~/.gitconfig-adobe` |
-| Corp GitHub | `~/work/corp/` | `git.corp.adobe.com` | `~/.gitconfig-corp` |
+| Context | Directory | Transport | Host/alias | gitconfig |
+|---|---|---|---|---|
+| Personal | `~/dev/` | HTTPS | `github.com` | `~/.gitconfig-personal` |
+| Adobe GitHub | `~/work/adobe/` | SSH | `github-adobe` | `~/.gitconfig-adobe` |
+| Corp GitHub | `~/work/corp/` | SSH | `git.corp.adobe.com` | `~/.gitconfig-corp` |
 
 Verify which identity a repo is using:
 
