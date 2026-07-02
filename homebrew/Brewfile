@@ -56,14 +56,12 @@ brew "azure-cli"
 brew "kubectl"
 brew "kubectx"
 brew "kubelogin"
+brew "kubens"
 brew "k9s"
 brew "stern"
 brew "helm"
 brew "argo"
 brew "argocd"
-
-# Infrastructure
-brew "vault"
 
 # Claude Code RTK proxy
 brew "rtk"
