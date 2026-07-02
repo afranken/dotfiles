@@ -52,6 +52,8 @@ cd ~/.dotfiles && bash bootstrap.sh
 
 Installs Homebrew packages, symlinks all config files, and creates starter local files.
 
+The script is idempotent — safe to run again if it errors out (e.g. Xcode license prompts, App Store sign-in issues, a Homebrew Cellar lock from a concurrent run). It skips already-installed packages and existing symlinks, so just fix whatever caused the error and re-run `bash bootstrap.sh`.
+
 ### 3. Git identities
 
 Identity is picked up automatically based on where the repo lives (`~/work/adobe/` or `~/work/corp/`).
