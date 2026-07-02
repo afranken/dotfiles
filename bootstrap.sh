@@ -85,6 +85,12 @@ if ! brew bundle --file "$DOTFILES_DIR/homebrew/Brewfile"; then
   echo "    Re-run later with: brew bundle --file $DOTFILES_DIR/homebrew/Brewfile"
 fi
 
+if [[ -d "/Applications/Xcode.app" ]]; then
+  echo "→ Completing Xcode first-launch setup (avoids having to open it manually)..."
+  sudo xcodebuild -license accept 2>/dev/null || true
+  sudo xcodebuild -runFirstLaunch 2>/dev/null || true
+fi
+
 echo "→ Linking dotfiles..."
 link_file "$DOTFILES_DIR/shell/zshrc"          "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/shell/starship.toml"  "$HOME/.config/starship.toml"
