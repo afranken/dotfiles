@@ -95,9 +95,7 @@ cask "whatsapp"
 # Mac App Store
 mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
-mas "DuckDuckGo Privacy for Safari", id: 1482920575
 mas "HP Easy Scan", id: 967004861
-mas "LG Screen Manager", id: 1142051783
 mas "Xcode", id: 497799835
 
 # Cargo
