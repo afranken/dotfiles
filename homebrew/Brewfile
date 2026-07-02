@@ -94,7 +94,6 @@ cask "whatsapp"
 
 # Mac App Store
 mas "1Password for Safari", id: 1569813296
-mas "BetterSnapTool", id: 417375580
 mas "DaisyDisk", id: 411643860
 mas "DuckDuckGo Privacy for Safari", id: 1482920575
 mas "HP Easy Scan", id: 967004861
