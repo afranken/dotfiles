@@ -94,6 +94,7 @@ else
   alias ll='ls -lah'
   alias la='ls -la'
 fi
+alias l='ll'
 
 alias grep='grep --colour=auto'
 alias cp='cp -i'
