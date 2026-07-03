@@ -18,6 +18,13 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export PATH="$HOME/.local/bin:$PATH"
 
 # -------------------------
+# Version manager (mise) — JDK/Python/Rust/etc.
+# -------------------------
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
+
+# -------------------------
 # Zsh behaviour
 # -------------------------
 setopt autocd
@@ -203,6 +210,7 @@ doctor-shell() {
   echo "Brew:     $(brew --version 2>/dev/null | head -n1 || echo missing)"
   echo "Starship: $(starship --version 2>/dev/null | head -n1 || echo missing)"
   echo "Zoxide:   $(zoxide --version 2>/dev/null || echo missing)"
+  echo "mise:     $(mise --version 2>/dev/null || echo missing)"
   echo "Atuin:    $(atuin --version 2>/dev/null || echo missing)"
   echo "FZF:      $(fzf --version 2>/dev/null || echo missing)"
   echo "Python:   $(python3 --version 2>/dev/null || echo missing)"

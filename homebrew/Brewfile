@@ -33,7 +33,7 @@ brew "git-delta"
 brew "uv"
 brew "direnv"
 brew "mise"
-brew "node"
+brew "node" # bootstrap-time npm for the `npm "..."` entries below; mise's node@latest takes over in-shell
 brew "cmake"
 
 # Rust
@@ -53,14 +53,7 @@ brew "hf"
 # AWS / Kubernetes
 brew "awscli"
 brew "azure-cli"
-brew "kubectl"
-brew "kubectx"
-brew "kubelogin"
-brew "k9s"
-brew "stern"
-brew "helm"
-brew "argo"
-brew "argocd"
+brew "azure/kubelogin/kubelogin"
 
 # Claude Code RTK proxy
 brew "rtk"
