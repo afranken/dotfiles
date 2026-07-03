@@ -96,6 +96,7 @@ cask "whatsapp"
 mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
 mas "HP Easy Scan", id: 967004861
+mas "Maccy", id: 1527619437
 mas "Xcode", id: 497799835
 
 # Cargo
