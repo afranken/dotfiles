@@ -69,8 +69,10 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "→ Accepting Xcode license (some formulae need this to build from source)..."
-sudo xcodebuild -license accept 2>/dev/null || true
+if ! xcodebuild -license check &>/dev/null; then
+  echo "→ Accepting Xcode license (some formulae need this to build from source)..."
+  sudo xcodebuild -license accept 2>/dev/null || true
+fi
 
 echo "→ Checking Mac App Store sign-in (needed for 'mas' entries in Brewfile)..."
 brew list mas &>/dev/null || brew install mas
@@ -86,9 +88,14 @@ if ! brew bundle --file "$DOTFILES_DIR/homebrew/Brewfile"; then
 fi
 
 if [[ -d "/Applications/Xcode.app" ]]; then
-  echo "→ Completing Xcode first-launch setup (avoids having to open it manually)..."
-  sudo xcodebuild -license accept 2>/dev/null || true
-  sudo xcodebuild -runFirstLaunch 2>/dev/null || true
+  if ! xcodebuild -license check &>/dev/null; then
+    echo "→ Accepting Xcode license..."
+    sudo xcodebuild -license accept 2>/dev/null || true
+  fi
+  if ! xcodebuild -checkFirstLaunchStatus &>/dev/null; then
+    echo "→ Completing Xcode first-launch setup (avoids having to open it manually)..."
+    sudo xcodebuild -runFirstLaunch 2>/dev/null || true
+  fi
 fi
 
 echo "→ Linking dotfiles..."
