@@ -65,7 +65,7 @@ ensure_homebrew
 load_brew_env
 
 if ! command -v brew >/dev/null 2>&1; then
-  echo "brew still not available. Open a new terminal and rerun bootstrap.sh."
+  echo "brew still not available. Open a new terminal and rerun apply.sh."
   exit 1
 fi
 

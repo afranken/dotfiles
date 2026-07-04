@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal macOS dotfiles. Plain Zsh + Starship — no frameworks, no magic.
+Infrastructure as Code for a macOS machine. One repo describes the desired state of the whole system — packages, config files, shell, and identities — and a single idempotent `apply.sh` brings any Mac up to that state. Run it once or run it a hundred times: the result is the same. Plain Zsh + Starship — no frameworks, no magic.
 
 ## What's here
 
@@ -19,9 +19,9 @@ Personal macOS dotfiles. Plain Zsh + Starship — no frameworks, no magic.
 | `copilot/lsp-config.json` | `~/.copilot/lsp-config.json` | LSP servers for GitHub Copilot CLI |
 | `homebrew/Brewfile`      | —                          | All packages, casks, and fonts       |
 
-Each folder groups files by tool/use-case (`git/`, `shell/`, `ghostty/`, `claude/`, `copilot/`, `homebrew/`) — add new use-cases as their own folder.
+Each folder groups files by tool/use-case (`git/`, `shell/`, `ghostty/`, `claude/`, `copilot/`, `homebrew/`) — add new use-cases as their own folder. Everything in the table is the declared desired state: edit a file here, re-run `apply.sh`, and the machine converges to match.
 
-Local files created by bootstrap (not committed):
+Local files created by `apply.sh` (not committed):
 
 | File | Purpose |
 |---|---|
@@ -44,15 +44,15 @@ HTTPS needs no SSH keys or accounts set up yet — the repo is public, so this w
 
 The repo lives under `~/dev/` (not directly at `~/.dotfiles`) so that the `includeIf "gitdir:~/dev/"` rule in gitconfig automatically picks up the personal git identity. `~/.dotfiles` is a convenience symlink — all scripts and day-to-day commands work through it.
 
-### 2. Bootstrap
+### 2. Apply
 
 ```bash
-cd ~/.dotfiles && bash bootstrap.sh
+cd ~/.dotfiles && bash apply.sh
 ```
 
-Installs Homebrew packages, symlinks all config files, and creates starter local files.
+Installs Homebrew packages, symlinks all config files, and creates starter local files — converging the machine to the state declared in this repo.
 
-The script is idempotent — safe to run again if it errors out (e.g. Xcode license prompts, App Store sign-in issues, a Homebrew Cellar lock from a concurrent run). It skips already-installed packages and existing symlinks, so just fix whatever caused the error and re-run `bash bootstrap.sh`.
+`apply.sh` is idempotent by design. Every run checks current state before acting: already-installed packages are skipped, existing symlinks are left alone, and starter files are only created if missing. So it's safe to run again if it errors out (e.g. Xcode license prompts, App Store sign-in issues, a Homebrew Cellar lock from a concurrent run) — just fix whatever caused the error and re-run `bash apply.sh`.
 
 ### 3. Git identities
 
@@ -70,7 +70,7 @@ ssh-keygen -t ed25519 -C "franken@adobe.com"     -f ~/.ssh/id_adobe
 ssh-keygen -t ed25519 -C "franken@adobe.com"     -f ~/.ssh/id_corp
 ```
 
-`~/.ssh/config` is managed by dotfiles (symlinked by bootstrap) — no manual editing needed.
+`~/.ssh/config` is managed by dotfiles (symlinked by `apply.sh`) — no manual editing needed.
 
 Upload each public key to the matching account:
 
@@ -171,10 +171,10 @@ brew bundle --file ~/.dotfiles/homebrew/Brewfile
 ### Updating dotfiles
 
 ```bash
-cd ~/.dotfiles && git pull && bash bootstrap.sh
+cd ~/.dotfiles && git pull && bash apply.sh
 ```
 
-Bootstrap is idempotent — safe to re-run, existing symlinks and local files are left alone.
+Pulling and re-running `apply.sh` re-converges the machine to the latest declared state. Idempotent — safe to re-run, existing symlinks and local files are left alone.
 
 ### Checking the shell environment
 
