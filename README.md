@@ -34,16 +34,14 @@ Local files created by bootstrap (not committed):
 ### 1. Clone
 
 ```bash
-git clone https://github.com/afranken/dotfiles.git ~/.dotfiles
+mkdir -p ~/dev/afranken
+git clone https://github.com/afranken/dotfiles.git ~/dev/afranken/dotfiles
+ln -s ~/dev/afranken/dotfiles ~/.dotfiles
 ```
 
 HTTPS needs no SSH keys or accounts set up yet — the repo is public, so this works with zero auth. On a brand new Mac, this first `git` command triggers the Xcode Command Line Tools installer; click Install, wait for it to finish, then re-run the clone.
 
-Once your SSH keys are set up (step 4) and you want push access, switch the remote:
-
-```bash
-git remote set-url origin git@github.com:afranken/dotfiles.git
-```
+The repo lives under `~/dev/` (not directly at `~/.dotfiles`) so that the `includeIf "gitdir:~/dev/"` rule in gitconfig automatically picks up the personal git identity. `~/.dotfiles` is a convenience symlink — all scripts and day-to-day commands work through it.
 
 ### 2. Bootstrap
 
@@ -57,10 +55,9 @@ The script is idempotent — safe to run again if it errors out (e.g. Xcode lice
 
 ### 3. Git identities
 
-Identity is picked up automatically based on where the repo lives (`~/work/adobe/` or `~/work/corp/`).
-Both are symlinked from the repo — no editing needed.
+Identity is picked up automatically based on where the repo lives. The dotfiles repo itself lives under `~/dev/afranken/dotfiles`, so it gets the personal identity automatically — no extra config needed.
 
-If you clone somewhere else, git will warn that no email is set — add a default to `git/gitconfig` if you want a fallback.
+Work repos in `~/work/adobe/` or `~/work/corp/` get their respective identities. All identity files are symlinked from the repo — no editing needed.
 
 ### 4. Set up SSH keys (Adobe + corp only)
 
