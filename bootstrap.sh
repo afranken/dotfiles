@@ -115,6 +115,13 @@ if command -v mise >/dev/null 2>&1; then
   mise install
 fi
 
+if command -v claude >/dev/null 2>&1; then
+  echo "→ Installing Claude Code plugins (code intelligence + GitHub integration)..."
+  for plugin in jdtls-lsp kotlin-lsp rust-analyzer-lsp typescript-lsp pyright-lsp github; do
+    claude plugin install "$plugin@claude-plugins-official" || echo "  ⚠ Failed to install $plugin — install manually later with: claude plugin install $plugin@claude-plugins-official"
+  done
+fi
+
 echo "→ Creating local config files (not version-controlled)..."
 touch "$HOME/.zshrc.local"
 touch "$HOME/.aliases.local"

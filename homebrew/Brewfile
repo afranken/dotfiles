@@ -101,6 +101,7 @@ cargo "cargo-watch"
 npm "corepack"
 npm "typescript-language-server"
 npm "typescript"
+npm "pyright"
 
 # Optional local AI tooling — uncomment if desired
 # brew "ollama"
