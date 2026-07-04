@@ -62,7 +62,11 @@ search_mode = "skim"
 ## which filter mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "filter_mode"
 ## leave unspecified to use same mode set in "filter_mode"
-# filter_mode_shell_up_key_binding = "global"
+filter_mode_shell_up_key_binding = "workspace"
+
+## With workspace filtering enabled, Atuin will filter for commands executed
+## in any directory within a git repository tree (default: false).
+workspaces = true
 
 ## which search mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "search_mode"
@@ -314,6 +318,7 @@ records = true
 ## The "workspace" mode is skipped when not in a workspace or workspaces = false.
 ## Default filter mode can be overridden with the filter_mode setting.
 # filters = [ "global", "host", "session", "session-preload", "workspace", "directory" ]
+filters = ["workspace", "directory", "global"]
 
 [tmux]
 ## Enable using atuin with tmux popup (requires tmux >= 3.2)
