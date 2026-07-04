@@ -109,6 +109,7 @@ link_file "$DOTFILES_DIR/ghostty/config"       "$HOME/.config/ghostty/config"
 link_file "$DOTFILES_DIR/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 link_file "$DOTFILES_DIR/shell/atuin.toml"     "$HOME/.config/atuin/config.toml"
 link_file "$DOTFILES_DIR/mise/config.toml"     "$HOME/.config/mise/config.toml"
+link_file "$DOTFILES_DIR/copilot/lsp-config.json" "$HOME/.copilot/lsp-config.json"
 
 if command -v mise >/dev/null 2>&1; then
   echo "→ Installing mise-managed tools (JDKs, etc.)..."

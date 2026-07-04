@@ -15,9 +15,10 @@ Personal macOS dotfiles. Plain Zsh + Starship — no frameworks, no magic.
 | `ghostty/config`         | `~/.config/ghostty/config` | Ghostty terminal config              |
 | `claude/statusline.sh`   | `~/.claude/statusline.sh`  | Claude Code status line              |
 | `shell/atuin.toml`       | `~/.config/atuin/config.toml` | Atuin shell history config        |
+| `copilot/lsp-config.json` | `~/.copilot/lsp-config.json` | LSP servers for GitHub Copilot CLI |
 | `homebrew/Brewfile`      | —                          | All packages, casks, and fonts       |
 
-Each folder groups files by tool/use-case (`git/`, `shell/`, `ghostty/`, `claude/`, `homebrew/`) — add new use-cases as their own folder.
+Each folder groups files by tool/use-case (`git/`, `shell/`, `ghostty/`, `claude/`, `copilot/`, `homebrew/`) — add new use-cases as their own folder.
 
 Local files created by bootstrap (not committed):
 

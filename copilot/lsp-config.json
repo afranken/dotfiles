@@ -1,0 +1,43 @@
+{
+  "lspServers": {
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".ts": "typescript",
+        ".tsx": "typescriptreact",
+        ".js": "javascript",
+        ".jsx": "javascriptreact"
+      }
+    },
+    "python": {
+      "command": "pyright-langserver",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".py": "python"
+      }
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "args": [],
+      "fileExtensions": {
+        ".rs": "rust"
+      }
+    },
+    "java": {
+      "command": "jdtls",
+      "args": [],
+      "fileExtensions": {
+        ".java": "java"
+      }
+    },
+    "kotlin": {
+      "command": "kotlin-language-server",
+      "args": [],
+      "fileExtensions": {
+        ".kt": "kotlin",
+        ".kts": "kotlin"
+      }
+    }
+  }
+}
