@@ -55,6 +55,9 @@ brew "awscli"
 brew "azure-cli"
 brew "azure/kubelogin/kubelogin"
 
+# Docker
+brew "dive"
+
 # Claude Code RTK proxy
 brew "rtk"
 
