@@ -99,16 +99,17 @@ if [[ -d "/Applications/Xcode.app" ]]; then
 fi
 
 echo "→ Linking dotfiles..."
-link_file "$DOTFILES_DIR/shell/zshrc"          "$HOME/.zshrc"
-link_file "$DOTFILES_DIR/shell/starship.toml"  "$HOME/.config/starship.toml"
-link_file "$DOTFILES_DIR/git/gitconfig"          "$HOME/.gitconfig"
-link_file "$DOTFILES_DIR/git/gitconfig-personal" "$HOME/.gitconfig-personal"
-link_file "$DOTFILES_DIR/git/gitconfig-adobe"    "$HOME/.gitconfig-adobe"
-link_file "$DOTFILES_DIR/git/gitconfig-corp"     "$HOME/.gitconfig-corp"
-link_file "$DOTFILES_DIR/ghostty/config"       "$HOME/.config/ghostty/config"
-link_file "$DOTFILES_DIR/claude/statusline.sh" "$HOME/.claude/statusline.sh"
-link_file "$DOTFILES_DIR/shell/atuin.toml"     "$HOME/.config/atuin/config.toml"
-link_file "$DOTFILES_DIR/mise/config.toml"     "$HOME/.config/mise/config.toml"
+link_file "$DOTFILES_DIR/ssh/config"              "$HOME/.ssh/config"
+link_file "$DOTFILES_DIR/shell/zshrc"             "$HOME/.zshrc"
+link_file "$DOTFILES_DIR/shell/starship.toml"     "$HOME/.config/starship.toml"
+link_file "$DOTFILES_DIR/git/gitconfig"           "$HOME/.gitconfig"
+link_file "$DOTFILES_DIR/git/gitconfig-personal"  "$HOME/.gitconfig-personal"
+link_file "$DOTFILES_DIR/git/gitconfig-adobe"     "$HOME/.gitconfig-adobe"
+link_file "$DOTFILES_DIR/git/gitconfig-corp"      "$HOME/.gitconfig-corp"
+link_file "$DOTFILES_DIR/ghostty/config"          "$HOME/.config/ghostty/config"
+link_file "$DOTFILES_DIR/claude/statusline.sh"    "$HOME/.claude/statusline.sh"
+link_file "$DOTFILES_DIR/shell/atuin.toml"        "$HOME/.config/atuin/config.toml"
+link_file "$DOTFILES_DIR/mise/config.toml"        "$HOME/.config/mise/config.toml"
 link_file "$DOTFILES_DIR/copilot/lsp-config.json" "$HOME/.copilot/lsp-config.json"
 
 if command -v mise >/dev/null 2>&1; then
