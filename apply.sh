@@ -61,6 +61,17 @@ ensure_local_file() {
   fi
 }
 
+brewfile_has_mas_entries() {
+  grep -Eq '^[[:space:]]*mas[[:space:]]+"' "$DOTFILES_DIR/homebrew/Brewfile"
+}
+
+brew_bundle_needs_app_store_auth() {
+  local log_file="$1"
+  grep -Eqi \
+    'app store|sign(ed)? in|media[[:space:]]*&[[:space:]]*purchases|authenticate|failed to get app for adam id|ISErrorDomain Code=-128' \
+    "$log_file"
+}
+
 ensure_homebrew
 load_brew_env
 
@@ -74,18 +85,18 @@ if ! xcodebuild -license check &>/dev/null; then
   sudo xcodebuild -license accept 2>/dev/null || true
 fi
 
-echo "→ Checking Mac App Store sign-in (needed for 'mas' entries in Brewfile)..."
-brew list mas &>/dev/null || brew install mas
-if ! mas account &>/dev/null; then
-  echo "  ⚠ Not signed in to the App Store. Open the App Store app, sign in, then re-run:"
-  echo "      brew bundle --file $DOTFILES_DIR/homebrew/Brewfile"
-fi
-
 echo "→ Installing packages..."
-if ! brew bundle --file "$DOTFILES_DIR/homebrew/Brewfile"; then
+bundle_log="$(mktemp -t dotfiles-brew-bundle.XXXXXX)"
+if ! brew bundle --file "$DOTFILES_DIR/homebrew/Brewfile" 2>&1 | tee "$bundle_log"; then
+  if brewfile_has_mas_entries && brew_bundle_needs_app_store_auth "$bundle_log"; then
+    echo "  ⚠ App Store authentication is required for one or more 'mas' apps."
+    echo "    Open the App Store app, confirm Media & Purchases is signed in, then re-run:"
+    echo "      brew bundle --file $DOTFILES_DIR/homebrew/Brewfile"
+  fi
   echo "  ⚠ Some packages failed to install (see errors above) — continuing with the rest of setup."
   echo "    Re-run later with: brew bundle --file $DOTFILES_DIR/homebrew/Brewfile"
 fi
+rm -f "$bundle_log"
 
 if [[ -d "/Applications/Xcode.app" ]]; then
   if ! xcodebuild -license check &>/dev/null; then
