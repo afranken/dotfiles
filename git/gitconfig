@@ -59,3 +59,5 @@
 	s  = status --short --branch
 	co = checkout
 	la = !git config -l | grep alias | cut -c 7-
+	rssh = "!f() { remote=${1:-origin}; url=$(git remote get-url \"$remote\") && git remote set-url \"$remote\" \"$(printf '%s' \"$url\" | sed -E 's#^https://([^/]+)/#git@\\1:#')\"; }; f"
+	rhost = "!f() { case $# in 2) remote=origin; from=$1; to=$2 ;; 3) remote=$1; from=$2; to=$3 ;; *) echo 'usage: git rhost [remote] <from-host> <to-host>' >&2; return 2 ;; esac; url=$(git remote get-url \"$remote\") || return $?; case \"$url\" in https://\"$from\"/*) new=\"https://$to/${url#https://$from/}\" ;; git@\"$from\":*) new=\"git@$to:${url#git@$from:}\" ;; ssh://git@\"$from\"/*) new=\"ssh://git@$to/${url#ssh://git@$from/}\" ;; *) echo \"remote '$remote' unchanged: expected host '$from' in $url\" >&2; return 1 ;; esac; git remote set-url \"$remote\" \"$new\"; }; f"
