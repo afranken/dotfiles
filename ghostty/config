@@ -4,5 +4,5 @@ font-family = JetBrainsMono Nerd Font Mono
 font-size = 14
 
 macos-option-as-alt = left
-copy-on-select = clipboard
+copy-on-select = false
 desktop-notifications = true
