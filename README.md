@@ -21,8 +21,8 @@ Notable tool choices and the reason for each:
 - **[Ghostty](https://ghostty.org/)** (over iTerm2) — GPU-accelerated terminal. → [`ghostty/`](ghostty/README.md)
 - **[Starship](https://starship.rs/)** (over oh-my-zsh) — a fast, shell-agnostic prompt that surfaces language, tool, and version context without shell scripting. → [`shell/`](shell/README.md)
 - **[Atuin](https://atuin.sh/)** (over default Zsh history) — searchable, directory-scoped shell history. → [`shell/`](shell/README.md)
-- **[Homebrew `Brewfile`](https://docs.brew.sh/Brew-Bundle-and-Brewfile)** — one declarative manifest; `brew bundle` installs and upgrades everything in it in a single pass. → [`homebrew/`](homebrew/README.md)
-- **[mise](https://mise.jdx.dev/)** — multi-version runtime manager (Java, Python, …). It also provides the language servers the AI agents use to validate syntax locally, without invoking full compilers. → [`mise/`](mise/README.md)
+- **[Homebrew `Brewfile`](https://docs.brew.sh/Brew-Bundle-and-Brewfile)** — one declarative manifest; `brew bundle` installs and upgrades everything in it in a single pass, including the language servers the AI agents use to validate syntax locally, without invoking full compilers. → [`homebrew/`](homebrew/README.md)
+- **[mise](https://mise.jdx.dev/)** — multi-version runtime manager (Java, Python, …). → [`mise/`](mise/README.md)
 
 ## What's here
 

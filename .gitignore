@@ -5,7 +5,3 @@
 .idea/
 *.iml
 
-# Local machine config — contains secrets and machine-specific paths, never commit
-local/.osx-local
-local/.git-local
-local/.aliases-local

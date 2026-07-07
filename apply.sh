@@ -147,8 +147,8 @@ if command -v rtk >/dev/null 2>&1; then
 fi
 
 echo "→ Creating local config files (not version-controlled)..."
-touch "$HOME/.zshrc.local"
-touch "$HOME/.aliases.local"
+ensure_local_file "$DOTFILES_DIR/local/.zshrc-local"   "$HOME/.zshrc.local"
+ensure_local_file "$DOTFILES_DIR/local/.aliases-local" "$HOME/.aliases.local"
 
 echo "→ Creating repo directories..."
 mkdir -p "$HOME/dev" "$HOME/work/adobe" "$HOME/work/corp"

@@ -1,7 +1,12 @@
-#local scripts / config
-This folder contains scripts and configuration used by other files in this repositopry.
+# local
 
-These files contain personal / machine specific information and should be overwritten locally.
+Templates for machine-specific config that must never be committed (secrets, local paths, per-machine aliases).
 
-If the name pattern matches `.*-local`, files will be sourced in `../bash/.profile` before sourcing other files. 
-(in order to be able to use environment variables in other files)
+| Committed template | Copied to (first run only) | Purpose                          |
+|---------------------|-----------------------------|-----------------------------------|
+| `.zshrc-local`      | `~/.zshrc.local`            | Machine-specific shell config and secrets |
+| `.aliases-local`    | `~/.aliases.local`          | Machine-specific aliases          |
+
+`apply.sh` copies each template to its target the first time it runs. After that, `apply.sh` leaves the target alone — edit `~/.zshrc.local` and `~/.aliases.local` directly, they're never overwritten or tracked by git.
+
+`shell/zshrc` sources both files last, so they win over anything set earlier in `zshrc`. See [`../shell/README.md`](../shell/README.md#machine-specific-overrides).
