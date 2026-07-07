@@ -137,6 +137,7 @@ fi
 
 if command -v rtk >/dev/null 2>&1; then
   echo "→ Initializing RTK proxy for installed AI agents (global token-saving hooks)..."
+  export RTK_TELEMETRY_DISABLED=1
   if command -v claude >/dev/null 2>&1; then
     rtk init -g --auto-patch || echo "  ⚠ Failed to initialize RTK for Claude Code — run manually later with: rtk init -g --auto-patch"
   fi

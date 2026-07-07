@@ -23,6 +23,11 @@ export PATH="$HOME/.local/bin:$PATH"
 export CLAUDE_CODE_DISABLE_MOUSE=1
 
 # -------------------------
+# RTK proxy — always disable telemetry
+# -------------------------
+export RTK_TELEMETRY_DISABLED=1
+
+# -------------------------
 # Version manager (mise) — JDK/Python/Rust/etc.
 # -------------------------
 if command -v mise >/dev/null 2>&1; then
