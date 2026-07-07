@@ -18,6 +18,11 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export PATH="$HOME/.local/bin:$PATH"
 
 # -------------------------
+# AI agents — disable mouse (stops copy-on-select in the TUI)
+# -------------------------
+export CLAUDE_CODE_DISABLE_MOUSE=1
+
+# -------------------------
 # Version manager (mise) — JDK/Python/Rust/etc.
 # -------------------------
 if command -v mise >/dev/null 2>&1; then
@@ -164,6 +169,7 @@ alias kpf='kubectl port-forward'
 
 # Local AI / agents
 alias oll='ollama'
+alias copilot='copilot --no-mouse'
 
 # -------------------------
 # Small functions
