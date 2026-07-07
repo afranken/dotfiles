@@ -41,7 +41,7 @@ link_file() {
   local source="$1"
   local target="$2"
   mkdir -p "$(dirname "$target")"
-  if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
+  if [[ -L "$target" && "$(realpath "$target" 2>/dev/null)" == "$(realpath "$source" 2>/dev/null)" ]]; then
     echo "  Already linked: $target"
     return
   fi
