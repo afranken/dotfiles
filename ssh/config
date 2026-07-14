@@ -9,15 +9,18 @@ Host github.com
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_personal
+    IdentitiesOnly yes
 
 # Adobe GitHub (use alias "github-adobe" when cloning adobe org repos)
 Host github-adobe
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_adobe
+    IdentitiesOnly yes
 
 # Adobe internal GitHub
 Host git.corp.adobe.com
     HostName git.corp.adobe.com
     User git
     IdentityFile ~/.ssh/id_corp
+    IdentitiesOnly yes
