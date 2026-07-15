@@ -4,18 +4,18 @@ Host *
     TCPKeepAlive yes
     AddKeysToAgent yes
 
-# Personal GitHub
+# Adobe GitHub (default — most clones are Adobe org repos)
 Host github.com
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_personal
+    IdentityFile ~/.ssh/id_adobe
     IdentitiesOnly yes
 
-# Adobe GitHub (use alias "github-adobe" when cloning adobe org repos)
-Host github-adobe
+# Personal GitHub (use alias "github-personal" when cloning personal repos)
+Host github-personal
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_adobe
+    IdentityFile ~/.ssh/id_personal
     IdentitiesOnly yes
 
 # Adobe internal GitHub

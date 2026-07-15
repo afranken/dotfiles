@@ -2,22 +2,22 @@
 
 Multi-identity git setup. Three identities, picked automatically based on where a repo lives — no per-repo config, no manual switching.
 
-| Committed file           | Symlinked to            | Purpose                              |
-|--------------------------|-------------------------|--------------------------------------|
-| `gitconfig`              | `~/.gitconfig`          | Base git config + `includeIf` routing |
-| `gitconfig-personal`     | `~/.gitconfig-personal` | Identity for `~/dev/`                |
-| `gitconfig-adobe`        | `~/.gitconfig-adobe`    | Identity for `~/work/adobe/`         |
-| `gitconfig-corp`         | `~/.gitconfig-corp`     | Identity for `~/work/corp/`          |
+| Committed file       | Symlinked to            | Purpose                               |
+|----------------------|-------------------------|---------------------------------------|
+| `gitconfig`          | `~/.gitconfig`          | Base git config + `includeIf` routing |
+| `gitconfig-personal` | `~/.gitconfig-personal` | Identity for `~/dev/`                 |
+| `gitconfig-adobe`    | `~/.gitconfig-adobe`    | Identity for `~/work/adobe/`          |
+| `gitconfig-corp`     | `~/.gitconfig-corp`     | Identity for `~/work/corp/`           |
 
 All files are symlinked by `apply.sh` — no editing needed. Identity is selected by the `includeIf "gitdir:…"` rules in `gitconfig`, so simply cloning a repo into the right directory gives it the right name, email, and signing key.
 
 ## Identity cheatsheet
 
-| Context      | Directory        | Transport | Host/alias             | gitconfig               |
-|--------------|------------------|-----------|------------------------|-------------------------|
-| Personal     | `~/dev/`         | SSH       | `github.com`           | `~/.gitconfig-personal` |
-| Adobe GitHub | `~/work/adobe/`  | SSH       | `github-adobe`         | `~/.gitconfig-adobe`    |
-| Corp GitHub  | `~/work/corp/`   | SSH       | `git.corp.adobe.com`   | `~/.gitconfig-corp`     |
+| Context      | Directory       | Transport | Host/alias           | gitconfig               |
+|--------------|-----------------|-----------|----------------------|-------------------------|
+| Personal     | `~/dev/`        | SSH       | `github-personal`    | `~/.gitconfig-personal` |
+| Adobe GitHub | `~/work/adobe/` | SSH       | `github.com`         | `~/.gitconfig-adobe`    |
+| Corp GitHub  | `~/work/corp/`  | SSH       | `git.corp.adobe.com` | `~/.gitconfig-corp`     |
 
 Verify which identity a repo is using:
 
@@ -48,28 +48,28 @@ pbcopy < ~/.ssh/id_corp.pub       # → git.corp.adobe.com            → Settin
 Verify each key works:
 
 ```bash
-ssh -T git@github.com        # should greet your personal account (afranken)
-ssh -T github-adobe          # should greet your adobe account (franken_adobe)
+ssh -T git@github-personal   # should greet your personal account (afranken)
+ssh -T git@github.com        # should greet your adobe account (franken_adobe)
 ssh -T git@git.corp.adobe.com
 ```
 
 Switch the dotfiles remote to SSH (push will now use `id_personal` automatically):
 
 ```bash
-git -C ~/dev/afranken/dotfiles remote set-url origin git@github.com:afranken/dotfiles.git
+git -C ~/dev/afranken/dotfiles remote set-url origin git@github-personal:afranken/dotfiles.git
 ```
 
-**Cloning adobe org repos**: substitute `github-adobe` for `github.com` so the right key is used:
+**Cloning personal repos**: substitute `github-personal` for `github.com` so the right key is used — plain `github.com` defaults to the Adobe key, since most clones are work repos:
 
 ```bash
-# Not this:  git clone git@github.com:adobe/repo.git
-git clone git@github-adobe:adobe/repo.git
+# Not this:  git clone git@github.com:afranken/repo.git
+git clone git@github-personal:afranken/repo.git
 ```
 
 Repos already cloned with the wrong remote can be fixed:
 
 ```bash
-git remote set-url origin git@github-adobe:adobe/repo.git
+git remote set-url origin git@github-personal:afranken/repo.git
 ```
 
 ## Authenticate the gh CLI (three accounts)
