@@ -1,0 +1,6 @@
+## Add machine-specific SSH hosts here (hostnames you don't want in a public repo).
+#
+# Host myserver
+#     HostName 10.0.0.5
+#     User myuser
+#     IdentityFile ~/.ssh/id_myserver

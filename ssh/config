@@ -1,3 +1,6 @@
+# Machine-specific hosts that must not leak into this public repo
+Include ~/.ssh/config.local
+
 Host *
     ServerAliveInterval 120
     ServerAliveCountMax 60
