@@ -1,4 +1,5 @@
 [tools]
+bazel = "latest"
 java = ["oracle-25", "oracle-21", "oracle-17"]
 kubectl = "latest"
 node = "latest"
@@ -12,5 +13,5 @@ argo = "latest"
 argocd = "latest"
 
 [settings]
-idiomatic_version_file_enable_tools = ["python", "java"]
+idiomatic_version_file_enable_tools = ["bazel", "java", "node", "python", "rust"]
 python.uv_venv_auto = "source"
