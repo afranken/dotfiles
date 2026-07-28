@@ -73,7 +73,6 @@ cask "font-meslo-lg-nerd-font"
 # Apps
 cask "1password"
 cask "adobe-creative-cloud"
-cask "alfred"
 cask "bbedit"
 cask "claude"
 cask "claude-code@latest"
