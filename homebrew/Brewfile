@@ -86,7 +86,7 @@ cask "jabra-direct"
 cask "jetbrains-toolbox"
 cask "logi-options+"
 cask "path-finder"
-cask "slack@beta"
+cask "slack"
 cask "supacode"
 cask "whatsapp"
 
