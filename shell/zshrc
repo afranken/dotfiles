@@ -72,17 +72,18 @@ if command -v zoxide >/dev/null 2>&1; then
 fi
 
 # -------------------------
-# Searchable history
-# -------------------------
-if command -v atuin >/dev/null 2>&1; then
-  eval "$(atuin init zsh)"
-fi
-
-# -------------------------
 # FZF integration
 # -------------------------
 if command -v fzf >/dev/null 2>&1; then
   eval "$(fzf --zsh)"
+fi
+
+# -------------------------
+# Searchable history
+# -------------------------
+# Sourced after fzf so atuin's ctrl+r binding wins over fzf's history widget.
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init zsh)"
 fi
 
 # -------------------------
