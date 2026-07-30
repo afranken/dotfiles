@@ -24,6 +24,9 @@ brew "dos2unix"
 brew "p7zip"
 brew "trash"
 brew "zbar"
+brew "cairo"
+brew "libffi"
+brew "libmagic"
 
 # Git / GitHub
 brew "git"
