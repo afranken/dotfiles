@@ -42,6 +42,12 @@ Each folder owns one tool or use-case, with its own `README.md` describing the f
 
 Everything here is the declared desired state: edit a file, re-run `apply.sh`, and the machine converges to match. Add a new tool as its own folder with a short `README.md`.
 
+## For agents and contributors
+
+- [AGENTS.md](AGENTS.md) — roles, conventions, and known footguns (read this first)
+- [INVARIANTS.md](INVARIANTS.md) — non-negotiable constraints (public repo → no committed secrets, `apply.sh` idempotency, LF line endings)
+- `make help` — available commands: `make lint` / `make check` validate shell scripts with shellcheck; `make apply` runs `apply.sh` (mutates the machine)
+
 ---
 
 ## New machine setup

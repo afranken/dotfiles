@@ -17,7 +17,8 @@ trap 'kill "$SUDO_KEEPALIVE_PID" 2>/dev/null' EXIT
 backup_file() {
   local target="$1"
   if [[ -e "$target" || -L "$target" ]]; then
-    local backup="$target.backup.$(date +%Y%m%d%H%M%S)"
+    local backup
+    backup="$target.backup.$(date +%Y%m%d%H%M%S)"
     echo "  Backing up $target -> $backup"
     mv "$target" "$backup"
   fi

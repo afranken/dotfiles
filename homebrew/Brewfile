@@ -23,7 +23,6 @@ brew "watch"
 brew "dos2unix"
 brew "p7zip"
 brew "trash"
-brew "zbar"
 brew "cairo"
 brew "libffi"
 brew "libmagic"
@@ -39,6 +38,7 @@ brew "direnv"
 brew "mise"
 brew "node" # bootstrap-time npm for the `npm "..."` entries below; mise's node@latest takes over in-shell
 brew "cmake"
+brew "shellcheck" # lint shell scripts (make lint)
 
 # Rust
 brew "rustup"
