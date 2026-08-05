@@ -34,7 +34,7 @@ No module-level `AGENTS.md` files. Every folder is small (one or a few config fi
 Three git identities are selected purely by clone directory via `includeIf` (git/gitconfig:10-16): `~/dev/` → personal, `~/work/adobe/` → adobe, `~/work/corp/` → corp. Plain `github.com` over SSH resolves to the **Adobe** key because most clones are work repos; personal clones must use the `github-personal` host alias (git/README.md, ssh/README.md). Cloning a personal repo with plain `github.com` gives it the wrong identity and signing key.
 
 ### apply.sh partial failures are intentional, not bugs
-`brew bundle` failures (e.g. Mac App Store `mas` apps that need interactive sign-in) and plugin/RTK init failures are caught and downgraded to warnings so the rest of setup proceeds (apply.sh:104-113, 145-161). Preserve this — do not "fix" it by making these steps fatal.
+`brew bundle` failures (e.g. Mac App Store `mas` apps that need interactive sign-in) and plugin init failures are caught and downgraded to warnings so the rest of setup proceeds (apply.sh:90-100, 132-137). Preserve this — do not "fix" it by making these steps fatal.
 
 ### Pinned formula overrides via a local tap
 `homebrew/legacy-tap/Formula/*.rb` holds pinned formula overrides (e.g. `zbar` pinned to 0.23.90 — 0.23.93 segfaults on Apple Silicon, Brewfile:28). `apply.sh` materializes these into a local Homebrew tap `local/legacy` (apply.sh:64-73) before `brew bundle`. Edit the `.rb` under `homebrew/legacy-tap/`, never the generated tap copy.

@@ -136,17 +136,6 @@ if command -v claude >/dev/null 2>&1; then
   done
 fi
 
-if command -v rtk >/dev/null 2>&1; then
-  echo "→ Initializing RTK proxy for installed AI agents (global token-saving hooks)..."
-  export RTK_TELEMETRY_DISABLED=1
-  if command -v claude >/dev/null 2>&1; then
-    rtk init -g --auto-patch || echo "  ⚠ Failed to initialize RTK for Claude Code — run manually later with: rtk init -g --auto-patch"
-  fi
-  if command -v copilot >/dev/null 2>&1; then
-    rtk init -g --copilot --auto-patch || echo "  ⚠ Failed to initialize RTK for GitHub Copilot CLI — run manually later with: rtk init -g --copilot --auto-patch"
-  fi
-fi
-
 echo "→ Creating local config files (not version-controlled)..."
 ensure_local_file "$DOTFILES_DIR/local/.zshrc-local"      "$HOME/.zshrc.local"
 ensure_local_file "$DOTFILES_DIR/local/.aliases-local"    "$HOME/.aliases.local"

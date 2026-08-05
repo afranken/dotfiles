@@ -12,7 +12,7 @@ These are non-negotiable. Violations require explicit human sign-off.
 ## Idempotency of apply.sh
 
 - `apply.sh` must stay idempotent — safe to run any number of times with the same result. Every operation checks current state first: `brew bundle` skips installed packages, `link_file` leaves already-correct symlinks in place (apply.sh:44-51), and `ensure_local_file` creates local files only when missing (apply.sh:53-62). — *Enforced by: human review*
-- `apply.sh` runs under `set -euo pipefail`. Steps that can legitimately fail on a fresh machine (App Store auth, plugin/RTK init) must degrade gracefully — warn and continue — rather than abort the run, matching the existing pattern (apply.sh:104-113, 147-149). — *Enforced by: human review*
+- `apply.sh` runs under `set -euo pipefail`. Steps that can legitimately fail on a fresh machine (App Store auth, plugin init) must degrade gracefully — warn and continue — rather than abort the run, matching the existing pattern (apply.sh:90-100, 132-137). — *Enforced by: human review*
 
 ## File Format
 

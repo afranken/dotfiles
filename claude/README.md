@@ -6,9 +6,9 @@ Claude Code configuration.
 |----------------|---------------------------|-------------------------|
 | `statusline.sh`| `~/.claude/statusline.sh` | Claude Code status line |
 
-## Plugins & RTK (via `apply.sh`)
+## Plugins (via `apply.sh`)
 
-`apply.sh` installs code-intelligence and GitHub plugins (`jdtls-lsp`, `kotlin-lsp`, `rust-analyzer-lsp`, `typescript-lsp`, `pyright-lsp`, `github`) and initializes the [RTK](https://www.rtk-ai.app/) token-saving proxy globally. Telemetry is disabled via `RTK_TELEMETRY_DISABLED=1` (set in `shell/zshrc`).
+`apply.sh` installs code-intelligence and GitHub plugins (`jdtls-lsp`, `kotlin-lsp`, `rust-analyzer-lsp`, `typescript-lsp`, `pyright-lsp`, `github`).
 
 ## Enable the status line
 

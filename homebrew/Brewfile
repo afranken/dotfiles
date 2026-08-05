@@ -62,9 +62,6 @@ brew "azure/kubelogin/kubelogin"
 # Docker
 brew "dive"
 
-# Claude Code RTK proxy
-brew "rtk"
-
 # Mac App Store CLI (required for mas entries below)
 brew "mas"
 
