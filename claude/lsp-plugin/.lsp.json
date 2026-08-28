@@ -1,0 +1,37 @@
+{
+  "terraform": {
+    "command": "terraform-ls",
+    "args": ["serve"],
+    "extensionToLanguage": {
+      ".tf": "terraform",
+      ".tfvars": "terraform-vars"
+    }
+  },
+  "helm": {
+    "command": "helm_ls",
+    "args": ["serve"],
+    "extensionToLanguage": {
+      ".tpl": "helm"
+    }
+  },
+  "yaml": {
+    "command": "yaml-language-server",
+    "args": ["--stdio"],
+    "extensionToLanguage": {
+      ".yaml": "yaml",
+      ".yml": "yaml"
+    }
+  },
+  "go": {
+    "command": "gopls",
+    "args": ["serve"],
+    "initializationOptions": {
+      "templateExtensions": ["tmpl", "gotmpl"]
+    },
+    "extensionToLanguage": {
+      ".go": "go",
+      ".tmpl": "gotmpl",
+      ".gotmpl": "gotmpl"
+    }
+  }
+}

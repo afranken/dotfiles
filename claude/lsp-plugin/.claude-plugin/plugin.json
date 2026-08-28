@@ -1,0 +1,8 @@
+{
+  "name": "dotfiles-lsp",
+  "description": "Language servers for Terraform, Helm, YAML, and Go (with Go template support) — languages not covered by the official claude-plugins-official marketplace.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arne Franken"
+  }
+}

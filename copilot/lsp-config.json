@@ -38,6 +38,41 @@
         ".kt": "kotlin",
         ".kts": "kotlin"
       }
+    },
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "fileExtensions": {
+        ".tf": "terraform",
+        ".tfvars": "terraform-vars"
+      }
+    },
+    "helm": {
+      "command": "helm_ls",
+      "args": ["serve"],
+      "fileExtensions": {
+        ".tpl": "helm"
+      }
+    },
+    "yaml": {
+      "command": "yaml-language-server",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".yaml": "yaml",
+        ".yml": "yaml"
+      }
+    },
+    "go": {
+      "command": "gopls",
+      "args": ["serve"],
+      "initializationOptions": {
+        "templateExtensions": ["tmpl", "gotmpl"]
+      },
+      "fileExtensions": {
+        ".go": "go",
+        ".tmpl": "gotmpl",
+        ".gotmpl": "gotmpl"
+      }
     }
   }
 }

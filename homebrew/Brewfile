@@ -47,8 +47,6 @@ brew "rust-analyzer"
 # Java / JVM
 brew "gradle"
 brew "maven"
-brew "jdtls"
-brew "kotlin-language-server"
 brew "plantuml"
 
 # AI / ML
@@ -58,6 +56,16 @@ brew "hf"
 brew "awscli"
 brew "azure-cli"
 brew "azure/kubelogin/kubelogin"
+
+# Language servers
+brew "jdtls"
+brew "kotlin-language-server"
+brew "terraform-ls"
+brew "helm-ls"
+brew "yaml-language-server"
+brew "gopls"
+npm "typescript-language-server"
+npm "pyright"
 
 # Docker
 brew "dive"
@@ -102,9 +110,7 @@ cargo "cargo-watch"
 
 # npm
 npm "corepack"
-npm "typescript-language-server"
 npm "typescript"
-npm "pyright"
 
 # Optional local AI tooling — uncomment if desired
 # brew "ollama"

@@ -237,3 +237,6 @@ alias brewfile-diff='brew bundle dump --force --file=/tmp/Brewfile.current && di
 # -------------------------
 [[ -r "$HOME/.aliases.local" ]] && source "$HOME/.aliases.local"
 [[ -r "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+# rustup shims (fixes cargo +nightly / toolchain override)
+. "$HOME/.cargo/env"
