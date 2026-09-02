@@ -36,9 +36,6 @@ Three git identities are selected purely by clone directory via `includeIf` (git
 ### apply.sh partial failures are intentional, not bugs
 `brew bundle` failures (e.g. Mac App Store `mas` apps that need interactive sign-in) and plugin init failures are caught and downgraded to warnings so the rest of setup proceeds (apply.sh:90-100, 132-137). Preserve this — do not "fix" it by making these steps fatal.
 
-### Pinned formula overrides via a local tap
-`homebrew/legacy-tap/Formula/*.rb` holds pinned formula overrides (e.g. `zbar` pinned to 0.23.90 — 0.23.93 segfaults on Apple Silicon, Brewfile:28). `apply.sh` materializes these into a local Homebrew tap `local/legacy` (apply.sh:64-73) before `brew bundle`. Edit the `.rb` under `homebrew/legacy-tap/`, never the generated tap copy.
-
 ### `~/.claude/settings.json` is not managed here
 The Claude Code status-line script is symlinked, but `settings.json` is intentionally left unmanaged (machine-specific hooks/plugins); the status-line block is added manually (claude/README.md).
 
