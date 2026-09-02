@@ -59,7 +59,7 @@ brew "azure/kubelogin/kubelogin"
 
 # Language servers
 brew "jdtls"
-brew "kotlin-language-server"
+brew "JetBrains/utils/kotlin-lsp", trusted: true
 brew "terraform-ls"
 brew "helm-ls"
 brew "yaml-language-server"
