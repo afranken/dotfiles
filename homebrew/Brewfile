@@ -42,7 +42,6 @@ brew "shellcheck" # lint shell scripts (make lint)
 
 # Rust
 brew "rustup"
-brew "rust-analyzer"
 
 # Java / JVM
 brew "gradle"

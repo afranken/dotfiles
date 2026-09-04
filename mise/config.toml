@@ -4,7 +4,7 @@ java = ["oracle-25", "oracle-21", "oracle-17"]
 kubectl = "latest"
 node = "latest"
 python = ["3.14", "3.12"]
-rust = "latest"
+rust = { version = "latest", components = ["rust-analyzer"] }
 helm = "latest"
 k9s = "latest"
 kubectx = "latest"
