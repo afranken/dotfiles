@@ -5,7 +5,10 @@ Host *
     ServerAliveInterval 120
     ServerAliveCountMax 60
     TCPKeepAlive yes
+    # Load keys into ssh-agent on first use, and read/store their passphrases
+    # in the macOS login Keychain so they survive a reboot.
     AddKeysToAgent yes
+    UseKeychain yes
 
 # Adobe GitHub (default — most clones are Adobe org repos)
 Host github.com

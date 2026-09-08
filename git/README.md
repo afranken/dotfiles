@@ -45,6 +45,13 @@ pbcopy < ~/.ssh/id_adobe.pub      # → github.com (adobe account)    → Settin
 pbcopy < ~/.ssh/id_corp.pub       # → git.corp.adobe.com            → Settings > SSH keys
 ```
 
+**Store the passphrases in the macOS Keychain (once per machine)**: `~/.ssh/config` sets `UseKeychain yes` + `AddKeysToAgent yes`, but the passphrase has to be handed to the Keychain once. Without this you are prompted again after every reboot:
+
+```bash
+ssh-add --apple-use-keychain ~/.ssh/id_personal ~/.ssh/id_adobe ~/.ssh/id_corp
+ssh-add -l   # should list all three
+```
+
 Verify each key works:
 
 ```bash
