@@ -37,7 +37,7 @@ Each folder owns one tool or use-case, with its own `README.md` describing the f
 | [`homebrew/`](homebrew/README.md) | `Brewfile` package manifest |
 | [`mise/`](mise/README.md) | Dev tool / language runtime versions |
 | [`claude/`](claude/README.md) | Claude Code status line and plugins |
-| [`copilot/`](copilot/README.md) | GitHub Copilot CLI language servers |
+| [`copilot/`](copilot/README.md) | GitHub Copilot CLI language servers and MCP servers |
 | [`local/`](local/README.md) | Machine-specific, uncommitted overrides |
 
 Everything here is the declared desired state: edit a file, re-run `apply.sh`, and the machine converges to match. Add a new tool as its own folder with a short `README.md`.

@@ -62,6 +62,56 @@ ensure_local_file() {
   fi
 }
 
+ensure_copilot_mcp_http() {
+  local name="$1"
+  local url="$2"
+  local tmp
+
+  if ! command -v copilot >/dev/null 2>&1; then
+    echo "  ⚠ Copilot CLI is not available; install MCP server '$name' later with: copilot mcp add --transport http $name $url"
+    return
+  fi
+
+  if ! command -v jq >/dev/null 2>&1; then
+    echo "  ⚠ jq is required to inspect Copilot MCP config; install MCP server '$name' later with: copilot mcp add --transport http $name $url"
+    return
+  fi
+
+  tmp="$(mktemp -t dotfiles-copilot-mcp.XXXXXX)"
+  if copilot mcp get "$name" --json >"$tmp" 2>/dev/null; then
+    local current_type
+    local current_url
+    local current_source
+    current_type="$(jq -r --arg name "$name" '.[$name].type // empty' "$tmp")"
+    current_url="$(jq -r --arg name "$name" '.[$name].url // empty' "$tmp")"
+    current_source="$(jq -r --arg name "$name" '.[$name].source // empty' "$tmp")"
+    rm -f "$tmp"
+
+    if [[ "$current_type" == "http" && "$current_url" == "$url" ]]; then
+      echo "  Already configured: Copilot MCP server '$name'"
+      return
+    fi
+
+    if [[ "$current_source" != "user" ]]; then
+      echo "  ⚠ Copilot MCP server '$name' is configured by $current_source config; not overriding with user config."
+      return
+    fi
+
+    copilot mcp remove "$name" >/dev/null
+  else
+    rm -f "$tmp"
+  fi
+
+  copilot mcp add --transport http "$name" "$url" >/dev/null
+  echo "  Configured Copilot MCP server '$name'"
+}
+
+configure_copilot_mcp_servers() {
+  ensure_copilot_mcp_http "idea" "http://127.0.0.1:64342/stream"
+  ensure_copilot_mcp_http "pycharm" "http://127.0.0.1:64462/stream"
+  ensure_copilot_mcp_http "rustrover" "http://127.0.0.1:64522/stream"
+}
+
 brewfile_has_mas_entries() {
   grep -Eq '^[[:space:]]*mas[[:space:]]+"' "$DOTFILES_DIR/homebrew/Brewfile"
 }
@@ -124,6 +174,7 @@ link_file "$DOTFILES_DIR/shell/atuin.toml"        "$HOME/.config/atuin/config.to
 link_file "$DOTFILES_DIR/mise/config.toml"        "$HOME/.config/mise/config.toml"
 link_file "$DOTFILES_DIR/copilot/lsp-config.json" "$HOME/.copilot/lsp-config.json"
 link_file "$DOTFILES_DIR/copilot/copilot-instructions.md" "$HOME/.copilot/copilot-instructions.md"
+configure_copilot_mcp_servers
 link_file "$DOTFILES_DIR/claude/lsp-plugin"       "$HOME/.claude/skills/dotfiles-lsp"
 
 if command -v mise >/dev/null 2>&1; then
