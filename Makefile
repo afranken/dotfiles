@@ -16,7 +16,7 @@ help: ## Show available commands
 
 .PHONY: lint
 lint: ## Lint shell scripts with shellcheck
-	shellcheck apply.sh claude/statusline.sh
+	shellcheck apply.sh
 
 .PHONY: check
 check: lint ## Run all validation (currently: lint)

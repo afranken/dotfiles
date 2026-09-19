@@ -19,7 +19,7 @@ No module-level `AGENTS.md` files. Every folder is small (one or a few config fi
 - **Authority**: read and edit files; create branches and commit to them; update `README.md`s, `Brewfile`, config files, and `apply.sh`; run read-only and validation commands (`make lint`, `make check`, `shellcheck`).
 - **Escalation (requires human sign-off)**:
   - Pushing or merging to `master`.
-  - Running `apply.sh`, `brew bundle`, `mise install`, `claude plugin install`, or any command that installs software or mutates the local machine (including `make apply`).
+  - Running `apply.sh`, `brew bundle`, `mise install`, or any command that installs software or mutates the local machine (including `make apply`).
   - Anything touching credentials, SSH keys, or `gh auth`.
 
 ## Conventions
@@ -34,10 +34,7 @@ No module-level `AGENTS.md` files. Every folder is small (one or a few config fi
 Three git identities are selected purely by clone directory via `includeIf` (git/gitconfig:10-16): `~/dev/` → personal, `~/work/adobe/` → adobe, `~/work/corp/` → corp. Plain `github.com` over SSH resolves to the **Adobe** key because most clones are work repos; personal clones must use the `github-personal` host alias (git/README.md, ssh/README.md). Cloning a personal repo with plain `github.com` gives it the wrong identity and signing key.
 
 ### apply.sh partial failures are intentional, not bugs
-`brew bundle` failures (e.g. Mac App Store `mas` apps that need interactive sign-in) and plugin init failures are caught and downgraded to warnings so the rest of setup proceeds (apply.sh:90-100, 132-137). Preserve this — do not "fix" it by making these steps fatal.
-
-### `~/.claude/settings.json` is not managed here
-The Claude Code status-line script is symlinked, but `settings.json` is intentionally left unmanaged (machine-specific hooks/plugins); the status-line block is added manually (claude/README.md).
+`brew bundle` failures (e.g. Mac App Store `mas` apps that need interactive sign-in) are caught and downgraded to warnings so the rest of setup proceeds (apply.sh:139-150). Preserve this — do not "fix" it by making these steps fatal.
 
 ### mise idiomatic version files only warn
 `idiomatic_version_file_enable_tools` makes mise read per-project version files, but its shell hook only *warns* on a missing version — it does not auto-install. Run `mise install` in the project or re-run `apply.sh` to clear the warning (mise/README.md).

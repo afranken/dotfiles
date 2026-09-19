@@ -36,7 +36,6 @@ Each folder owns one tool or use-case, with its own `README.md` describing the f
 | [`ghostty/`](ghostty/README.md) | Ghostty terminal config |
 | [`homebrew/`](homebrew/README.md) | `Brewfile` package manifest |
 | [`mise/`](mise/README.md) | Dev tool / language runtime versions |
-| [`claude/`](claude/README.md) | Claude Code status line and plugins |
 | [`copilot/`](copilot/README.md) | GitHub Copilot CLI language servers and MCP servers |
 | [`local/`](local/README.md) | Machine-specific, uncommitted overrides |
 
@@ -81,10 +80,6 @@ Git identity is picked up automatically based on where a repo lives, so the dotf
 ### 4. Add secrets and machine config
 
 Anything that should not be committed goes in `~/.zshrc.local`, and machine-specific aliases in `~/.aliases.local`. See [`shell/README.md`](shell/README.md#machine-specific-overrides).
-
-### 5. Enable the Claude Code status line
-
-`~/.claude/settings.json` isn't managed by dotfiles — add the status-line block manually as described in [`claude/README.md`](claude/README.md#enable-the-status-line).
 
 ---
 

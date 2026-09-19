@@ -169,24 +169,15 @@ link_file "$DOTFILES_DIR/git/gitconfig-personal"  "$HOME/.gitconfig-personal"
 link_file "$DOTFILES_DIR/git/gitconfig-adobe"     "$HOME/.gitconfig-adobe"
 link_file "$DOTFILES_DIR/git/gitconfig-corp"      "$HOME/.gitconfig-corp"
 link_file "$DOTFILES_DIR/ghostty/config"          "$HOME/.config/ghostty/config"
-link_file "$DOTFILES_DIR/claude/statusline.sh"    "$HOME/.claude/statusline.sh"
 link_file "$DOTFILES_DIR/shell/atuin.toml"        "$HOME/.config/atuin/config.toml"
 link_file "$DOTFILES_DIR/mise/config.toml"        "$HOME/.config/mise/config.toml"
 link_file "$DOTFILES_DIR/copilot/lsp-config.json" "$HOME/.copilot/lsp-config.json"
 link_file "$DOTFILES_DIR/copilot/copilot-instructions.md" "$HOME/.copilot/copilot-instructions.md"
 configure_copilot_mcp_servers
-link_file "$DOTFILES_DIR/claude/lsp-plugin"       "$HOME/.claude/skills/dotfiles-lsp"
 
 if command -v mise >/dev/null 2>&1; then
   echo "→ Installing mise-managed tools (JDKs, etc.)..."
   mise install
-fi
-
-if command -v claude >/dev/null 2>&1; then
-  echo "→ Installing Claude Code plugins (code intelligence + GitHub integration)..."
-  for plugin in jdtls-lsp kotlin-lsp rust-analyzer-lsp typescript-lsp pyright-lsp github; do
-    claude plugin install "$plugin@claude-plugins-official" || echo "  ⚠ Failed to install $plugin — install manually later with: claude plugin install $plugin@claude-plugins-official"
-  done
 fi
 
 echo "→ Creating local config files (not version-controlled)..."

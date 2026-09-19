@@ -10,4 +10,4 @@
 
 The `rust` tool declares `components = ["rust-analyzer"]`, so `mise install` adds the `rust-analyzer` binary to the mise-managed toolchain via rustup. It resolves through the `~/.cargo/bin/rust-analyzer` shim, which uses the toolchain mise selects (`RUSTUP_TOOLCHAIN`). This is why rust-analyzer is *not* in the `Brewfile`. Caveat: invoking `rust-analyzer` outside the mise environment falls back to rustup's *default* toolchain, which may lack the component and error — anything launched from the mise-activated shell (the AI agents, normal terminals) is unaffected.
 
-Language servers are otherwise installed via the [`Brewfile`](../homebrew/README.md) and wired into the AI agents — see [../copilot/README.md](../copilot/README.md) and [../claude/README.md](../claude/README.md).
+Language servers are otherwise installed via the [`Brewfile`](../homebrew/README.md) and wired into GitHub Copilot CLI — see [../copilot/README.md](../copilot/README.md).
