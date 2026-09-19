@@ -30,8 +30,8 @@ No module-level `AGENTS.md` files. Every folder is small (one or a few config fi
 
 ## Known Footguns
 
-### Multi-identity git — `github.com` defaults to the Adobe key
-Three git identities are selected purely by clone directory via `includeIf` (git/gitconfig:10-16): `~/dev/` → personal, `~/work/adobe/` → adobe, `~/work/corp/` → corp. Plain `github.com` over SSH resolves to the **Adobe** key because most clones are work repos; personal clones must use the `github-personal` host alias (git/README.md, ssh/README.md). Cloning a personal repo with plain `github.com` gives it the wrong identity and signing key.
+### Multi-identity git — identity follows the checkout directory
+Three git identities are selected by clone directory via `includeIf` (git/gitconfig:10-16): `~/dev/` → personal, `~/work/adobe/` → adobe, `~/work/corp/` → corp. Public GitHub SSH key selection is also directory-based in `ssh/config`: `github.com` uses the personal key from `~/dev` and the Adobe key from `~/work/adobe`, so remotes can stay on canonical `github.com` for IDE pull-request integrations. The `github-personal` host alias is only a fallback for explicit tests or unusual repos outside `~/dev` (git/README.md, ssh/README.md).
 
 ### apply.sh partial failures are intentional, not bugs
 `brew bundle` failures (e.g. Mac App Store `mas` apps that need interactive sign-in) are caught and downgraded to warnings so the rest of setup proceeds (apply.sh:139-150). Preserve this — do not "fix" it by making these steps fatal.

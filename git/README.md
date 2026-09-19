@@ -13,11 +13,11 @@ All files are symlinked by `apply.sh` — no editing needed. Identity is selecte
 
 ## Identity cheatsheet
 
-| Context      | Directory       | Transport | Host/alias           | gitconfig               |
-|--------------|-----------------|-----------|----------------------|-------------------------|
-| Personal     | `~/dev/`        | SSH       | `github-personal`    | `~/.gitconfig-personal` |
-| Adobe GitHub | `~/work/adobe/` | SSH       | `github.com`         | `~/.gitconfig-adobe`    |
-| Corp GitHub  | `~/work/corp/`  | SSH       | `git.corp.adobe.com` | `~/.gitconfig-corp`     |
+| Context      | Directory       | Transport | Host/alias                         | gitconfig               |
+|--------------|-----------------|-----------|------------------------------------|-------------------------|
+| Personal     | `~/dev/`        | SSH       | `github.com` (`github-personal` ok) | `~/.gitconfig-personal` |
+| Adobe GitHub | `~/work/adobe/` | SSH       | `github.com`                       | `~/.gitconfig-adobe`    |
+| Corp GitHub  | `~/work/corp/`  | SSH       | `git.corp.adobe.com`               | `~/.gitconfig-corp`     |
 
 Verify which identity a repo is using:
 
@@ -52,31 +52,32 @@ ssh-add --apple-use-keychain ~/.ssh/id_personal ~/.ssh/id_adobe ~/.ssh/id_corp
 ssh-add -l   # should list all three
 ```
 
-Verify each key works:
+Verify each key works from a repo or parent directory in the matching tree:
 
 ```bash
-ssh -T git@github-personal   # should greet your personal account (afranken)
-ssh -T git@github.com        # should greet your adobe account (franken_adobe)
+cd ~/dev && ssh -T git@github.com           # should greet your personal account (afranken)
+cd ~/work/adobe && ssh -T git@github.com    # should greet your adobe account (franken_adobe)
+ssh -T git@github-personal                  # explicit personal fallback alias
 ssh -T git@git.corp.adobe.com
 ```
 
-Switch the dotfiles remote to SSH (push will now use `id_personal` automatically):
+Switch the dotfiles remote to the canonical GitHub host (push will now use `id_personal` automatically because the repo lives under `~/dev`):
 
 ```bash
-git -C ~/dev/afranken/dotfiles remote set-url origin git@github-personal:afranken/dotfiles.git
+git -C ~/dev/afranken/dotfiles remote set-url origin git@github.com:afranken/dotfiles.git
 ```
 
-**Cloning personal repos**: substitute `github-personal` for `github.com` so the right key is used — plain `github.com` defaults to the Adobe key, since most clones are work repos:
+**Cloning personal repos**: use the normal `github.com` SSH URL from inside `~/dev`; `~/.ssh/config` chooses `id_personal` based on the current directory. Keeping the remote on `github.com` also keeps IntelliJ IDEA's GitHub pull-request integration happy:
 
 ```bash
-# Not this:  git clone git@github.com:afranken/repo.git
-git clone git@github-personal:afranken/repo.git
+cd ~/dev
+git clone git@github.com:afranken/repo.git
 ```
 
-Repos already cloned with the wrong remote can be fixed:
+Repos already using the old alias can be changed back to the canonical host:
 
 ```bash
-git remote set-url origin git@github-personal:afranken/repo.git
+git remote set-url origin git@github.com:afranken/repo.git
 ```
 
 ## Authenticate the gh CLI (three accounts)

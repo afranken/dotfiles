@@ -4,7 +4,7 @@
 |----------------|-----------------|---------------------------------|
 | `config`       | `~/.ssh/config` | Per-host identity + key routing |
 
-Maps host aliases and hostnames to the correct `~/.ssh/id_*` key, so the right identity is used automatically based on the clone URL. Plain `github.com` defaults to the Adobe key (most clones are work repos); use the `github-personal` alias for personal-account clones, and `git.corp.adobe.com` for corp.
+Maps host aliases and hostnames to the correct `~/.ssh/id_*` key, so the right identity is used automatically. Public GitHub remotes should stay on `github.com`: when Git runs from `~/dev`, SSH uses `id_personal`; when it runs from `~/work/adobe`, SSH uses `id_adobe`. The `github-personal` alias remains as an explicit fallback for tests or unusual repos outside `~/dev`; use `git.corp.adobe.com` for corp.
 
 `config` also `Include`s `~/.ssh/config.local`, a machine-specific file that is never committed — add hosts there when the hostname itself shouldn't be visible in this public repo. See [`../local/README.md`](../local/README.md).
 

@@ -10,14 +10,22 @@ Host *
     AddKeysToAgent yes
     UseKeychain yes
 
-# Adobe GitHub (default — most clones are Adobe org repos)
+# Public GitHub. Identity is selected by checkout location so remotes can stay
+# on github.com, which keeps IDE GitHub integrations working.
 Host github.com
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_adobe
     IdentitiesOnly yes
 
-# Personal GitHub (use alias "github-personal" when cloning personal repos)
+# Personal GitHub repos live under ~/dev.
+Match host github.com exec "case \"$(pwd -P)\" in \"$HOME\"/dev|\"$HOME\"/dev/*) exit 0;; *) exit 1;; esac"
+    IdentityFile ~/.ssh/id_personal
+
+# Adobe GitHub repos live under ~/work/adobe.
+Match host github.com exec "case \"$(pwd -P)\" in \"$HOME\"/work/adobe|\"$HOME\"/work/adobe/*) exit 0;; *) exit 1;; esac"
+    IdentityFile ~/.ssh/id_adobe
+
+# Personal GitHub fallback alias for explicit tests or repos outside ~/dev.
 Host github-personal
     HostName github.com
     User git
